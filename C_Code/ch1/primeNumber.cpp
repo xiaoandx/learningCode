@@ -1,6 +1,6 @@
 /*********************************************************************************************************
 *  Copyright (c) 2020 WEI.ZHOU. All rights reserved.                                                     *
-*  The following code snippets are only used for circulation and cannot be used for business.            *
+*  The following code is only used for learning and communication, not for illegal and commercial use.   *
 *  If the code is used, no consent is required, but the author has nothing to do with any problems and   *
 *  -consequences.                                                                                        *
 *                                                                                                        *
