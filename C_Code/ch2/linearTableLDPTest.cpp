@@ -31,17 +31,95 @@ typedef struct LNod{
    struct LNod *next;
 }LNode,*linkLNode;
 
+/**
+ * @brief 初始化链式线性表，并在内存中分配空间
+ * @param linkLNode 引用其需要初始化的线性表头指针
+ * @return int 返回操作状态，1成功；0失败
+ * */
 int initList(linkLNode &L);
+
+/**
+ * @brief 遍历输出链式线性表
+ * @param linkLNode 需要初遍历输出链式线性表头指针
+ * */
 void ergodicList(linkLNode L);
+
+/**
+ * @brief 向i处插入数据元素
+ * @param linkLNode 需要链式线性表头指针
+ * @param int 插入元素位置
+ * @param int 具体插入的数据
+ * @return int 返回操作状态，1成功；0失败
+ * */
 int insertList(linkLNode L,int i,int data);
+
+/**
+ * @brief 删除i处的数据元素
+ * @param linkLNode 需要操作链式线性表头指针
+ * @param int 删除元素位置
+ * @param int 具体删除的数据
+ * @return int 返回操作状态，1成功；0失败
+ * */
 int deteList(linkLNode L,int i,int &var);
+
+/**
+ * @brief 判断链表是否为空
+ * @param linkLNode 需要操作链式线性表头指针
+ * @return int 返回操作状态，1不为空；0为空
+ * */
 int listEmpty(linkLNode L);
+
+/**
+ * @brief 返回数据在链表中的位置
+ * @param linkLNode 需要操作链式线性表头指针
+ * @return int 返回数据在链表中的位置；0为链表中无该数据
+ * */
 int locateList(linkLNode L,int data);
+
+/**
+ * @brief 销毁数据链表
+ * @param linkLNode 需要操作链式线性表头指针
+ * @return int 返回操作状态，1销毁成功；0无链表
+ * */
 int destroyList(linkLNode L);
+
+/**
+ * @brief 清空数据链表
+ * @param linkLNode 需要操作链式线性表头指针
+ * @return int 返回操作状态，1清空成功；0无链表
+ * */
 int clearList(linkLNode L);
+
+/**
+ * @brief 返回数据链表长度
+ * @param linkLNode 需要操作链式线性表头指针
+ * @return int 返回具体长度，返回0则无链表
+ * */
 int listLength(linkLNode L);
+
+/**
+ * @brief 获取链表指定位置的数据
+ * @param linkLNode 需要操作链式线性表头指针
+ * @return int 返回具体位置的数据；返回0则无链表、位置不存在数据
+ * */
 int getListData(linkLNode L,int i);
+
+/**
+ * @brief 返回指定元素数据的前一个元素
+ * @param linkLNode 需要操作链式线性表头指针
+ * @param int   需要查询的数据
+ * @param linkLNode 返回查询到指定数据的前一个元素
+ * @return int 返回操作状态；返回1返回数据成功；返回0则无链表、该数据处在第一个元素，无前元素
+ * */
 int priorListData(linkLNode L,int data,linkLNode &pro_L);
+
+/**
+ * @brief 返回指定元素数据的后一个元素
+ * @param linkLNode 需要操作链式线性表头指针
+ * @param int   需要查询的数据
+ * @param linkLNode 返回查询到指定数据的后一个元素
+ * @return int 返回操作状态；返回1返回数据成功；返回0则无链表、该数据处在第最后一个元素，无后元素
+ * */
 int nextListData(linkLNode L,int data,linkLNode &next_L);
 
 int main(){
@@ -62,11 +140,6 @@ int main(){
     return INITIALIZE_ZERO;
 }
 
-/**
- * @brief 初始化链式线性表，并在内存中分配空间
- * @param linkLNode 引用其需要初始化的线性表头指针
- * @return int 返回操作状态，1成功；0失败
- * */
 int initList(linkLNode &L){
     L=(LNode *)malloc(sizeof(LNode));
     if(!L){return OPERATION_ERROR;}
@@ -74,10 +147,6 @@ int initList(linkLNode &L){
     return OPERATION_SUCCESS;
 }
 
-/**
- * @brief 遍历输出链式线性表
- * @param linkLNode 需要初遍历输出链式线性表头指针
- * */
 void ergodicList(linkLNode L){
     linkLNode backups;
 	backups=L->next;
@@ -88,13 +157,6 @@ void ergodicList(linkLNode L){
 	cout<<endl;
 }
 
-/**
- * @brief 向i处插入数据元素
- * @param linkLNode 需要链式线性表头指针
- * @param int 插入元素位置
- * @param int 具体插入的数据
- * @return int 返回操作状态，1成功；0失败
- * */
 int insertList(linkLNode L,int i,int data){
     linkLNode backups,backupsTwo;
     int j = INITIALIZE_ZERO;
@@ -112,13 +174,6 @@ int insertList(linkLNode L,int i,int data){
     return OPERATION_SUCCESS;
 }
 
-/**
- * @brief 删除i处的数据元素
- * @param linkLNode 需要操作链式线性表头指针
- * @param int 删除元素位置
- * @param int 具体删除的数据
- * @return int 返回操作状态，1成功；0失败
- * */
 int deteList(linkLNode L,int i,int &var){
     linkLNode backups,backupsTwo;
     int j = INITIALIZE_ZERO;
@@ -135,11 +190,6 @@ int deteList(linkLNode L,int i,int &var){
     return OPERATION_SUCCESS;
 }
 
-/**
- * @brief 判断链表是否为空
- * @param linkLNode 需要操作链式线性表头指针
- * @return int 返回操作状态，1不为空；0为空
- * */
 int listEmpty(linkLNode L){
     if(L -> next == NULL){
         return OPERATION_ERROR;
@@ -148,11 +198,6 @@ int listEmpty(linkLNode L){
     }	   
 }
 
-/**
- * @brief 返回数据在链表中的位置
- * @param linkLNode 需要操作链式线性表头指针
- * @return int 返回数据在链表中的位置；0为链表中无该数据
- * */
 int locateList(linkLNode L,int data){
     linkLNode backups;
 	int j = INITIALIZE_ONE;
@@ -165,11 +210,6 @@ int locateList(linkLNode L,int data){
 	return OPERATION_ERROR;
 }
 
-/**
- * @brief 销毁数据链表
- * @param linkLNode 需要操作链式线性表头指针
- * @return int 返回操作状态，1销毁成功；0无链表
- * */
 int destroyList(linkLNode L){
     linkLNode backups,backupsTwo;
     backups = L;
@@ -184,11 +224,6 @@ int destroyList(linkLNode L){
     return OPERATION_SUCCESS;
 }
 
-/**
- * @brief 清空数据链表
- * @param linkLNode 需要操作链式线性表头指针
- * @return int 返回操作状态，1清空成功；0无链表
- * */
 int clearList(linkLNode L){
     linkLNode backups,backupsTwo;
     if (L->next == NULL){
@@ -204,11 +239,6 @@ int clearList(linkLNode L){
     return OPERATION_SUCCESS;
 }
 
-/**
- * @brief 返回数据链表长度
- * @param linkLNode 需要操作链式线性表头指针
- * @return int 返回具体长度，返回0则无链表
- * */
 int listLength(linkLNode L){
     linkLNode backups;
     int i;
@@ -223,11 +253,6 @@ int listLength(linkLNode L){
     return i;
 }
 
-/**
- * @brief 获取链表指定位置的数据
- * @param linkLNode 需要操作链式线性表头指针
- * @return int 返回具体位置的数据；返回0则无链表、位置不存在数据
- * */
 int getListData(linkLNode L,int i){
     linkLNode backups;
     int j = INITIALIZE_ZERO,k;
@@ -243,13 +268,6 @@ int getListData(linkLNode L,int i){
     return backups -> data;
 }
 
-/**
- * @brief 返回指定元素数据的前一个元素
- * @param linkLNode 需要操作链式线性表头指针
- * @param int   需要查询的数据
- * @param linkLNode 返回查询到指定数据的前一个元素
- * @return int 返回操作状态；返回1返回数据成功；返回0则无链表、该数据处在第一个元素，无前元素
- * */
 int priorListData(linkLNode L,int data,linkLNode &pro_L){
     linkLNode backups,backupsTwo;
     backupsTwo = L -> next;
@@ -265,13 +283,6 @@ int priorListData(linkLNode L,int data,linkLNode &pro_L){
     return OPERATION_ERROR;
 }
 
-/**
- * @brief 返回指定元素数据的后一个元素
- * @param linkLNode 需要操作链式线性表头指针
- * @param int   需要查询的数据
- * @param linkLNode 返回查询到指定数据的后一个元素
- * @return int 返回操作状态；返回1返回数据成功；返回0则无链表、该数据处在第最后一个元素，无后元素
- * */
 int nextListData(linkLNode L,int data,linkLNode &next_L){
     linkLNode backups;
     if(L -> next == NULL){ return OPERATION_ERROR;}
