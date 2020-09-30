@@ -191,11 +191,8 @@ int deteList(linkLNode L,int i,int &var){
 }
 
 int listEmpty(linkLNode L){
-    if(L -> next == NULL){
-        return OPERATION_ERROR;
-    }else{
-        return OPERATION_SUCCESS; 
-    }	   
+    if(L -> next == NULL){ return OPERATION_ERROR;}
+    return OPERATION_SUCCESS;    
 }
 
 int locateList(linkLNode L,int data){
