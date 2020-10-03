@@ -126,16 +126,23 @@ int main(){
     linkLNode L,L2;
     int var;
     // 1.链表初始化(头指针)
+    cout<<"初始化链式线性表："<<endl;
     initList(L);
+    cout<<"初始化插入数据后的链表："<<endl;
     insertList(L,1,12);
     insertList(L,1,13);
     insertList(L,1,14);
+    ergodicList(L);
+    //deteList(L,2,var);
+    //cout<<"清空、销毁数据链表"<<endl;
     //destroyList(L);
     //clearList(L);
+    cout<<"第二个位置所在的节点数据为："<<getListData(L,2);
     //cout<<listLength(L)<<endl;
-    cout<<priorListData(L,13,L2)<<endl;
-    cout<<L2->data<<endl;
-    //ergodicList(L2);
+    //nextListData(L,13,L2);
+    //cout<<L2->data<<endl;
+    //ergodicList(L);
+   
     
     return INITIALIZE_ZERO;
 }
@@ -286,7 +293,7 @@ int nextListData(linkLNode L,int data,linkLNode &next_L){
     backups = L -> next;
     while (backups -> next != NULL){
         if (backups -> data == data){
-            next_L = backups;
+            next_L = backups-> next;
             return OPERATION_SUCCESS;
         }
         backups = backups -> next;
