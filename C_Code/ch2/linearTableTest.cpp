@@ -123,9 +123,7 @@ int main(){
 
 int initList(ExampleList &e){
 	e.elem=(int *)malloc(LIST_INIT_SIZE * sizeof(int));
-	if(!e.elem){
-        return OPERATION_ERROR;
-    }
+	if(!e.elem){ return OPERATION_ERROR;}
 	e.length = INITIALIZE_ZERO;
 	e.listSize = LIST_INIT_SIZE;
 	return OPERATION_SUCCESS;
@@ -140,9 +138,7 @@ void listTraveres(ExampleList e){
 
 int destoyList(ExampleList &e){
     free(e.elem);
-    if(!e.elem){
-       return OPERATION_ERROR;
-    }
+    if(!e.elem){ return OPERATION_ERROR;}
     e.elem = NULL;
     e.length = INITIALIZE_ZERO;
     e.listSize = INITIALIZE_ZERO;
@@ -151,15 +147,11 @@ int destoyList(ExampleList &e){
 
 int listInsert(ExampleList &e, int i, int data){
     int j;
-    if(i<1 || i>e.length+INCREASING){
-        return OPERATION_ERROR;
-    }
+    if(i<1 || i>e.length+INCREASING){ return OPERATION_ERROR; }
     if(e.length == e.listSize){
         int *base;
 	    base=(int *)realloc(e.elem,(e.listSize+LISTINC)*sizeof(int));
-	    if(!base){
-            return OPERATION_ERROR;
-        }
+	    if(!base){ return OPERATION_ERROR;}
 	    e.listSize = e.listSize + LISTINC;
 	}
     for(j=e.length;j >= i-INITIALIZE_ONE; j--){
@@ -172,9 +164,7 @@ int listInsert(ExampleList &e, int i, int data){
 
 int listDelete(ExampleList &e, int i, int &delete_value){
     int j;
-    if(i<1 || i> e.length){
-         return OPERATION_ERROR;
-    }
+    if(i<1 || i> e.length){ return OPERATION_ERROR; }
     delete_value = e.elem[i-INCREASING];
     for(j = i;j<e.length;j++){
         e.elem[j-INCREASING] = e.elem[j];
@@ -192,9 +182,7 @@ int listLength(ExampleList e){
 };
 
 int getElem(ExampleList &e,int i,int &getPositionValue){
-    if (i<1 || i>e.length){
-        return OPERATION_ERROR;
-    }
+    if (i<1 || i>e.length){return OPERATION_ERROR;}
     getPositionValue = e.elem[i-INCREASING];
     return OPERATION_SUCCESS;
 };
