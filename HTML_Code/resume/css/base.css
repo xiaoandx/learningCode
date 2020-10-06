@@ -24,6 +24,7 @@ html,body{
 	-o-filter:grayscale(100%);
   */
 }
+
 a{
     color:#948C76;
     text-decoration: none;
@@ -280,6 +281,48 @@ p.myid{
  
 .form-group-1{
  	margin-bottom: 1em;
+ }
+ .centers {
+ 	width: 200px;
+ 	height: 200px;
+ 	border-radius: 200px; 
+ 	-moz-border-radius: 200px; 
+ 	-webkit-border-radius: 200px;
+ 	text-align: center;
+ 	margin: 0 auto;
+ 	overflow: hidden;
+ }
+ .centers a {
+ 	display: block;
+ 	padding-top: 100px;
+ 	width: 200px;
+ 	height: 200px;
+ 	text-align: center;
+ 	margin: 0 auto;
+ 	text-decoration:none;
+ 	background: url(../image/mypic.png) no-repeat;
+ 	background-size: 200px 200px;
+ }
+ .centers a span { 
+ 	display: block;
+ 	margin-top: 100px; 
+ 	padding-top: 40px; 
+ 	width: 200px; 
+ 	height: 200px; 
+ 	text-align: center; 
+ 	font-size: 24px; 
+ 	line-height: 20px; 
+ 	color: #fff; 
+ 	background: 
+ 	rgba(0, 0, 0, .4); 
+ 	-webkit-transition: margin-top .2s ease-in-out; 
+ 	-moz-transition: margin-top .2s ease-in-out; 
+ 	-o-transition: margin-top .2s ease-in-out; 
+ 	transition: margin-top .2s ease-in-out; 
+ }
+ .centers a:hover span { display: block; margin-top: 0; }
+ .my-intro p {
+ 	font-size: 16px;
  }
  
 @keyframes rotate {
