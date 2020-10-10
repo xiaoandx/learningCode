@@ -22,9 +22,10 @@ using namespace std;
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
 #define OPERATION_GET_VALUE_ERROR -1
+#define CHANGE_VALUE_ONE 1
 #define STACK_INIT_SIZE 20
 #define STACK_INCREMENT 5
-#define CHANGE_VALUE_ONE 1
+
 
 // 声明定义结构体
 typedef struct {
@@ -138,5 +139,5 @@ int stackEmpty(sequenceStack s){
 
 int getStckTopValue(sequenceStack s){
     if(s.top == s.base){return OPERATION_GET_VALUE_ERROR;}
-    return *(s.top-1);
+    return *(s.top - CHANGE_VALUE_ONE);
 }
