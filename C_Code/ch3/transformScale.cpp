@@ -72,7 +72,11 @@ int stackEmpty(sequenceStack s);
 int conversion(int data, int N);
 
 int main(){
-    conversion(1348,8);
+    int data,N;
+    cout<<"请依次输入需要转换的十进制与转换的进制（空格分开）:";
+    cin>>data>>N;
+    cout<<"十进制数"<<data<<"转换为"<<N<<"进制数为：";
+    conversion(data,N);
 }
 
 int initStack(sequenceStack &s){
