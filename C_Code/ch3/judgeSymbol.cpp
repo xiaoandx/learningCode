@@ -67,7 +67,7 @@ int push(sequenceStack &s,char data);
  * @brief 遍历输出栈内的数据
  * @param sequenceStack 需要操作的数据结构变量
 */
-void TraverStack(sequenceStack s);
+void traverStack(sequenceStack s);
 
 /**
  * @brief 出栈
@@ -133,7 +133,7 @@ int push(sequenceStack &s,char data){
 	return OPERATION_SUCCESS;
 }
 
-void TraverStack(sequenceStack s){
+void traverStack(sequenceStack s){
     char *p;
 	p = s.base;
 	while(p != s.top){
