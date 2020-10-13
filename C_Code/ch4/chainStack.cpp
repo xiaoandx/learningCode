@@ -94,15 +94,19 @@ void traverChainStack(chainStackPrt cs);
 
 int main(){
     chainStackPrt cs;
+    cout<<"初始化中........";
+    cout<<endl;
+    cout<<"初始化成功 SUCCESS"<<endl;
     initChainStack(cs);
-    push(cs, 1);
-    push(cs, 2);
-    push(cs, 3);
-    push(cs, 4);
-    //cout<<chainStackLenght(cs);
-    //cout<<getStackTop(cs);
-    pop(cs);
+    cout<<"依次入栈：12，13，14"<<endl;
+    push(cs,12);
+    push(cs,13);
+    push(cs,14);
+    cout<<"当前的栈为：";
     traverChainStack(cs);
+    cout<<"当前栈是否为空："<<(chainStackEmpty(cs)==0?"不为空":"为空")<<endl;
+    cout<<"出栈的数据为："<<pop(cs)<<endl;
+    cout<<"当前栈的长度为："<<chainStackLenght(cs)<<endl;
     return 0;
 }
 

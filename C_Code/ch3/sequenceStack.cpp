@@ -85,9 +85,19 @@ int getStckTopValue(sequenceStack s);
 
 int main(){
     sequenceStack s;
+    cout<<"初始化中........";
+    cout<<endl;
+    cout<<"初始化成功 SUCCESS"<<endl;
     initStack(s);
+    cout<<"依次入栈：12，13，14"<<endl;
     push(s,12);
+    push(s,13);
+    push(s,13);
+    cout<<"当前的栈为：";
     traverStack(s);
+    cout<<"当前栈是否为空："<<(stackEmpty(s)==0?"不为空":"为空")<<endl;
+    cout<<"出栈的数据为："<<pop(s)<<endl;
+    cout<<"当前栈的长度为："<<stackLength(s)<<endl;
     return 0;
 }
 

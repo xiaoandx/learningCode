@@ -121,7 +121,6 @@ int conversion(int data, int N){
             dividend /= N;
         }
     }else{ return OPERATION_ERROR;}
-
     while (!stackEmpty(s)){cout<<pop(s);}
     cout<<endl;    
     return OPERATION_SUCCESS;
