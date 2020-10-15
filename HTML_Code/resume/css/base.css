@@ -17,12 +17,13 @@ body{
 }
 html,body{
     font-size: 14px;
- 	/* filter: grayscale(100%);
+	/* 网站变黑 */
+/* 	filter: grayscale(100%);
 	-webkit-filter:grayscale(100%);
 	-moz-filter:grayscale(100%);
 	-ms-filter:grayscale(100%) ;
 	-o-filter:grayscale(100%);
-  */
+ */
 }
 
 a{
