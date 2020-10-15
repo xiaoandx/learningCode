@@ -5,6 +5,9 @@ If the code is used, no consent is required, but the author has nothing to do wi
 In case of code problems, feedback can be made through the following email address.
                                    <xiaoandx@gmail.com>
 """
+"""
+gagga
+"""
 # 声明保存成绩列表
 recordList = []
 refereeNumber = int(input("请输入评委人数:"))
@@ -28,11 +31,11 @@ def check_score(score):
 
 # 根据评委人数循环输入成绩
 while number > 0:
-    score = check_score(int(input("输入分数:")))
+    score = check_score(int(input("第次输入分数:")))
     recordList.append(score)
     number -= 1
 
 # 计算平均成绩
 avg_score = (sum(recordList) - min(recordList) - max(recordList)) / (refereeNumber - 2)
 
-print("选手的平均成绩为 {:.2} 分".format(avg_score))
+print("选手的平均成绩为 {:.2f} 分".format(avg_score))

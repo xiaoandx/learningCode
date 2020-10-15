@@ -36,7 +36,8 @@ if D!=0 :
         print("二元线性方程组的解为：",x1)
     
     print("二元线性方程组的第一个解为%.2f, 第二个解为%.2f" % (x1,x2))
-print("error")
+else:
+    print("error")
 
 
 
