@@ -22,6 +22,8 @@ using namespace std;
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
 #define VALUE_ZERO 0
+#define CHANGE_VALUE_ONE 1
+#define INIT_VALUE_ONE 1
 
 typedef struct quNode{
     int data;
@@ -74,16 +76,28 @@ int destoryQueue(QueueLike &q);
  */
 int clearQueue(QueueLike &q);
 
+/**
+ * @brief 获取链队列的元素长度
+ * @param  QueueLike &q 需要进行操作的链队列
+ * @return int 返回链式队列的实际元素长度
+ */
+int queueLength(QueueLike q);
+
+int getFrontValue(QueueLike q, int &value);
+
 int main(){
     QueueLike q;
     int value;
     initQueue(q);
     appendQueue(q,101);
-    deleteQueue(q,value);
-    traverseQueue(q);
+    //deleteQueue(q,value);
+    //traverseQueue(q);
     //destoryQueue(q);
-    clearQueue(q);
+    //clearQueue(q);
     appendQueue(q,103);
+    cout<<queueLength(q)<<endl;
+    getFrontValue(q,value);
+    cout<<value<<endl;
     traverseQueue(q);
 
     return OPERATION_SUCCESS;
@@ -149,4 +163,22 @@ int clearQueue(QueueLike &q){
         return OPERATION_ERROR;
     }
     return OPERATION_ERROR;
+}
+
+int queueLength(QueueLike q){
+    QuNodePrt middleVariable;
+    middleVariable = q.front -> next;
+    int count = INIT_VALUE_ONE;
+    if(q.front == q.later){ return OPERATION_ERROR;}
+    while (middleVariable -> next != NULL){
+        count += CHANGE_VALUE_ONE;
+        middleVariable = middleVariable -> next;
+    }
+    return count;
+}
+
+int getFrontValue(QueueLike q, int &value){
+    if(q.front == q.later){ return OPERATION_ERROR;}
+    value = q.front -> next -> data;
+    return OPERATION_SUCCESS;
 }
