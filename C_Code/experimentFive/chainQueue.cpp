@@ -55,9 +55,16 @@ void traverseQueue(QueueLike q);
 int appendQueue(QueueLike &q,int data);
 
 /**
- * @brief 向链队列删除数据
+ * @brief 队列是否为空
+ * @param  QueueLike q 需要进行操作的链队列
+ * @return int 返回操作状态，1->为空；0->不为空
+ */
+int emptyQueue(QueueLike q);
+
+/**
+ * @brief 出队列
  * @param  QueueLike &q 需要进行操作的链队列
- * @param  int &value 需要返回删除的具体值
+ * @param  int &value 出队列的具体值
  * @return int 返回操作状态，1->成功；0->失败
  */
 int deleteQueue(QueueLike &q,int &value);
@@ -83,7 +90,19 @@ int clearQueue(QueueLike &q);
  */
 int queueLength(QueueLike q);
 
+/**
+ * @brief 获取链队列的头部元素
+ * @param  QueueLike &q 需要进行操作的链队列
+ * @param int &value 返回链式队列的头部元素的data
+ */
 int getFrontValue(QueueLike q, int &value);
+
+/**
+ * @brief 获取链队列的队尾元素
+ * @param  QueueLike &q 需要进行操作的链队列
+ * @param int &value 返回链式队列的队尾元素的data
+ */
+int getLaterValue(QueueLike q, int &value);
 
 int main(){
     QueueLike q;
@@ -95,11 +114,16 @@ int main(){
     //destoryQueue(q);
     //clearQueue(q);
     appendQueue(q,103);
-    cout<<queueLength(q)<<endl;
-    getFrontValue(q,value);
-    cout<<value<<endl;
     traverseQueue(q);
-
+    cout<<"队列的长度为："<<queueLength(q)<<endl;
+    getFrontValue(q,value);
+    cout<<"队头数据为："<<value<<endl;
+    getLaterValue(q,value);
+    cout<<"队尾数据为："<<value<<endl;
+    deleteQueue(q,value);
+    cout<<"出队列数据为："<<value<<endl;
+    cout<<"队列的长度为："<<queueLength(q)<<endl;
+    cout<<"出队是否为空："<<emptyQueue(q)<<endl;
     return OPERATION_SUCCESS;
 }
 
@@ -181,4 +205,15 @@ int getFrontValue(QueueLike q, int &value){
     if(q.front == q.later){ return OPERATION_ERROR;}
     value = q.front -> next -> data;
     return OPERATION_SUCCESS;
+}
+
+int getLaterValue(QueueLike q, int &value){
+    if(q.front == q.later){ return OPERATION_ERROR;}
+    value = q.later -> data;
+    return OPERATION_SUCCESS;
+}
+
+int emptyQueue(QueueLike q){
+    if(q.front == q.later){ return OPERATION_SUCCESS;}
+    return OPERATION_ERROR;
 }

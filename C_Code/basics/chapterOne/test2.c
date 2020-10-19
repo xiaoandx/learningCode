@@ -14,7 +14,7 @@
 *  Description: 求n位数值的平均数                                                              
 *  Others:                
 *           test case：
-*                   one.求2个数值的平均值
+*                   one.求2个数值的平均值(结果保留两位小数)
 *                     param  3  2 
 *                     return 2.50
 *           be careful：
