@@ -107,13 +107,18 @@ int getLaterValue(QueueLike q, int &value);
 int main(){
     QueueLike q;
     int value;
+    cout<<"初始化队列中......................."<<endl;
     initQueue(q);
+    cout<<"初始化队列:successful"<<endl;
+    cout<<"入队:101，103，105"<<endl;
     appendQueue(q,101);
     //deleteQueue(q,value);
     //traverseQueue(q);
     //destoryQueue(q);
     //clearQueue(q);
     appendQueue(q,103);
+    appendQueue(q,105);
+    cout<<"入队成功后的队列:"<<endl;
     traverseQueue(q);
     cout<<"队列的长度为："<<queueLength(q)<<endl;
     getFrontValue(q,value);
@@ -122,6 +127,8 @@ int main(){
     cout<<"队尾数据为："<<value<<endl;
     deleteQueue(q,value);
     cout<<"出队列数据为："<<value<<endl;
+    cout<<"出队成功后的队列:"<<endl;
+    traverseQueue(q);
     cout<<"队列的长度为："<<queueLength(q)<<endl;
     cout<<"出队是否为空："<<emptyQueue(q)<<endl;
     return OPERATION_SUCCESS;
