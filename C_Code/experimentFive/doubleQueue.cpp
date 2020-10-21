@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-20 19:59:47
  * @Version: V1.0
- * @LastEditTime: 2020-10-21 12:49:40
+ * @LastEditTime: 2020-10-21 12:51:49
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -22,8 +22,6 @@ using namespace std;
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
 #define VALUE_ZERO 0
-#define CHANGE_VALUE_ONE 1
-#define INIT_VALUE_ONE 1
 
 typedef struct quNode{
     int data; 
