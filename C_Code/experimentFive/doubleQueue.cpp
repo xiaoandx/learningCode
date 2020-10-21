@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-20 19:59:47
  * @Version: V1.0
- * @LastEditTime: 2020-10-21 11:36:52
+ * @LastEditTime: 2020-10-21 12:49:40
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -93,18 +93,36 @@ int rearPopDoubleQueue(QueueLike &q,int &value);
  */
 int emptyDoubleQueue(QueueLike q);
 
+/**
+ * @brief   销毁双端队列
+ * @Date:   2020-10-21 12:39:10
+ * @param   QueueLike 需要进行操作的双端链队列 
+ * @return  {int} 返回操作状态，1->成功；0->失败
+ */
+int destoryDoubleQueue(QueueLike &q);
+
+/**
+ * @brief   清空双端队列
+ * @Date    2020-10-21 12:45:37
+ * @param   QueueLike 需要进行操作的双端链队列 
+ * @return  {int} 返回操作状态，1->成功；0->失败
+ */
+int clearDoubleQueue(QueueLike &q);
+
+void add();
 int main(){
     QueueLike q;
     int value;
     cout<<initDoubleQueue(q)<<endl;
     pushDoubleQueue(q,12);
     pushDoubleQueue(q,13);
+    destoryDoubleQueue(q);
     traverseDoubleQueue(q);
     //popDoubleQueue(q,value);
     //cout<<value<<endl;
-    rearPushDoubleQueue(q,19);
-    traverseDoubleQueue(q);
-    cout<<emptyDoubleQueue(q)<<endl;
+    //rearPushDoubleQueue(q,19);
+    //traverseDoubleQueue(q);
+    //cout<<emptyDoubleQueue(q)<<endl;
 }
 
 int initDoubleQueue(QueueLike &q){
@@ -184,7 +202,7 @@ int rearPushDoubleQueue(QueueLike &q,int data){
 }
 
 int rearPopDoubleQueue(QueueLike &q,int &value){
-     QuNodePrt middleVariable;
+    QuNodePrt middleVariable;
     if(q.front == q.later){ return OPERATION_ERROR;}
     middleVariable = q.later;
     value = middleVariable -> data;
@@ -197,4 +215,23 @@ int rearPopDoubleQueue(QueueLike &q,int &value){
 int emptyDoubleQueue(QueueLike q){
     if(q.front == q.later){ return OPERATION_ERROR;}
     return OPERATION_SUCCESS;
+}
+
+int destoryDoubleQueue(QueueLike &q){
+    QuNodePrt middleVariable;
+    while (q.front){
+        middleVariable = q.front -> next;
+        free(q.front);
+        q.front = middleVariable;
+    }
+    return OPERATION_SUCCESS;
+}
+
+int clearDoubleQueue(QueueLike &q){
+    int status_one = destoryDoubleQueue(q);
+    if(VALUE_ZERO != status_one){
+        int status_two = initDoubleQueue(q);
+        if(VALUE_ZERO != status_two){return OPERATION_SUCCESS;}else{return OPERATION_ERROR;}
+    }
+    return OPERATION_ERROR;
 }
