@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-22 18:20:37
+ * @LastEditTime: 2020-10-22 18:48:04
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -22,13 +22,11 @@ using namespace std;
 #define INIT_STRAND_SIZE 255
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
-#define VALUE_ZERO 0
 #define VALUE_NEGATIVE -1
-#define CHANGE_VALUE_ONE 1
 #define DEF_ONE 1
 #define DEF_ZERO 0
 
-typedef unsigned char Strings[INIT_STRAND_SIZE + CHANGE_VALUE_ONE];
+typedef unsigned char Strings[INIT_STRAND_SIZE + DEF_ONE];
 
 /**
  * @brief   初始化字符串
@@ -85,6 +83,29 @@ int strConcat(Strings T, Strings S, Strings S2);
  */
 int subString(Strings T, Strings S,int origin, int len);
 
+/**
+ * @brief   判断串是否为空
+ * @Date    2020-10-22 18:35:55
+ * @param   Strings T 需要进行判断的串
+ * @return  {int} 返回操作状态，1->不为空；0->为空
+ */
+int strEmpty(Strings T);
+
+/**
+ * @brief   清空串
+ * @Date    2020-10-22 18:40:36
+ * @param   Strings T 需要进行操作的串
+ */
+void clearStr(Strings T);
+
+/**
+ * @brief   获取串的长度
+ * @Date    2020-10-22 18:42:23
+ * @param   Strings T 需要进行操作的串
+ * @return  {int} 串的长度
+ */
+int getStrLength(Strings T);
+
 int main(){
     Strings s, s2, s3, s4;
     strAssign(s, (char*)"zhouwei");
@@ -92,6 +113,9 @@ int main(){
     cout<<"comp:"<<strCompare(s,s2)<<endl;;
     strConcat(s3, s, s2);
     subString(s4,s,2,3);
+    strEmpty(s);
+    clearStr(s);
+    getStrLength(s);
     return OPERATION_SUCCESS;
 }
 
@@ -100,7 +124,7 @@ int strAssign(Strings T,char str[]){
     if(countStr > INIT_STRAND_SIZE){ return OPERATION_ERROR;    }
     T[0] = countStr;
     for(int i = DEF_ONE; i<= T[DEF_ZERO]; i++){
-        T[i] = str[i-DEF_ONE];
+        T[i] = str[i - DEF_ONE];
     }
     return OPERATION_SUCCESS;
 }
@@ -131,7 +155,7 @@ int strCompare(Strings T,Strings S){
             return T[i]-S[i];
         }
     }
-    return VALUE_ZERO;
+    return DEF_ZERO;
 }
 
 int strConcat(Strings T, Strings S, Strings S2){
@@ -142,7 +166,7 @@ int strConcat(Strings T, Strings S, Strings S2){
 	    for(int i=DEF_ONE;i<=S2[DEF_ZERO];i++){
             T[i + S[DEF_ZERO]] = S2[i];
         }
-	    T[DEF_ZERO] = S1[DEF_ZERO] + S2[DEF_ZERO];
+	    T[DEF_ZERO] = S[DEF_ZERO] + S2[DEF_ZERO];
         return OPERATION_SUCCESS;
     }else{
         for(int i=DEF_ONE;i<=S[DEF_ZERO];i++){
@@ -150,7 +174,7 @@ int strConcat(Strings T, Strings S, Strings S2){
         }
 
         for(int i=DEF_ONE;i<=INIT_STRAND_SIZE - S[DEF_ZERO];i++){
-            T[i + S1[DEF_ZERO]] = S2[i];
+            T[i + S[DEF_ZERO]] = S2[i];
         }
 		T[DEF_ZERO] = INIT_STRAND_SIZE;
         return OPERATION_ERROR;
@@ -167,3 +191,12 @@ int subString(Strings T, Strings S,int origin, int len){
     T[DEF_ZERO] = len;
     return OPERATION_SUCCESS;
 }
+
+int strEmpty(Strings T){
+    if(DEF_ZERO < T[DEF_ZERO]){ return OPERATION_SUCCESS;}
+    return OPERATION_ERROR;
+}
+
+void clearStr(Strings T){ T[DEF_ZERO] = DEF_ZERO; }
+
+int getStrLength(Strings T){ return T[DEF_ZERO]; }
