@@ -9,23 +9,18 @@
  * 
  * @Description: 
  * @Author: WEI.ZHOU
- * @Date: 2020-10-21 22:17:01
+ * @Date: 2020-10-25 13:20:50
  * @Version: V1.0
- * @LastEditTime: 2020-10-24 10:23:22
+ * @LastEditTime: 2020-10-25 13:43:13
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
-#include <stdio.h>  
-
-#define OPERATION_SUCCESS 1
-#define OPERATION_ERROR 0 
-
+#include <stdio.h>
 int main(){
-    float longs,wide,qrea,perimeter;
-    printf("请输入矩形的长和宽：");
-    scanf("%f%f",&longs,&wide);
-    qrea = longs * wide;                                                                        
-    perimeter = (longs + wide) * 2;
-    printf("矩形的面积是：%.2f\n周长是：%.2f",qrea,perimeter);
-    return OPERATION_SUCCESS;
+    float f,c;
+    printf("请输入华氏温度：\n");
+    scanf("%f",&f);
+    c = (5.0/9)*(f - 32);
+    printf("%f华氏温度 = %f摄氏温度\n c = %f\n",f,c);
+    return 0;
 }

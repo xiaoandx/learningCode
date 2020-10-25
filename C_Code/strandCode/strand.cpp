@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-22 18:48:04
+ * @LastEditTime: 2020-10-22 19:07:44
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -116,6 +116,7 @@ int main(){
     strEmpty(s);
     clearStr(s);
     getStrLength(s);
+    strIndex();
     return OPERATION_SUCCESS;
 }
 

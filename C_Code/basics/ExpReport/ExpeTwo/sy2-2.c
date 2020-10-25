@@ -9,23 +9,19 @@
  * 
  * @Description: 
  * @Author: WEI.ZHOU
- * @Date: 2020-10-21 22:17:01
+ * @Date: 2020-10-25 13:52:43
  * @Version: V1.0
- * @LastEditTime: 2020-10-24 10:23:22
+ * @LastEditTime: 2020-10-25 13:59:26
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
-#include <stdio.h>  
-
-#define OPERATION_SUCCESS 1
-#define OPERATION_ERROR 0 
-
+#include <stdio.h>
 int main(){
-    float longs,wide,qrea,perimeter;
-    printf("请输入矩形的长和宽：");
-    scanf("%f%f",&longs,&wide);
-    qrea = longs * wide;                                                                        
-    perimeter = (longs + wide) * 2;
-    printf("矩形的面积是：%.2f\n周长是：%.2f",qrea,perimeter);
-    return OPERATION_SUCCESS;
+    float p0 = 1000, r1 = 0.0036, r2 = 0.0225, r3 = 0.0198;
+    float p1,p2,p3;
+    p1 = p0 * (1 + r1);
+    p2 = p0 * (1 + r2);
+    p3 = p0 * (1 + r3/2) * (1 + r3/2);
+    printf("%d\n%d\n%d\n%d\n",p0,p1,p2,p3);
+    return 0;
 }

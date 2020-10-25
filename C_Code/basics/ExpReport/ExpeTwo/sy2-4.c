@@ -9,23 +9,22 @@
  * 
  * @Description: 
  * @Author: WEI.ZHOU
- * @Date: 2020-10-21 22:17:01
+ * @Date: 2020-10-25 14:27:51
  * @Version: V1.0
- * @LastEditTime: 2020-10-24 10:23:22
+ * @LastEditTime: 2020-10-25 14:30:02
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
 #include <stdio.h>  
-
-#define OPERATION_SUCCESS 1
-#define OPERATION_ERROR 0 
-
 int main(){
-    float longs,wide,qrea,perimeter;
-    printf("请输入矩形的长和宽：");
-    scanf("%f%f",&longs,&wide);
-    qrea = longs * wide;                                                                        
-    perimeter = (longs + wide) * 2;
-    printf("矩形的面积是：%.2f\n周长是：%.2f",qrea,perimeter);
-    return OPERATION_SUCCESS;
+    //定义整型变量a,b
+    int a, b;
+    //定义浮点变量c
+    float c;                    
+    //输入变量a,b      
+    printf("输入两个整数(用,隔开)：");         
+    scanf("%d,%d", &a, &b);  
+    c = (a + b) / 2.0;
+    printf("c = %f", c);
+    return 0;
 }
