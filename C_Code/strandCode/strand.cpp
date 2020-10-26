@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-26 21:14:12
+ * @LastEditTime: 2020-10-26 22:44:09
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -96,7 +96,7 @@ int strEmpty(Strings T);
  * @Date    2020-10-22 18:40:36
  * @param   Strings T 需要进行操作的串
  */
-void clearStr(Strings T);
+void strClear(Strings T);
 
 /**
  * @brief   获取串的长度
@@ -115,6 +115,26 @@ int getStrLength(Strings T);
  * @return  {int} 返回第一次出现的位置（无则返回0）
  */
 int strIndex(Strings T, Strings V, int origin);
+
+/**
+ * @brief   插入字符串
+ * @Date    2020-10-26 22:14:20
+ * @param   Strings T 需要进行插入的串
+ * @param   Strings V 具体插入的字符串
+ * @param   int origin 需要进行插入的起始位置
+ * @return  {int} 返回操作状态，1->成功；0->失败
+ */
+int strInsert(Strings T, int origin, Strings V);
+
+/**
+ * @brief   字符串删除指定位置长度字符
+ * @Date    2020-10-26 22:29:33
+ * @param   Strings T 需要进行删除的串
+ * @param   int origin 截取起始点
+ * @param   int len 删除长度
+ * @return  {int} 返回操作状态，1->成功；0->失败
+ */
+int strDelete(Strings T, int origin, int len);
 
 int main(){
     Strings s, s2, s3, s4, s5;
@@ -151,7 +171,7 @@ int main(){
     cout<<"在主串s中寻找s2串相同的内容，并返回第一次出现的位置"<<strIndex(s,s2,2)<<endl;
     cout<<endl;
     cout<<"清空s....................."<<endl;
-    clearStr(s);
+    strClear(s);
     cout<<"s是的长度为："<<getStrLength(s)<<endl;
     return OPERATION_SUCCESS;
 }
@@ -234,7 +254,7 @@ int strEmpty(Strings T){
     return OPERATION_ERROR;
 }
 
-void clearStr(Strings T){ T[DEF_ZERO] = DEF_ZERO; }
+void strClear(Strings T){ T[DEF_ZERO] = DEF_ZERO; }
 
 int getStrLength(Strings T){ return T[DEF_ZERO]; }
 
@@ -255,4 +275,33 @@ int strIndex(Strings T, Strings V, int origin){
         return i - V[DEF_ZERO];
     }
     return OPERATION_ERROR;
+}
+
+int strInsert(Strings T, int origin, Strings V){
+    if(DEF_ONE > origin || \
+        origin > T[DEF_ZERO] || \
+        (T[DEF_ZERO] + V[DEF_ZERO]) > INIT_STRAND_SIZE){ return OPERATION_ERROR;}
+    // 移动需要插入的串，留出插入字符串的长度
+    for(int i = T[DEF_ZERO];i>=origin;i--){
+        T[i + V[DEF_ZERO]] = T[i];
+    }
+    //插入操作
+    for(int i = origin;i<(origin+V[DEF_ZERO]-DEF_ONE);i++){
+        T[i] = V[i - origin + DEF_ONE];
+    }
+    T[DEF_ZERO] += V[DEF_ZERO];
+    return OPERATION_SUCCESS;
+}
+
+int strDelete(Strings T, int origin, int len){
+    if(origin < DEF_ONE || \
+        origin > T[DEF_ZERO] || \
+        (origin + len - DEF_ONE) > T[DEF_ZERO] || \
+        len < DEF_ZERO){ return OPERATION_ERROR;}
+        
+    for(int i = (origin + len); i <= T[DEF_ZERO]; i++){
+        T[i - len] = T[i];
+    }
+    T[DEF_ZERO] -= len;
+    return OPERATION_SUCCESS;
 }
