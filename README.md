@@ -13,6 +13,6 @@ If the code is used, no consent is required, but the author has nothing to do wi
 
 In case of code problems, feedback can be made through the following email address.         
 
-​                                  <xiaoandx@gmail.com>  
+​                                 <xiaoandx@gmail.com>  
 ```
 
