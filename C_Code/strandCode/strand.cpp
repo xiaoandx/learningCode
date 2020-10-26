@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-26 19:44:53
+ * @LastEditTime: 2020-10-26 21:14:12
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -159,7 +159,7 @@ int main(){
 int strAssign(Strings T,char str[]){
     int countStr = strlen(str);
     if(countStr > INIT_STRAND_SIZE){ return OPERATION_ERROR;    }
-    T[0] = countStr;
+    T[DEF_ZERO] = countStr;
     for(int i = DEF_ONE; i<= T[DEF_ZERO]; i++){
         T[i] = str[i - DEF_ONE];
     }
