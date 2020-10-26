@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-22 19:07:44
+ * @LastEditTime: 2020-10-26 15:00:27
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -106,17 +106,27 @@ void clearStr(Strings T);
  */
 int getStrLength(Strings T);
 
+/**
+ * @brief   在主串T中寻找V串相同的内容，并返回第一次出现的位置
+ * @Date    2020-10-26 14:26:19
+ * @param   Strings T 需要进行操作的串（主串）
+ * @param   Strings V 需要进行比对的串
+ * @param   int origin 需要进行比对的起始位置
+ * @return  {int} 返回第一次出现的位置（无则返回0）
+ */
+int strIndex(Strings T, Strings V, int origin);
+
 int main(){
     Strings s, s2, s3, s4;
     strAssign(s, (char*)"zhouwei");
-    strAssign(s2, (char*)"zhouwei");
-    cout<<"comp:"<<strCompare(s,s2)<<endl;;
-    strConcat(s3, s, s2);
-    subString(s4,s,2,3);
-    strEmpty(s);
-    clearStr(s);
-    getStrLength(s);
-    strIndex();
+    strAssign(s2, (char*)"wei");
+    //cout<<"comp:"<<strCompare(s,s2)<<endl;;
+    //strConcat(s3, s, s2);
+    //subString(s4,s,2,3);
+    //strEmpty(s);
+    //clearStr(s);
+    //getStrLength(s);
+    cout<<strIndex(s2,s,3)<<endl;
     return OPERATION_SUCCESS;
 }
 
@@ -201,3 +211,22 @@ int strEmpty(Strings T){
 void clearStr(Strings T){ T[DEF_ZERO] = DEF_ZERO; }
 
 int getStrLength(Strings T){ return T[DEF_ZERO]; }
+
+int strIndex(Strings T, Strings V, int origin){
+    if(T[DEF_ZERO] < V[DEF_ZERO]){ return OPERATION_ERROR;}
+    if(origin > T[DEF_ZERO] || origin < DEF_ONE){  return OPERATION_ERROR;}
+    int i = origin, j = DEF_ONE;
+    while(i <= T[DEF_ZERO] && j <= V[DEF_ZERO]){
+        if(T[i] == V[j]){
+            i += DEF_ONE;
+            j += DEF_ONE;
+        }else{
+            i = i - j + (DEF_ONE + DEF_ONE);
+            j = DEF_ONE;
+        }
+    }
+    if(j >= V[DEF_ZERO]){
+        return i - V[DEF_ZERO];
+    }
+    return OPERATION_ERROR;
+}
