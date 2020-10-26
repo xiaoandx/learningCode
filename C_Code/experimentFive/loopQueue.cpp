@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-21 21:02:48
  * @Version: V1.0
- * @LastEditTime: 2020-10-21 21:40:41
+ * @LastEditTime: 2020-10-26 20:00:30
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -82,7 +82,10 @@ int emptyLoopQueue(LoopQueue lq);
 int main(){
     LoopQueue lq;
     int value;
+    cout<<"初始化循环队列中..............................."<<endl;
     initLoopQueue(lq);
+    cout<<endl;
+    cout<<"入队12，13，14，15，16 后的队列为：";
     appendLoopQueue(lq,12);
     appendLoopQueue(lq,13);
     appendLoopQueue(lq,14);
@@ -90,8 +93,16 @@ int main(){
     appendLoopQueue(lq,16);
     traverseLoopQueue(lq);
     cout<<"lq length:"<<getLoopQueueLength(lq)<<endl;
+    cout<<endl;
+    cout<<"出队...................................."<<endl;
     deleteLoopQueue(lq,value);
+    cout<<"出队的元素为："<<value<<endl;
+    cout<<endl;
+    cout<<"出队后的队列为：";
     traverseLoopQueue(lq);
+    cout<<endl;
+    cout<<"队列是否为空：";
+    cout<<emptyLoopQueue(lq)<<endl;;
     cout<<"lq length:"<<getLoopQueueLength(lq)<<endl;
     return OPERATION_SUCCESS;
 }

@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-26 15:51:32
+ * @LastEditTime: 2020-10-26 19:44:53
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -117,16 +117,42 @@ int getStrLength(Strings T);
 int strIndex(Strings T, Strings V, int origin);
 
 int main(){
-    Strings s, s2, s3, s4;
+    Strings s, s2, s3, s4, s5;
+    cout<<"初始化s='zhouwei',s2='wei'"<<endl;
+    cout<<"初始化成功.................................."<<endl;
     strAssign(s, (char*)"zhouwei");
     strAssign(s2, (char*)"wei");
-    //cout<<"comp:"<<strCompare(s,s2)<<endl;;
-    //strConcat(s3, s, s2);
-    //subString(s4,s,2,3);
-    //strEmpty(s);
-    //clearStr(s);
-    //getStrLength(s);
-    cout<<strIndex(s2,s,3)<<endl;
+    cout<<endl;
+    cout<<"s=";
+    strPrint(s);
+    cout<<"s2=";
+    strPrint(s2);
+    cout<<endl;
+    cout<<"复制s到s3"<<endl;
+    strCopy(s,s3);
+    cout<<"s3=";
+    strPrint(s3);
+    cout<<endl;
+    cout<<"s与s2的大小为（大于0 s>s2）：";
+    cout<<"comp:"<<strCompare(s,s2)<<endl;
+    cout<<endl;
+    cout<<"将s与s2合并的到s4：";
+    strConcat(s4,s,s2);
+    strPrint(s4);
+    cout<<endl;
+    cout<<"截取s的2起点截3个字符得到s5：";
+    subString(s5,s,2,3);
+    strPrint(s5);
+    cout<<endl;
+    cout<<"s是否为空："<<strEmpty(s)<<endl;
+    cout<<endl;
+    cout<<"s是的长度为："<<getStrLength(s)<<endl;
+    cout<<endl;
+    cout<<"在主串s中寻找s2串相同的内容，并返回第一次出现的位置"<<strIndex(s,s2,2)<<endl;
+    cout<<endl;
+    cout<<"清空s....................."<<endl;
+    clearStr(s);
+    cout<<"s是的长度为："<<getStrLength(s)<<endl;
     return OPERATION_SUCCESS;
 }
 
