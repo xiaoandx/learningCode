@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-26 22:44:09
+ * @LastEditTime: 2020-10-27 20:24:56
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -110,11 +110,11 @@ int getStrLength(Strings T);
  * @brief   在主串T中寻找V串相同的内容，并返回第一次出现的位置
  * @Date    2020-10-26 14:26:19
  * @param   Strings T 需要进行操作的串（主串）
- * @param   Strings V 需要进行比对的串
  * @param   int origin 需要进行比对的起始位置
+ * @param   Strings V 需要进行比对的串
  * @return  {int} 返回第一次出现的位置（无则返回0）
  */
-int strIndex(Strings T, Strings V, int origin);
+int strIndex(Strings T, int origin, Strings V);
 
 /**
  * @brief   插入字符串
@@ -136,43 +136,65 @@ int strInsert(Strings T, int origin, Strings V);
  */
 int strDelete(Strings T, int origin, int len);
 
+/**
+ * @brief   获取KMP模式匹配中需要生成的next匹配数组
+ * @Date    2020-10-27 11:23:46
+ * @param   Strings T 模式进行匹配的串
+ * @param   int *next 存放模式匹配的位置数组
+ */
+void getNext(Strings T, int *next);
+
+/**
+ * @brief   字符串指定位置匹配查找(KMP)
+ * @Date    2020-10-27 19:51:10
+ * @param   Strings T 需要进行操作的串（主串）
+ * @param   Strings V 需要进行比对的串
+ * @param   int origin 需要进行比对的起始位置
+ * @return  {int} 返回第一次出现的位置（无则返回0）
+ */
+int strIndexKmp(Strings S,int origin, Strings T);
+
 int main(){
     Strings s, s2, s3, s4, s5;
-    cout<<"初始化s='zhouwei',s2='wei'"<<endl;
-    cout<<"初始化成功.................................."<<endl;
-    strAssign(s, (char*)"zhouwei");
+    // cout<<"初始化s='zhouwei',s2='wei'"<<endl;
+    // cout<<"初始化成功.................................."<<endl;
+    strAssign(s, (char*)"zhouoowei");
     strAssign(s2, (char*)"wei");
-    cout<<endl;
-    cout<<"s=";
-    strPrint(s);
-    cout<<"s2=";
-    strPrint(s2);
-    cout<<endl;
-    cout<<"复制s到s3"<<endl;
-    strCopy(s,s3);
-    cout<<"s3=";
-    strPrint(s3);
-    cout<<endl;
-    cout<<"s与s2的大小为（大于0 s>s2）：";
-    cout<<"comp:"<<strCompare(s,s2)<<endl;
-    cout<<endl;
-    cout<<"将s与s2合并的到s4：";
-    strConcat(s4,s,s2);
-    strPrint(s4);
-    cout<<endl;
-    cout<<"截取s的2起点截3个字符得到s5：";
-    subString(s5,s,2,3);
-    strPrint(s5);
-    cout<<endl;
-    cout<<"s是否为空："<<strEmpty(s)<<endl;
-    cout<<endl;
-    cout<<"s是的长度为："<<getStrLength(s)<<endl;
-    cout<<endl;
-    cout<<"在主串s中寻找s2串相同的内容，并返回第一次出现的位置"<<strIndex(s,s2,2)<<endl;
-    cout<<endl;
-    cout<<"清空s....................."<<endl;
-    strClear(s);
-    cout<<"s是的长度为："<<getStrLength(s)<<endl;
+    // cout<<endl;
+    // cout<<"s=";
+    // strPrint(s);
+    // cout<<"s2=";
+    // strPrint(s2);
+    // cout<<endl;
+    // cout<<"复制s到s3"<<endl;
+    // strCopy(s,s3);
+    // cout<<"s3=";
+    // strPrint(s3);
+    // cout<<endl;
+    // cout<<"s与s2的大小为（大于0 s>s2）：";
+    // cout<<"comp:"<<strCompare(s,s2)<<endl;
+    // cout<<endl;
+    // cout<<"将s与s2合并的到s4：";
+    // strConcat(s4,s,s2);
+    // strPrint(s4);
+    // cout<<endl;
+    // cout<<"截取s的2起点截3个字符得到s5：";
+    // subString(s5,s,2,3);
+    // strPrint(s5);
+    // cout<<endl;
+    // cout<<"s是否为空："<<strEmpty(s)<<endl;
+    // cout<<endl;
+    // cout<<"s是的长度为："<<getStrLength(s)<<endl;
+    // cout<<endl;
+    // cout<<"在主串s中寻找s2串相同的内容，并返回第一次出现的位置"<<strIndex(s,s2,2)<<endl;
+    // cout<<endl;
+    // cout<<"清空s....................."<<endl;
+    // strClear(s);
+    // cout<<"s是的长度为："<<getStrLength(s)<<endl;
+    // int next[4];
+    // getNext(s2,next);
+    cout<<strIndex(s,2,s2)<<endl;
+    cout<<strIndexKmp(s,2,s2)<<endl;
     return OPERATION_SUCCESS;
 }
 
@@ -258,7 +280,7 @@ void strClear(Strings T){ T[DEF_ZERO] = DEF_ZERO; }
 
 int getStrLength(Strings T){ return T[DEF_ZERO]; }
 
-int strIndex(Strings T, Strings V, int origin){
+int strIndex(Strings T, int origin, Strings V){
     if(T[DEF_ZERO] < V[DEF_ZERO]){ return OPERATION_ERROR;}
     if(origin > T[DEF_ZERO] || origin < DEF_ONE){  return OPERATION_ERROR;}
     int i = origin, j = DEF_ONE;
@@ -304,4 +326,41 @@ int strDelete(Strings T, int origin, int len){
     }
     T[DEF_ZERO] -= len;
     return OPERATION_SUCCESS;
+}
+
+void getNext(Strings T, int next[]){
+    /* j 前缀，i 后缀*/
+    int j = DEF_ZERO ,i = DEF_ONE;
+    next[DEF_ONE] = DEF_ZERO;
+    while (i < T[DEF_ZERO]){
+        if(DEF_ZERO == j || T[j] == T[i]){
+            i++;j++;
+            if(next[i] != next[j]){
+                next[i] = j;
+            }else{
+                next[i] = next[j];
+            }
+        }else{
+            j = next[j];
+        }
+    }
+}
+
+int strIndexKmp(Strings S, int origin, Strings T){
+    if(S[DEF_ZERO] < T[DEF_ZERO]){ return OPERATION_ERROR;}
+    if(origin > S[DEF_ZERO] || origin < DEF_ONE){  return OPERATION_ERROR;}
+    int i = origin, j = DEF_ONE;
+    int next[INIT_STRAND_SIZE];
+    getNext(T,next);
+    while(i <= S[DEF_ZERO] && j<= T[DEF_ZERO]){
+        if(DEF_ZERO == j || S[i] == T[j]){
+            i++; j++;
+        }else{
+            j = next[j];
+        }
+    }
+    if(j > T[DEF_ZERO]){
+        return i - T[DEF_ZERO];
+    }
+    return OPERATION_ERROR;
 }
