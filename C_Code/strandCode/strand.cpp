@@ -11,13 +11,12 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-27 20:24:56
+ * @LastEditTime: 2020-10-27 20:51:51
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
 #include <iostream>
 #include <string.h>
-using namespace std;
 
 #define INIT_STRAND_SIZE 255
 #define OPERATION_SUCCESS 1
@@ -25,6 +24,7 @@ using namespace std;
 #define VALUE_NEGATIVE -1
 #define DEF_ONE 1
 #define DEF_ZERO 0
+#define LF '\n'
 
 typedef unsigned char Strings[INIT_STRAND_SIZE + DEF_ONE];
 
@@ -193,8 +193,8 @@ int main(){
     // cout<<"s是的长度为："<<getStrLength(s)<<endl;
     // int next[4];
     // getNext(s2,next);
-    cout<<strIndex(s,2,s2)<<endl;
-    cout<<strIndexKmp(s,2,s2)<<endl;
+    std::cout<<strIndex(s,2,s2)<<LF;
+    std::cout<<strIndexKmp(s,2,s2)<<LF;
     return OPERATION_SUCCESS;
 }
 
@@ -210,9 +210,9 @@ int strAssign(Strings T,char str[]){
 
 void strPrint(Strings T){
     for(int i = DEF_ONE ; i <= T[DEF_ZERO]; i++){
-        cout<<T[i];
+        std::cout<<T[i];
     }
-    cout<<endl;
+    std::cout<<LF;
 }
 
 void strCopy(Strings T,Strings V){
