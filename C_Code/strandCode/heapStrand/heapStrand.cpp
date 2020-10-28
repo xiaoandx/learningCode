@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-28 19:00:18
  * @Version: V1.0
- * @LastEditTime: 2020-10-28 20:56:28
+ * @LastEditTime: 2020-10-28 23:36:26
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -33,14 +33,14 @@ typedef struct{
 
 /**
  * @brief   初始化
- * @Date    2020-10-28 19:15:23
+ * @date    2020-10-28 19:15:23
  * @param   heapStr &s 需要初始化的串
  */
 void initStr(heapStr &s);
 
 /**
  * @brief   初始化字符串
- * @Date    2020-10-28 19:18:05
+ * @date    2020-10-28 19:18:05
  * @param   heapStr &s 需要初始化的串
  * @param   char v[] 需要初始化的字符串
  * @return  {int} 1 -> 操作成功; 0 -> 操作失败
@@ -49,14 +49,14 @@ int strAssign(heapStr &s, char v[]);
 
 /**
  * @brief   输出打印串
- * @Date    2020-10-28 19:28:43
+ * @date    2020-10-28 19:28:43
  * @param   heapStr s 需要操作的串
  */
 void strPrint(heapStr s);
 
 /**
  * @brief   串的复制
- * @Date    2020-10-28 19:43:06
+ * @date    2020-10-28 19:43:06
  * @param   heapStr s 需要被复制的串
  * @param   heapStr &T 需要复制得到的串
  * @return  {int} 1 -> 操作成功; 0 -> 操作失败
@@ -65,7 +65,7 @@ int strCopy(heapStr s, heapStr &T);
 
 /**
  * @brief   获取串的长度
- * @Date    2020-10-28 19:41:31
+ * @date    2020-10-28 19:41:31
  * @param   heapStr s 需要操作获取的串
  * @return  {int} 串的长度
  */
@@ -73,7 +73,7 @@ int getStrLength(heapStr s);
 
 /**
  * @brief   清空串
- * @Date    2020-10-28 19:45:00
+ * @date    2020-10-28 19:45:00
  * @param   heapStr s 需要操作的串
  * @return  {int} 1 -> 操作成功; 0 -> 操作失败
  */
@@ -81,7 +81,7 @@ int strClear(heapStr &s);
 
 /**
  * @brief   两个字符串比较
- * @Date    2020-10-28 19:49:54
+ * @date    2020-10-28 19:49:54
  * @param   heapStr s 需要比较操作的串
  * @param   heapStr T 需要比较操作的串
  * @return  {int} 等于0-> s=T; 大于0->s>T; 小于0 ->s<T
@@ -90,7 +90,7 @@ int strCompare(heapStr s, heapStr T);
 
 /**
  * @brief   两个串合并成新串
- * @Date    2020-10-28 19:57:30
+ * @date    2020-10-28 19:57:30
  * @param   heapStr &T 合并得到的新串
  * @param   heapStr s 合并的新串
  * @param   heapStr s2 合并的新串
@@ -100,7 +100,7 @@ int strConcat(heapStr &T, heapStr s, heapStr s2);
 
 /**
  * @brief   截取一个串的指定位置长度
- * @Date    2020-10-28 20:07:26
+ * @date    2020-10-28 20:07:26
  * @param   heapStr &T 截取得到的新串
  * @param   heapStr s 截取的串
  * @param   int pos 截取起点(包括)
@@ -111,7 +111,7 @@ int subString(heapStr &T, heapStr s, int pos, int len);
 
 /**
  * @brief   判断是否为空
- * @Date    2020-10-28 20:34:07
+ * @date    2020-10-28 20:34:07
  * @param   heapStr T 需要判断的串
  * @return  {int} 1->不为空;0->为空 
  */
@@ -119,7 +119,7 @@ int strEmpty(heapStr T);
 
 /**
  * @brief   向指定串中对应起点插入串
- * @Date    2020-10-28 20:38:44
+ * @date    2020-10-28 20:38:44
  * @param   heapStr &s 被插入的串
  * @param   int pos 被插入的起点
  * @param   heapStr T 插入的串
@@ -129,7 +129,7 @@ int strInsert(heapStr &s, int pos, heapStr T);
 
 /**
  * @brief   删除串的指定位置起指定长度的串
- * @Date    2020-10-28 20:46:52
+ * @date    2020-10-28 20:46:52
  * @param   heapStr &T 被删除的串
  * @param   int pos 删除的起点
  * @param   int len 删除的长度
@@ -137,25 +137,56 @@ int strInsert(heapStr &s, int pos, heapStr T);
  */
 int strDelete(heapStr &T, int pos, int len);
 
+/**
+ * @brief   在主串T中寻找V串相同的内容，并返回第一次出现的位置
+ * @date    2020-10-28 21:45:43
+ * @param   heapStr s 需要进行操作的串（主串）
+ * @param   int pos 需要进行比对的起始位置
+ * @param   heapStr T 需要进行比对的串
+ * @return  {int} 返回第一次出现的位置（无则返回0）
+ */
+int strIndex(heapStr s, int pos, heapStr T);
+
+/**
+ * @brief   获取KMP模式匹配中需要生成的next匹配数组
+ * @date    2020-10-28 22:28:03
+ * @param   heapStr T 模式进行匹配的串
+ * @return  int *next 存放模式匹配的位置数组
+ */
+void getNext(heapStr T, int *next);
+
+/**
+ * @brief   字符串指定位置匹配查找(KMP)
+ * @date    2020-10-28 22:28:37
+ * @param   Strings s 需要进行操作的串（主串）
+ * @param   int pos 需要进行比对的起始位置
+ * @param   Strings T 需要进行比对的串
+ * @return  {int} 返回第一次出现的位置（无则返回0）
+ */
+int strIndexKmp(heapStr s, int pos, heapStr T);
+
 int main(){
     heapStr hs,hs2,hs3,hs4;
     initStr(hs);
+    initStr(hs2);
     strAssign(hs,(char *)"hello");
-    strPrint(hs);
-    strCopy(hs,hs2);
-    strPrint(hs2);
-    std::cout<<getStrLength(hs)<<LF;
-    std::cout<<"比较大小:"<<strCompare(hs,hs2)<<LF;
-    // strClear(hs2);
-    strConcat(hs3,hs,hs2);
-    std::cout<<"hs3 = hs+hs2:";
-    strPrint(hs3);
-    subString(hs4,hs,1,2);
-    std::cout<<"hs4 = hs 2 2:";
-    strPrint(hs4);
-    strEmpty(hs);
-    strInsert(hs,3,hs2);
-    strDelete(hs,2,2);
+    //strPrint(hs);
+    strAssign(hs2,(char *)"ll");
+    // strPrint(hs2);
+    // std::cout<<getStrLength(hs)<<LF;
+    // std::cout<<"比较大小:"<<strCompare(hs,hs2)<<LF;
+    // // strClear(hs2);
+    // strConcat(hs3,hs,hs2);
+    // std::cout<<"hs3 = hs+hs2:";
+    // strPrint(hs3);
+    // subString(hs4,hs,1,2);
+    // std::cout<<"hs4 = hs 2 2:";
+    // strPrint(hs4);
+    // strEmpty(hs);
+    //strInsert(hs,3,hs2);
+    //strDelete(hs,2,2);
+    std::cout<<strIndexKmp(hs,1,hs2)<<LF;
+    //strPrint(hs);
     return OPERATION_SUCCESS;
 }
 
@@ -251,7 +282,7 @@ int strEmpty(heapStr T){
 
 int strInsert(heapStr &s, int pos, heapStr T){
     if(DEF_ZERO > pos || s.length < pos){ return OPERATION_ERROR;}
-    s.ch = realloc(s.ch,(s.length + T.length) * sizeof(char));
+    s.ch = (char *)realloc(s.ch,(s.length + T.length) * sizeof(char));
     if(!s.ch){ return OPERATION_ERROR;}
     for(int i = s.length - DEF_ONE; i>=pos; i--){
         s.ch[i + T.length] =s.ch[i]; 
@@ -274,4 +305,56 @@ int strDelete(heapStr &T, int pos, int len){
     T.ch = (char *)realloc(T.ch,T.length * sizeof(char));
     if(!T.ch){ return OPERATION_ERROR;}
     return OPERATION_SUCCESS;
+}
+
+int strIndex(heapStr s, int pos, heapStr T){
+    if(DEF_ZERO > pos || s.length <= pos || s.length < T.length){ return OPERATION_ERROR;}
+    int i = pos, j = DEF_ZERO;
+    while (i < s.length && j < T.length){
+        if(s.ch[i] == T.ch[j]){
+            i += DEF_ONE;
+            j += DEF_ONE;
+        }else{
+            i = i - j + DEF_ONE;
+            j = DEF_ZERO;
+        }
+    }
+    if(j >= T.length){
+        return i - T.length;
+    }
+    return OPERATION_ERROR;
+}
+
+void getNext(heapStr T, int *next){
+    int i = -1, j = 0;
+    next[0] = -1;
+    while(j < T.length){
+        if(-1 == i || T.ch[i] == T.ch[j]){
+            j++;
+            i++;
+            next[j] = i;
+        }else{
+            i = next[i];
+        }
+    }
+}
+
+int strIndexKmp(heapStr s, int pos, heapStr T){
+    if(DEF_ZERO > pos || s.length <= pos || s.length < T.length){ return OPERATION_ERROR;}
+    int i = pos, j = DEF_ZERO;
+    int next[T.length];
+    getNext(T, next);
+    while (i < s.length && j < T.length){
+        if( -1 == j || s.ch[i] == T.ch[j]){
+            i += DEF_ONE;
+            j += DEF_ONE;
+        }else{
+            j = next[j];
+        }
+    }
+    if(j >= T.length){
+        return i - T.length;
+    }
+    return OPERATION_ERROR;
+    
 }

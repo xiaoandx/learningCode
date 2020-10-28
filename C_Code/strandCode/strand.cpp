@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-27 22:04:04
+ * @LastEditTime: 2020-10-28 21:45:18
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -120,8 +120,8 @@ int strIndex(Strings T, int origin, Strings V);
  * @brief   插入字符串
  * @Date    2020-10-26 22:14:20
  * @param   Strings T 需要进行插入的串
- * @param   Strings V 具体插入的字符串
  * @param   int origin 需要进行插入的起始位置
+ * @param   Strings V 具体插入的字符串
  * @return  {int} 返回操作状态，1->成功；0->失败
  */
 int strInsert(Strings T, int origin, Strings V);
