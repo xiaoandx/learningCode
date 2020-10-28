@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-28 19:00:18
  * @Version: V1.0
- * @LastEditTime: 2020-10-28 20:29:24
+ * @LastEditTime: 2020-10-28 20:56:28
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -109,6 +109,34 @@ int strConcat(heapStr &T, heapStr s, heapStr s2);
  */
 int subString(heapStr &T, heapStr s, int pos, int len);
 
+/**
+ * @brief   判断是否为空
+ * @Date    2020-10-28 20:34:07
+ * @param   heapStr T 需要判断的串
+ * @return  {int} 1->不为空;0->为空 
+ */
+int strEmpty(heapStr T);
+
+/**
+ * @brief   向指定串中对应起点插入串
+ * @Date    2020-10-28 20:38:44
+ * @param   heapStr &s 被插入的串
+ * @param   int pos 被插入的起点
+ * @param   heapStr T 插入的串
+ * @return  {int} 1 -> 操作成功; 0 -> 操作失败
+ */
+int strInsert(heapStr &s, int pos, heapStr T);
+
+/**
+ * @brief   删除串的指定位置起指定长度的串
+ * @Date    2020-10-28 20:46:52
+ * @param   heapStr &T 被删除的串
+ * @param   int pos 删除的起点
+ * @param   int len 删除的长度
+ * @return  {int} 1 -> 操作成功; 0 -> 操作失败
+ */
+int strDelete(heapStr &T, int pos, int len);
+
 int main(){
     heapStr hs,hs2,hs3,hs4;
     initStr(hs);
@@ -125,6 +153,9 @@ int main(){
     subString(hs4,hs,1,2);
     std::cout<<"hs4 = hs 2 2:";
     strPrint(hs4);
+    strEmpty(hs);
+    strInsert(hs,3,hs2);
+    strDelete(hs,2,2);
     return OPERATION_SUCCESS;
 }
 
@@ -210,5 +241,37 @@ int subString(heapStr &T, heapStr s, int pos, int len){
         T.ch[i-pos] = s.ch[i];
     }
     T.length = len;
+    return OPERATION_SUCCESS;
+}
+
+int strEmpty(heapStr T){
+    if(DEF_ZERO < T.length){ return OPERATION_SUCCESS;}
+    return OPERATION_ERROR;
+}
+
+int strInsert(heapStr &s, int pos, heapStr T){
+    if(DEF_ZERO > pos || s.length < pos){ return OPERATION_ERROR;}
+    s.ch = realloc(s.ch,(s.length + T.length) * sizeof(char));
+    if(!s.ch){ return OPERATION_ERROR;}
+    for(int i = s.length - DEF_ONE; i>=pos; i--){
+        s.ch[i + T.length] =s.ch[i]; 
+    }
+    for(int i = DEF_ZERO; i<T.length;i++){
+        s.ch[i + pos] = T.ch[i];
+    }
+    s.length += T.length;
+    return OPERATION_SUCCESS;
+}
+
+int strDelete(heapStr &T, int pos, int len){
+    if(DEF_ZERO > pos ||\
+         DEF_ZERO > len || T.length < pos ||\
+          T.length < (pos+len)){ return OPERATION_ERROR;}
+    for(int i = pos; i<=T.length; i++){
+        T.ch[i] = T.ch[i + len];
+    }
+    T.length -= len;
+    T.ch = (char *)realloc(T.ch,T.length * sizeof(char));
+    if(!T.ch){ return OPERATION_ERROR;}
     return OPERATION_SUCCESS;
 }
