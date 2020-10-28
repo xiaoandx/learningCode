@@ -11,17 +11,16 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-28 19:00:18
  * @Version: V1.0
- * @LastEditTime: 2020-10-28 23:36:26
+ * @LastEditTime: 2020-10-28 23:51:08
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
 #include <iostream>
 #include <string.h>
 
-#define INIT_STRAND_SIZE 255
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
-#define VALUE_NEGATIVE -1
+#define DEF_MINUS_ONE -1
 #define DEF_ONE 1
 #define DEF_ZERO 0
 #define LF '\n'
@@ -326,13 +325,16 @@ int strIndex(heapStr s, int pos, heapStr T){
 }
 
 void getNext(heapStr T, int *next){
-    int i = -1, j = 0;
-    next[0] = -1;
+    int i = DEF_MINUS_ONE, j = DEF_ZERO;
+    next[DEF_ZERO] = DEF_MINUS_ONE;
     while(j < T.length){
-        if(-1 == i || T.ch[i] == T.ch[j]){
-            j++;
-            i++;
-            next[j] = i;
+        if(DEF_MINUS_ONE == i || T.ch[i] == T.ch[j]){
+            j++;i++;
+            if(next[j] != next[i]){
+                next[j] = i;
+            }else{
+                next[j] = next[i];
+            }
         }else{
             i = next[i];
         }
@@ -345,7 +347,7 @@ int strIndexKmp(heapStr s, int pos, heapStr T){
     int next[T.length];
     getNext(T, next);
     while (i < s.length && j < T.length){
-        if( -1 == j || s.ch[i] == T.ch[j]){
+        if( DEF_MINUS_ONE == j || s.ch[i] == T.ch[j]){
             i += DEF_ONE;
             j += DEF_ONE;
         }else{
