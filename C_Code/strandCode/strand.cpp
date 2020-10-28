@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-22 16:47:55
  * @Version: V1.0
- * @LastEditTime: 2020-10-27 20:51:51
+ * @LastEditTime: 2020-10-27 22:04:04
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -167,9 +167,9 @@ int main(){
     // strPrint(s2);
     // cout<<endl;
     // cout<<"复制s到s3"<<endl;
-    // strCopy(s,s3);
-    // cout<<"s3=";
-    // strPrint(s3);
+    strCopy(s,s3);
+    std::cout<<"s3=";
+    strPrint(s3);
     // cout<<endl;
     // cout<<"s与s2的大小为（大于0 s>s2）：";
     // cout<<"comp:"<<strCompare(s,s2)<<endl;
@@ -193,8 +193,8 @@ int main(){
     // cout<<"s是的长度为："<<getStrLength(s)<<endl;
     // int next[4];
     // getNext(s2,next);
-    std::cout<<strIndex(s,2,s2)<<LF;
-    std::cout<<strIndexKmp(s,2,s2)<<LF;
+    //std::cout<<strIndex(s,2,s2)<<LF;
+    //std::cout<<strIndexKmp(s,2,s2)<<LF;
     return OPERATION_SUCCESS;
 }
 
