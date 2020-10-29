@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-28 19:00:18
  * @Version: V1.0
- * @LastEditTime: 2020-10-28 23:52:28
+ * @LastEditTime: 2020-10-29 16:03:51
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -358,5 +358,4 @@ int strIndexKmp(heapStr s, int pos, heapStr T){
         return i - T.length;
     }
     return OPERATION_ERROR;
-    
 }
