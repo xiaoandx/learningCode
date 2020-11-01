@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+// 定义宏变量 PIS
+#define PTS 3.14159
+
+int main() {
+    // 定义声明半径
+    float r;
+    printf("请输入0-10000范围内的数：");
+
+    // 判断输入半径是否满足要求
+    pan:
+    scanf("%f", &r);
+    if (r < 0 || r > 10000) {
+        printf("输入错误重新输入：");
+        goto pan;
+    }
+    // 输出面积
+    printf("半径为%.2f的圆的面积为：%.2f", r, (PTS * r *r));
+    
+    return 0;
+}
