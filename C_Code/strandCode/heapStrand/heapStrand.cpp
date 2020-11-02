@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-28 19:00:18
  * @Version: V1.0
- * @LastEditTime: 2020-10-29 16:03:51
+ * @LastEditTime: 2020-11-02 15:24:02
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -166,24 +166,47 @@ int strIndexKmp(heapStr s, int pos, heapStr T);
 
 int main(){
     heapStr hs,hs2,hs3,hs4;
+    std::cout<<"先初始化hs，hs2：......................."<<LF;
     initStr(hs);
     initStr(hs2);
-    strAssign(hs,(char *)"hello");
-    //strPrint(hs);
-    strAssign(hs2,(char *)"ll");
-    // strPrint(hs2);
-    // std::cout<<getStrLength(hs)<<LF;
-    // std::cout<<"比较大小:"<<strCompare(hs,hs2)<<LF;
-    // // strClear(hs2);
-    // strConcat(hs3,hs,hs2);
-    // std::cout<<"hs3 = hs+hs2:";
-    // strPrint(hs3);
-    // subString(hs4,hs,1,2);
-    // std::cout<<"hs4 = hs 2 2:";
-    // strPrint(hs4);
-    // strEmpty(hs);
-    //strInsert(hs,3,hs2);
-    //strDelete(hs,2,2);
+    initStr(hs3);
+    initStr(hs4);
+    std::cout<<"将abacabab赋值给hs，赋值的结果为：";
+    strAssign(hs,(char *)"abacabab");
+    strPrint(hs);
+    std::cout<<"将abab赋值给hs2，赋值的结果为：";
+    strAssign(hs2,(char *)"abab");
+    strPrint(hs2);
+    std::cout<<"字符串hs的长度为：";
+    std::cout<<getStrLength(hs)<<LF;
+    std::cout<<"hs与hs2比较大小:"<<strCompare(hs,hs2)<<LF;
+    std::cout<<"复制hs2给hs3，hs3的结果为：";
+    strCopy(hs2,hs3);
+    strPrint(hs3);
+    std::cout<<"清空hs3，hs3的长度为：";
+    strClear(hs3);
+    std::cout<<getStrLength(hs3)<<LF;
+
+    std::cout<<"清空hs3后，在合并hs与hs2得到hs3：";
+    strConcat(hs3,hs,hs2);
+    strPrint(hs3);
+
+    std::cout<<"hs3是否为空：";
+    std::cout<< strEmpty(hs)<<LF;
+
+    std::cout<<"截取hs中1->2的字符串得到hs4：";
+    subString(hs4,hs,1,2);
+    strPrint(hs4);
+
+    std::cout<<"将hs4插入到hs3中，新得到的hs3为：";
+    strInsert(hs3,3,hs4);
+    strPrint(hs3);
+
+    std::cout<<"删除hs3中2-2的字符串得到新的hs3为：";
+    strDelete(hs3,2,2);
+    strPrint(hs3);
+
+    std::cout<<"匹配hs2在hs中第一次出现位置:";
     std::cout<<strIndexKmp(hs,1,hs2)<<LF;
     //strPrint(hs);
     return OPERATION_SUCCESS;
@@ -267,9 +290,7 @@ int subString(heapStr &T, heapStr s, int pos, int len){
         DEF_ZERO > len){ return OPERATION_ERROR;}
     T.ch = (char *)malloc(len * sizeof(char));
     if(!T.ch){ return OPERATION_ERROR;}
-    for(int i = pos; i<=pos+len; i++){
-        T.ch[i-pos] = s.ch[i];
-    }
+    for(int i = pos; i<=pos+len; i++){T.ch[i-pos] = s.ch[i];}
     T.length = len;
     return OPERATION_SUCCESS;
 }
