@@ -11,12 +11,13 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-28 19:00:18
  * @Version: V1.0
- * @LastEditTime: 2020-11-02 15:24:02
+ * @LastEditTime: 2020-11-02 22:03:16
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
 #include <iostream>
 #include <string.h>
+#include <stdlib.h>
 
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
