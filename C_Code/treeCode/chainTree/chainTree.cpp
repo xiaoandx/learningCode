@@ -7,11 +7,11 @@
  * In case of code problems, feedback can be made through the following email address.
  * 						<xiaoandx@gmail.com>
  * 
- * @Description: 
+ * @Description: 二叉树的定义与操作
  * @Author: WEI.ZHOU
  * @Date: 2020-10-31 17:34:01
  * @Version: V1.0
- * @LastEditTime: 2020-10-31 20:03:19
+ * @LastEditTime: 2020-11-02 15:37:55
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
