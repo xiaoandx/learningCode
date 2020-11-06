@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-11-04 18:42:41
  * @Version: V1.0
- * @LastEditTime: 2020-11-06 22:55:25
+ * @LastEditTime: 2020-11-06 23:09:32
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -220,7 +220,7 @@ int main(){
     //getTreeNodeValue(T,2,1,value);
     //std::cout<<getTreeRootValue(T)<<LF;
     //assignTreeNodeValue(T,2,2,10);
-    //printTreeTierOrder(T);
+    //printTreeTierOrder(T); 
     std::cout<<getTreeLength(T)<<LF;
     
     return OPERATION_SUCCESS;
