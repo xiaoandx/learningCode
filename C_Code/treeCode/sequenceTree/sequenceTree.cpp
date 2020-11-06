@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-11-04 18:42:41
  * @Version: V1.0
- * @LastEditTime: 2020-11-06 16:17:38
+ * @LastEditTime: 2020-11-06 22:55:25
  * @LastEditors: WEI.ZHOU
  * @Others: 
  */
@@ -27,6 +27,7 @@
 #define DEF_TWO 2
 #define DEF_ZERO 0
 #define LF '\n'
+#define LN '\0'
 
 typedef int sequenceTree[INIT_STRAND_SIZE];
 
@@ -184,6 +185,24 @@ void printTreeInOrder(sequenceTree T, int pos);
  */
 void printTreePostOrder(sequenceTree T, int pos);
 
+/**
+ * @brief   清空树
+ * @Date    2020-11-06 22:42:23
+ * @author  WEI.ZHOU
+ * @param   sequenceTree T 需要操作的树
+ * @return  {int} 1->操作成功；0->操作失败
+ */
+int clearTree(sequenceTree T);
+
+/**
+ * @brief   获取树节点个数
+ * @Date    2020-11-06 22:45:25
+ * @author  WEI.ZHOU
+ * @param   sequenceTree T 需要操作的树
+ * @return  {int} 树节点个数
+ */
+int getTreeLength(sequenceTree T);
+
 int main(){
     int value;
     sequenceTree T;
@@ -202,7 +221,7 @@ int main(){
     //std::cout<<getTreeRootValue(T)<<LF;
     //assignTreeNodeValue(T,2,2,10);
     //printTreeTierOrder(T);
-    std::cout<<getTreeRightChild(T,3)<<LF;
+    std::cout<<getTreeLength(T)<<LF;
     
     return OPERATION_SUCCESS;
 }
@@ -391,4 +410,21 @@ void printTreePostOrder(sequenceTree T, int pos){
     if(T[pos] != NUL){
         std::cout<<T[pos]<<"  ";
     } 
+}
+
+int clearTree(sequenceTree T){
+    for(int i=DEF_ZERO; i<INIT_STRAND_SIZE; i++){
+        T[i] = NUL;
+    }
+    return OPERATION_SUCCESS;
+}
+
+int getTreeLength(sequenceTree T){
+    int len;
+    for(len = INIT_STRAND_SIZE;len-DEF_ONE>0; len--){
+        if(NUL !=T[len-DEF_ONE] && LN != T[len-DEF_ONE]){
+            break;
+        }
+    }
+    return len;
 }
