@@ -7,12 +7,12 @@
  * In case of code problems, feedback can be made through the following email address.
  * 						<xiaoandx@gmail.com>
  * 
- * @Description: 顺序串的定义及方法实现
+ * @Description: 二叉树的顺序定义与操作
  * @Author: WEI.ZHOU
  * @Date: 2020-11-04 18:42:41
  * @Version: V1.0
- * @LastEditTime: 2020-11-06 23:09:32
- * @LastEditors: WEI.ZHOU
+ * @LastEditTime: 2020-11-10 15:48:26
+ * @LastEditors: Please set LastEditors
  * @Others: 
  */
 #include <iostream>
@@ -59,10 +59,10 @@ int getTreeDepth(sequenceTree T);
 int createTree(sequenceTree T);
 
 /**
- * @brief   树的输出
- * @date     2020-11-05 22:19:13
- * @author   WEI.ZHOU
- * @param    sequenceTree T 需要输出树
+ * @brief   树的层序输出
+ * @date    2020-11-05 22:19:13
+ * @author  WEI.ZHOU
+ * @param   sequenceTree T 需要输出树
  */
 void printTreeTierOrder(sequenceTree T);
 
@@ -206,22 +206,65 @@ int getTreeLength(sequenceTree T);
 int main(){
     int value;
     sequenceTree T;
+    std::cout<<"初始化树......................"<<LF;
     initTree(T);
-    T[0] = 1;
-    T[1] = 2;
-    T[2] = 3;
-    T[3] = 4;
-    T[4] = 5;
-    T[5] = 6;
-    T[6] = 7;
-    // std::cout<<getTreeDepth(T)<<LF;
-    //createTree(T);
+    std::cout<<"开始新建树（输入树的节点数据）："<<LF;
+    createTree(T);
+    // T[0] = 1;
+    // T[1] = 2;
+    // T[2] = 3;
+    // T[3] = 4;
+    // T[4] = 5;
+    // T[5] = 6;
+    // T[6] = 7;
+    std::cout<<"输入完成后的树："<<LF;
     printTreeTierOrder(T);
-    //getTreeNodeValue(T,2,1,value);
-    //std::cout<<getTreeRootValue(T)<<LF;
+    
+    std::cout<<"树的深度为：";
+    std::cout<<getTreeDepth(T)<<LF;
+
+     std::cout<<"树的节点共有：";
+     std::cout<<getTreeLength(T)<<LF;
+    //createTree(T);
+    //printTreeTierOrder(T);
+    getTreeNodeValue(T,2,1,value);
+    std::cout<<"获取2层第1个节点的数据："<<value<<LF;
+    
+    std::cout<<"树根节点的数据为："<<getTreeRootValue(T)<<LF;
+
+    std::cout<<"替换2层第2个节点的数据，改为10后新树："<<LF;
+    assignTreeNodeValue(T,2,2,10);
+    printTreeTierOrder(T);
+
+    std::cout<<"获取节点为10的双亲节点，且双亲为："<<getTreeParent(T,10)<<LF;
+
+    std::cout<<"获取节点为10的左孩子节点，且左孩子为："<<getTreeLeftChild(T,10)<<LF;
+
+    std::cout<<"获取节点为10的右孩子节点，且右孩子为："<<getTreeRightChild(T,10)<<LF;
+
+    std::cout<<"获取节点为10的左兄弟节点，且左兄弟为："<<getTreeLeftSibling(T,10)<<LF;
+
+    std::cout<<"获取节点为2的右兄弟节点，且左兄弟为："<<getTreeRightSibling(T,2)<<LF;
+
+    std::cout<<"前序输出树："<<LF;
+    printTreePrOrder(T,0);
+    std::cout<<LF;
+
+    std::cout<<"中序输出树："<<LF;
+    printTreeInOrder(T,0);
+    std::cout<<LF;
+
+    std::cout<<"后序输出树："<<LF;
+    printTreePostOrder(T,0);
+    std::cout<<LF;
+
+    clearTree(T);
+    std::cout<<"清空树此时树的节点有："<<getTreeLength(T)<<LF;
+    
+    
     //assignTreeNodeValue(T,2,2,10);
     //printTreeTierOrder(T); 
-    std::cout<<getTreeLength(T)<<LF;
+    //std::cout<<getTreeLength(T)<<LF;
     
     return OPERATION_SUCCESS;
 }
@@ -237,7 +280,7 @@ int getTreeDepth(sequenceTree T){
     if(T[DEF_ZERO] == NUL){ return OPERATION_ERROR;}
     for(int i = INIT_STRAND_SIZE-1; i>=0; i--){
         if(T[i] != NUL){
-            return (int)(log(i + DEF_ONE)/log(2) + 1.1);
+            return (int)(log(i + DEF_ONE)/log(DEF_TWO) + DEF_ONE);
         }
     }
     return OPERATION_ERROR;
@@ -265,7 +308,7 @@ int createTree(sequenceTree T){
             }
         }
         std::cin>>T[i];
-        if(T[i] == INPUT_OK){return OPERATION_ERROR;}
+        if(T[i] == INPUT_OK){ T[i] = NUL;return OPERATION_ERROR;}
         std::cout<<"目前的Tree："<<LF;
         printTreeTierOrder(T);
         std::cout<<".................................................."<<LF;
@@ -353,9 +396,9 @@ int getTreeRightChild(sequenceTree T, int data){
 }
 
 int getTreeLeftSibling(sequenceTree T, int data){
-    if(NUL == data && NUL == T[DEF_ZERO]){
+    if(NUL != data && NUL != T[DEF_ZERO]){
         for(int i=DEF_ZERO; i<INIT_STRAND_SIZE; i++){
-            if(data == T[i] && NUL == T[i - DEF_ONE] && i % DEF_TWO == DEF_ZERO){
+            if(data == T[i] && NUL != T[i - DEF_ONE] && i % DEF_TWO == DEF_ZERO){
                 return T[i - DEF_ONE];
             }
         }
@@ -365,9 +408,9 @@ int getTreeLeftSibling(sequenceTree T, int data){
 }
 
 int getTreeRightSibling(sequenceTree T, int data){
-    if(NUL == data && NUL == T[DEF_ZERO]){
+    if(NUL != data && NUL != T[DEF_ZERO]){
         for(int i=DEF_ZERO; i<INIT_STRAND_SIZE; i++){
-            if(data == T[i] && NUL == T[i + DEF_ONE] && i % DEF_TWO == DEF_ONE){
+            if(data == T[i] && NUL != T[i + DEF_ONE] && i % DEF_TWO == DEF_ONE){
                 return T[i + DEF_ONE];
             }
         }
