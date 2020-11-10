@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-11-04 18:42:41
  * @Version: V1.0
- * @LastEditTime: 2020-11-10 15:48:26
+ * @LastEditTime: 2020-11-10 15:51:11
  * @LastEditors: Please set LastEditors
  * @Others: 
  */
@@ -244,7 +244,7 @@ int main(){
 
     std::cout<<"获取节点为10的左兄弟节点，且左兄弟为："<<getTreeLeftSibling(T,10)<<LF;
 
-    std::cout<<"获取节点为2的右兄弟节点，且左兄弟为："<<getTreeRightSibling(T,2)<<LF;
+    std::cout<<"获取节点为2的右兄弟节点，且右兄弟为："<<getTreeRightSibling(T,2)<<LF;
 
     std::cout<<"前序输出树："<<LF;
     printTreePrOrder(T,0);
