@@ -462,7 +462,7 @@ div.skill p{
     transition : transform ease;
 }
 .circle-wrap .right-clip {
-    clip: rect(0,140px,140px,70px); /* 需要显示出来的右边*/
+    clip: rect(0,10px,100px,60px); /* 需要显示出来的右边*/
 }
 .circle-wrap .right-clip.widt0{
     width: 0;
