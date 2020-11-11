@@ -106,7 +106,6 @@ int getLaterValue(QueueLike q, int &value);
 
 int main(){
     QueueLike q;
-    int value;
     cout<<"初始化队列中......................."<<endl;
     initQueue(q);
     cout<<"初始化队列:successful"<<endl;
@@ -169,7 +168,7 @@ int deleteQueue(QueueLike &q,int &value){
     middleVariable = q.front -> next;
     value = middleVariable -> data;
     q.front -> next = middleVariable -> next;
-    if(q.front == middleVariable){ q.later = q.front;}
+    if(q.later == middleVariable){ q.later = q.front;}
     free(middleVariable);
     return OPERATION_SUCCESS; 
 }
