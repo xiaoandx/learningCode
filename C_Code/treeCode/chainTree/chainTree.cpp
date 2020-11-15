@@ -11,7 +11,7 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-31 17:34:01
  * @Version: V1.0
- * @LastEditTime: 2020-11-12 16:41:31
+ * @LastEditTime: 2020-11-15 14:29:01
  * @Others: 
  */
 #include <iostream>
@@ -75,7 +75,7 @@ void printTreeInOrder(chainTreeNode &T);
 void printTreePostOrder(chainTreeNode &T);
 
 /**
- * @brief   层序遍历
+ * @brief   层序遍历(数组)
  * @date    2020-10-31 19:40:57
  * @param   chainTreeNode &T 需要遍历的节点树 
  */
@@ -90,10 +90,10 @@ void printTreeTierOrder(chainTreeNode &T);
 int getTreeDepth(chainTreeNode T);
 
 /**
- * @brief   获取树叶子的数量
+ * @brief   获取树节点的数量
  * @Date    2020-10-31 19:58:29
  * @param   chainTreeNode T 需要操作的节点树
- * @return  {int} 树的叶子数量
+ * @return  {int} 树的节点数量
  */
 int getChainTreeLeafSum(chainTreeNode T);
 
@@ -151,16 +151,48 @@ int getTreeParent(chainTreeNode T, int data);
  */
 void printTreeTier(chainTreeNode T);
 
+/**
+ * @brief   获取树的根节点数值
+ * @Date    2020-11-15 13:56:48
+ * @param   hainTreeNode T 需要操作的节点树
+ * @return  {int} 树根节点数值 ; 999 空树
+ */
+int findTreeRootValue(chainTreeNode T);
+
 int main(){
     chainTreeNode c;
     initTree(c);
+    std::cout<<""<<LF;
     std::cout<<"append Tree input 999 is NULL: ";
     createTree(c);
+    std::cout<<"层序遍历树：";
     printTreeTier(c);
+    std::cout<<LF;
+    std::cout<<"前序遍历树：";
+    printTreePrOrder(c);
+    std::cout<<LF;
+     std::cout<<"中序遍历树：";
+    printTreeInOrder(c);
+    std::cout<<LF;
+     std::cout<<"后序遍历树：";
+    printTreePostOrder(c);
+    std::cout<<LF;
+    std::cout<<"树的深度：";
     std::cout<<getTreeDepth(c)<<LF;
-    std::cout<<getTreeLeftChild(c,2)<<LF;
-    std::cout<<getTreeRightChild(c,2)<<LF;
+    std::cout<<LF;
+    std::cout<<"树是否为空：";
+    std::cout<<treeEmpty(c)<<LF;
+    std::cout<<LF;
+    std::cout<<"2的双亲节点：";
     std::cout<<getTreeParent(c,2)<<LF;
+    std::cout<<LF;
+    std::cout<<"2的左孩子节点：";
+    std::cout<<getTreeLeftChild(c,2)<<LF;
+    std::cout<<LF;
+    std::cout<<"2的右孩子节点：";
+    std::cout<<getTreeRightChild(c,2)<<LF;
+    
+    
     return OPERATION_SUCCESS;
 }
 
@@ -341,4 +373,11 @@ void printTreeTier(chainTreeNode T){
         }
 
     }
+}
+
+int findTreeRootValue(chainTreeNode T){
+    if (T){
+        return T -> data;
+    }
+    return NUL;
 }
