@@ -11,11 +11,10 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-10-31 17:34:01
  * @Version: V1.0
- * @LastEditTime: 2020-11-15 14:29:01
+ * @LastEditTime: 2020-11-15 19:14:34
  * @Others: 
  */
 #include <iostream>
-
 
 #define INIT_STRAND_SIZE 255
 #define OPERATION_SUCCESS 1
