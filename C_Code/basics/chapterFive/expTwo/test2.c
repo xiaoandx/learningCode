@@ -29,7 +29,15 @@ int main() {
     }
         
     for (i = DEF_ZERO; i < N; i++){
-        sum += a[i][i] + a[i][N - DEF_ONE - i];
+        if(DEF_ZERO == N%2){
+            sum += a[i][i] + a[i][N - DEF_ONE - i];
+        }else{
+            if(i==(N-1)/2){
+                sum += a[i][i];
+            }else{
+                sum += a[i][i] + a[i][N - DEF_ONE - i];
+            } 
+        }
     }
 
     printf("两对角线之和为：%d\n", sum);
