@@ -16,7 +16,7 @@
  *           2. 运行代码需要先创建权重数值，不想输入创建，可将int* w; w = createWeight(); 
  *              修改为int w[INIT_SIZE];w[0]=7,w[1]=5,w[2]=2,w[3]=4;
  *           3. 修改权重编码默认样式A、B，可以修改默认参数修改宏定义中的 L_CODE、R_CODE
- *           3. 如有代码问题可以 issues <https://github.com/xiaoandx/learningCode> 
+ *           4. 如有代码问题可以 issues <https://github.com/xiaoandx/learningCode> 
  */
 #include <stdlib.h>
 #include <string.h>
@@ -227,7 +227,7 @@ int huffmanTreeCode(huffmanTree hT, huffmanCode& hC) {
 }
 
 void showHuffmanCode(huffmanTree hT, huffmanCode hC) {
-    for (int i = 1; i <= INIT_SIZE; i++) {
+    for (int i = DEF_ONE; i <= INIT_SIZE; i++) {
         std::cout << "weight: " << hT[i].weight << " huffmanCode: " << hC[i]
                   << LF;
     }
