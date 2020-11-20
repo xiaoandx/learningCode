@@ -11,8 +11,9 @@ The following code snippets are only used for circulation and cannot be used for
 
 If the code is used, no consent is required, but the author has nothing to do with any problems and consequences.                                                                                   
 
-In case of code problems, feedback can be made through the following email address.         
+In case of code problems, feedback can be made through the following email address and blog.         
 
-​                                 <xiaoandx@gmail.com>  
+​                                 <xiaoandx@gmail.com> 
+​                              <https://blog.xiaoandx.club>  
 ```
 
