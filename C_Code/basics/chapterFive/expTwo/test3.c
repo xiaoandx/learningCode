@@ -11,7 +11,9 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-11-14 12:48:39
  * @Version: V1.0
- * @Others:
+ * @Others: Running test instructions
+ *          1. 分析题目得到，需要将数组进行排序（升序/降序）
+ *          2. 选择排序创建两个自定义方法，升序、降序的方法（main）中都进行方法调用
  */
 #include <stdio.h>
 #define N 10
@@ -74,7 +76,7 @@ void arrayRiseSort(int T[], int V) {
     printf("\n");
 }
 
-void arrayDropSort(int T[], int V){
+void arrayDropSort(int T[], int V) {
     int tepm;
     for (int i = DEF_ZERO; i < V; i++) {
         // T[i]依次和T[i]之后的元素作比较

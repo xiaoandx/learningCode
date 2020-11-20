@@ -11,7 +11,10 @@
  * @Author: WEI.ZHOU
  * @Date: 2020-11-14 08:56:42
  * @Version: V1.0
- * @Others: 推荐使用方法二
+ * @Others:  Running test instructions
+ *          1. 数组默认大小为10，如果需要可以修改宏定义#define N 20
+ *          2. 逆序输出，可以将数组中的数值进行交换，详情见自定义方法 exchangeArray(int T[], int V);
+ *          3. 推荐使用自定义方法
  */
 #include <stdio.h>
 #define N 10
@@ -28,7 +31,11 @@
 void exchangeArray(int T[], int V);
 
 int main(){
-    
+    /**
+     * @brief   变量说明
+     *  int i, j 都是属于循环标记变量
+     *  num[N] 储存输入的10个数的 数组
+    */
     int i,j,num[N];
     printf("请输入十位数，用空格分隔：");
     for(i = DEF_ZERO; i<N; i++){
@@ -44,7 +51,7 @@ int main(){
     // 方法二：采用数值交换的方式进行倒序
     exchangeArray(num,N);
     printf("\n数值逆序输出：");
-    for(int i=0;i<N;i++){
+    for(i=0;i<N;i++){
         printf("%d ",num[i]);
     }
 
