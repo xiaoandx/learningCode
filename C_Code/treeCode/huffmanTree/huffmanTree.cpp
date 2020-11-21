@@ -45,7 +45,7 @@ typedef struct huffmanNode {
 } huffmanNode, *huffmanTree;
 
 /**
- * @brief: 存放赫夫曼代码数组
+ * @brief: 存放赫夫曼编码数组
  */
 typedef char** huffmanCode;
 
@@ -77,7 +77,7 @@ int createHuffmanTree(huffmanTree& hT, int* w, int N);
 void findHuffmanTreeMin(huffmanTree hT, int& min_one, int& min_two, int n);
 
 /**
- * @brief   获取权重的最小的下标位置
+ * @brief   获取权重的最小权重的下标位置
  * @Date    2020-11-19 17:25:27
  * @param   huffmanTree &hT 需要创建的赫夫曼树
  * @param   int N 权重个数
@@ -86,7 +86,7 @@ void findHuffmanTreeMin(huffmanTree hT, int& min_one, int& min_two, int n);
 int getTreeMin(huffmanTree hT, int n);
 
 /**
- * @brief   获取具体的赫夫曼树的转换代码
+ * @brief   获取赫夫曼编码
  * @Date    2020-11-19 17:28:46
  * @param   huffmanTree hT 赫夫曼树
  * @param   huffmanTree &hC 储存转换后的赫夫曼代码
@@ -95,7 +95,7 @@ int getTreeMin(huffmanTree hT, int n);
 int huffmanTreeCode(huffmanTree hT, huffmanCode& hC);
 
 /**
- * @brief   打印显示赫夫曼树
+ * @brief   打印显示赫夫曼编码
  * @Date    2020-11-19 18:03:15
  * @param   huffmanTree hT 赫夫曼树
  * @param   huffmanTree hC 储存转换后的赫夫曼代码
@@ -103,7 +103,7 @@ int huffmanTreeCode(huffmanTree hT, huffmanCode& hC);
 void showHuffmanCode(huffmanTree hT, huffmanCode hC);
 
 /**
- * @brief   获取weight值
+ * @brief   获取weight列表
  * @Date    2020-11-19 19:45:41
  * @return  { int array[] } weight数组
  */
