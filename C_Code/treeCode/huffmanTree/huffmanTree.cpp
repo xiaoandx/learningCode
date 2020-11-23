@@ -278,8 +278,6 @@ int* stringToWeight() {
     char inputArray[STRING_SIZE];
     int countArray[STRING_SIZE];
     int* countArrayS;
-    //  int countArrayS[INIT_SIZE];
-
     int elementCount = DEF_ZERO, i = DEF_ZERO, j, count, a = DEF_ZERO;
     std::cout << "The input message: ";
     std::cin >> inputArray;
