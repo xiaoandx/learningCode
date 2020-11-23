@@ -4,31 +4,35 @@
  * illegal and commercial use. If the code is used, no consent is required, but
  * the author has nothing to do with any problems and consequences.
  *
- * In case of code problems, feedback can be made through the following email address. 
- *                          <xiaoandx@gmail.com>
+ * In case of code problems, feedback can be made through the following email address.
+ *                           <xiaoandx@gmail.com>
  *
- * @Description: 赫夫曼树定义与操作
+ * @Description: 赫夫曼树定义与操作(使用stringToWeight方法进行输入电文在后续求编码)
  * @Author: WEI.ZHOU
  * @Date: 2020-11-19 16:26:10
  * @Version: V1.0
  * @Others:  Running test instructions
  *           1. 默认权重个数 4 ,修改默认参数修改宏定义中的 INIT_SIZE
- *           2. 运行代码需要先创建权重数值，不想输入创建，可将int* w; w = createWeight(); 
+ *           2. 运行测试代码需要先创建权重数值，不想输入创建，可将int* w; w = createWeight(); 
  *              修改为int w[INIT_SIZE];w[0]=7,w[1]=5,w[2]=2,w[3]=4;
  *           3. 修改权重编码默认样式A、B，可以修改默认参数修改宏定义中的 L_CODE、R_CODE
- *           4. 如有代码问题可以 issues <https://github.com/xiaoandx/learningCode> 
+ *           4. 如有代码问题可以 issues  <https://github.com/xiaoandx/learningCode>
+ *           5. 提供两种：一种已知权重，求权重编码(方法：createWeight)
+ *                      二种输入任意电文，进行编码(方法：stringToWeight)
  */
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
 
 #define INIT_SIZE 4
+#define STRING_SIZE 20
 #define INIT_MIX 9999999
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
 #define DEF_ONE 1
 #define DEF_TWO 2
 #define DEF_ZERO 0
+#define MINUS_ONE -1
 #define LF '\n'
 #define END '\0'
 #define L_CODE 'A'
@@ -103,17 +107,24 @@ int huffmanTreeCode(huffmanTree hT, huffmanCode& hC);
 void showHuffmanCode(huffmanTree hT, huffmanCode hC);
 
 /**
- * @brief   获取weight列表
+ * @brief   创建权重列表(已知权重)
  * @Date    2020-11-19 19:45:41
  * @return  { int array[] } weight数组
  */
 int* createWeight();
 
+/**
+ * @brief   输入电文统计权重列表
+ * @Date    2020-11-23 14:38:35
+ * @return  {int array[]} 字符转权重列表
+ */
+int* stringToWeight();
+
 int main() {
     huffmanTree hT;
     huffmanCode hC;
     int* w;
-    w = createWeight();
+    w = stringToWeight();
     initTree(hT);
     createHuffmanTree(hT, w, INIT_SIZE);
     huffmanTreeCode(hT, hC);
@@ -243,4 +254,46 @@ int* createWeight() {
         std::cin >> weigth[i];
     }
     return weigth;
+}
+
+int* stringToWeight() {
+    /**
+     * @brief 变量说明
+     * char inputArray[STRING_SIZE] 保存输入字符串(长度默认20)
+     * int countArray[STRING_SIZE]  保存每个字符串出现的次数(保存频率不连续)
+     * int countArrayS[INIT_SIZE]   返回字符串的权重(频率连续)
+     * int elementCount             输入字符的个数
+     * int i = DEF_ZERO ,j , a      循环初始值
+     * int count                    字符频率初始值
+    */
+    char inputArray[STRING_SIZE];
+    static int countArray[STRING_SIZE];
+    static int countArrayS[INIT_SIZE];
+    int elementCount = DEF_ZERO, i = DEF_ZERO, j, count, a = DEF_ZERO;
+    std::cout << "The input message: ";
+    std::cin >> inputArray;
+    while (inputArray[i] != END) {
+        elementCount++;
+        countArray[i] = MINUS_ONE;
+        i++;
+    }
+    for (i = DEF_ZERO; i < elementCount; i++) {
+        count = DEF_ONE;
+        if (countArray[i] == DEF_ZERO) {
+            continue;
+        }
+        for (j = i + DEF_ONE; j < elementCount; j++) {
+            if (inputArray[i] == inputArray[j]) {
+                countArray[j] = DEF_ZERO;
+                count++;
+            }
+        }
+        countArray[i] = count;
+    }
+    for (i = DEF_ZERO; i < elementCount; i++) {
+        if (countArray[i] != DEF_ZERO) {
+            countArrayS[a++] = countArray[i];
+        }
+    }
+    return countArrayS;
 }
