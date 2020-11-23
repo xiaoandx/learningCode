@@ -4,19 +4,22 @@
  * illegal and commercial use. If the code is used, no consent is required, but
  * the author has nothing to do with any problems and consequences.
  *
- * In case of code problems, feedback can be made through the following email address.
- *                           <xiaoandx@gmail.com>
+ * In case of code problems, feedback can be made through the following email
+ * address. <xiaoandx@gmail.com>
  *
- * @Description: 赫夫曼树定义与操作(使用stringToWeight方法进行输入电文在后续求编码)
+ * @Description:
+ * 赫夫曼树定义与操作(使用stringToWeight方法进行输入电文在后续求编码)
  * @Author: WEI.ZHOU
  * @Date: 2020-11-19 16:26:10
  * @Version: V1.0
  * @Others:  Running test instructions
  *           1. 默认权重个数 4 ,修改默认参数修改宏定义中的 INIT_SIZE
- *           2. 运行测试代码需要先创建权重数值，不想输入创建，可将int* w; w = createWeight(); 
- *              修改为int w[INIT_SIZE];w[0]=7,w[1]=5,w[2]=2,w[3]=4;
- *           3. 修改权重编码默认样式A、B，可以修改默认参数修改宏定义中的 L_CODE、R_CODE
- *           4. 如有代码问题可以 issues  <https://github.com/xiaoandx/learningCode>
+ *           2. 运行测试代码需要先创建权重数值，不想输入创建，可将int* w; w =
+ * createWeight(); 修改为int w[INIT_SIZE];w[0]=7,w[1]=5,w[2]=2,w[3]=4;
+ *           3. 修改权重编码默认样式A、B，可以修改默认参数修改宏定义中的
+ * L_CODE、R_CODE
+ *           4. 如有代码问题可以 issues
+ * <https://github.com/xiaoandx/learningCode>
  *           5. 提供两种：一种已知权重，求权重编码(方法：createWeight)
  *                      二种输入任意电文，进行编码(方法：stringToWeight)
  */
@@ -125,12 +128,12 @@ int main() {
     huffmanCode hC;
     int* w;
     w = stringToWeight();
-    std::cout<<LF;
-    std::cout<<"input strings to weightArray is: ";
-    for(int i=0;i<4;i++){
-        std::cout<<w[i]<<" ";
+    std::cout << LF;
+    std::cout << "input strings to weightArray is: ";
+    for (int i = 0; i < 4; i++) {
+        std::cout << w[i] << " ";
     }
-    std::cout<<"\n============ string to huffmancode ============"<<LF;
+    std::cout << "\n============ string to huffmancode ============" << LF;
     initTree(hT);
     createHuffmanTree(hT, w, INIT_SIZE);
     huffmanTreeCode(hT, hC);
@@ -251,7 +254,7 @@ void showHuffmanCode(huffmanTree hT, huffmanCode hC) {
 }
 
 int* createWeight() {
-    static int weigth[INIT_SIZE];
+    int weigth[INIT_SIZE];
     std::cout
         << "The default size of the weight array is 4, Press enter and end"
         << LF;
@@ -271,16 +274,16 @@ int* stringToWeight() {
      * int elementCount             输入字符的个数
      * int i = DEF_ZERO ,j , a      循环初始值
      * int count                    字符频率初始值
-    */
+     */
     char inputArray[STRING_SIZE];
-    static int countArray[STRING_SIZE];
-    int *countArrayS;
-    // static int countArrayS[INIT_SIZE];
-    
+    int countArray[STRING_SIZE];
+    int* countArrayS;
+    //  int countArrayS[INIT_SIZE];
+
     int elementCount = DEF_ZERO, i = DEF_ZERO, j, count, a = DEF_ZERO;
     std::cout << "The input message: ";
     std::cin >> inputArray;
-    countArrayS = (int*)malloc(INIT_SIZE*sizeof(int));
+    countArrayS = (int*)malloc(INIT_SIZE * sizeof(int));
     while (inputArray[i] != END) {
         elementCount++;
         countArray[i] = MINUS_ONE;
