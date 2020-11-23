@@ -125,6 +125,12 @@ int main() {
     huffmanCode hC;
     int* w;
     w = stringToWeight();
+    std::cout<<LF;
+    std::cout<<"input strings to weightArray is: ";
+    for(int i=0;i<4;i++){
+        std::cout<<w[i]<<" ";
+    }
+    std::cout<<"\n============ string to huffmancode ============"<<LF;
     initTree(hT);
     createHuffmanTree(hT, w, INIT_SIZE);
     huffmanTreeCode(hT, hC);
@@ -268,10 +274,13 @@ int* stringToWeight() {
     */
     char inputArray[STRING_SIZE];
     static int countArray[STRING_SIZE];
-    static int countArrayS[INIT_SIZE];
+    int *countArrayS;
+    // static int countArrayS[INIT_SIZE];
+    
     int elementCount = DEF_ZERO, i = DEF_ZERO, j, count, a = DEF_ZERO;
     std::cout << "The input message: ";
     std::cin >> inputArray;
+    countArrayS = (int*)malloc(INIT_SIZE*sizeof(int));
     while (inputArray[i] != END) {
         elementCount++;
         countArray[i] = MINUS_ONE;
