@@ -254,10 +254,11 @@ void showHuffmanCode(huffmanTree hT, huffmanCode hC) {
 }
 
 int* createWeight() {
-    int weigth[INIT_SIZE];
+    int* weigth;
     std::cout
         << "The default size of the weight array is 4, Press enter and end"
         << LF;
+    weigth = (int *)malloc(INIT_SIZE * sizeof(int));
     for (int i = DEF_ZERO; i < INIT_SIZE; i++) {
         std::cout << "input " << i + DEF_ONE << " weight：";
         std::cin >> weigth[i];
