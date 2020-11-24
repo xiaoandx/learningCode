@@ -112,14 +112,14 @@ int huffmanTreeCode(huffmanTree hT, huffmanCode& hC);
 void showHuffmanCode(huffmanTree hT, huffmanCode hC);
 
 /**
- * @brief   创建权重列表(已知权重)
+ * @brief   创建权重列表(已知权重并且长度为4)
  * @Date    2020-11-19 19:45:41
  * @return  { int array[] } weight数组
  */
 int* createWeight();
 
 /**
- * @brief   输入电文统计权重列表
+ * @brief   输入电文统计权重列表(不需要考虑其它条件，默认输入字符为20，最大权重为10)
  * @Date    2020-11-23 14:38:35
  * @return  {int array[]} 字符转权重列表
  */
@@ -265,6 +265,7 @@ int* createWeight() {
         std::cout << "input " << i + DEF_ONE << " weight：";
         std::cin >> weigth[i];
     }
+    weightSize = DEF_TWO * DEF_TWO;
     return weigth;
 }
 
