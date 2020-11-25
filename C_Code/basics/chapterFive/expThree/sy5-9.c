@@ -21,23 +21,23 @@ int main() {
     int upper=DEF_ZERO, lower=DEF_ZERO, num=DEF_ZERO, space=DEF_ZERO, other=DEF_ZERO;
     char c[N];
     printf("请输入字符串<80：");
+    gets(c);
     for(int i=0; i<N-DEF_ONE; i++){
-        c[i] = getchar();
-        if(c[i] == '\n'){ break;}
-        if ((c[i] >= 'A' && c[i] <= 'Z')) {
-            upper++;
-        }else if((c[i] >= 'a' && c[i] <= 'z')){
-            lower++;
-        } else if (c[i] == ' ' || c[i] == '\t') {
-            space++;
-        } else if (c[i] >= '0' && c[i] <= '9') {
-            num++;
-        } else {
-            other++;
+        if(c[i] == '\0'){ break;}else{
+            if ((c[i] >= 'A' && c[i] <= 'Z')) {
+                upper++;
+            } else if ((c[i] >= 'a' && c[i] <= 'z')) {
+                lower++;
+            } else if (c[i] == ' ' || c[i] == '\t') {
+                space++;
+            } else if (c[i] >= '0' && c[i] <= '9') {
+                num++;
+            } else {
+                other++;
+            }
         }
     }
     printf("大写字母=%d,小写字母=%d,数字=%d,空格=%d,其他=%d\n", \
      upper, lower, num, space, other);
-
     return DEF_ONE;
 }
