@@ -14,9 +14,9 @@
  * @Others: Running test instructions
  * 			
  */
+#include <stdlib.h>
 #include <string.h>
 #include <iostream>
-#include <stdlib.h>
 
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
@@ -34,14 +34,14 @@
  * int vRType       图中弧的权重(0代表无弧)
  * char vertexType[VERTEX_SIZE]     图中保存节点信息
  * char infoType                网中弧包括的其它信息
-*/
+ */
 typedef int vRType;
 typedef char vertexType[VERTEX_SIZE];
 typedef char infoType;
 
 /**
  * DG:有向图，DN:有向网，UDG:无向网，UDN:无向网
-*/
+ */
 enum graphKind { DG, DN, UDG, UDN };
 typedef struct {
     vRType adj;
@@ -146,7 +146,7 @@ int findNextAdjVex(mGraph G, int V, int P);
  * @param   vertexType e 赋值的新值
  * @return  {int} 1->SUCCESSFUL; 0->ERROR
  */
-int putVex(mGraph &G, vertexType V, vertexType e);
+int putVex(mGraph& G, vertexType V, vertexType e);
 
 /**
  * @brief   插入顶点
@@ -155,7 +155,7 @@ int putVex(mGraph &G, vertexType V, vertexType e);
  * @param   vertexType V 插入顶点的值
  * @return  {int} 1->SUCCESSFUL; 0->ERROR
  */
-int insertVexNode(mGraph &G, vertexType V);
+int insertVexNode(mGraph& G, vertexType V);
 
 /**
  * @brief   插入弧
@@ -165,7 +165,7 @@ int insertVexNode(mGraph &G, vertexType V);
  * @param   vertexType N 弧的第二个顶点
  * @return  {int} 1->SUCCESSFUL; 0->ERROR
  */
-int insertArc(mGraph &G, vertexType V, vertexType N);
+int insertArc(mGraph& G, vertexType V, vertexType N);
 
 /**
  * @brief   删除图中的节点
@@ -174,7 +174,7 @@ int insertArc(mGraph &G, vertexType V, vertexType N);
  * @param   vertexType V 需要删除的顶点
  * @return  {int} 1->SUCCESSFUL; 0->ERROR
  */
-int deleteVexNode(mGraph &G, vertexType V);
+int deleteVexNode(mGraph& G, vertexType V);
 
 /**
  * @brief   删除两节点的弧
@@ -184,7 +184,7 @@ int deleteVexNode(mGraph &G, vertexType V);
  * @param   vertexType N 弧的第二个顶点
  * @return  {int} 1->SUCCESSFUL; 0->ERROR
  */
-int deleteArc(mGraph &G, vertexType V, vertexType N);
+int deleteArc(mGraph& G, vertexType V, vertexType N);
 
 int main() {
     mGraph g;
@@ -196,7 +196,7 @@ int main() {
 int createGraph(mGraph& G) {
     /**
      * @brief: 变量说明
-     * int kind                  创建图的类型(0:有向图，1:有向网，2:无向网，3:无向网，)
+     * int kind 创建图的类型(0:有向图，1:有向网，2:无向网，3:无向网，)
      */
     int kind;
     std::cout << "input graph kind (0:DG,1:DN,2:DN,3:DN) : ";
@@ -248,8 +248,8 @@ int creatCommon(mGraph& G, graphKind V) {
 int createDG(mGraph& G) {
     /**
      * @brief: 变量说明
-     * vertexType v_one, v_two;     创建弧的两个节点值  
-     * int i, status;               i循环变量，status 创建节点初始化状态 
+     * vertexType v_one, v_two;     创建弧的两个节点值
+     * int i, status;               i循环变量，status 创建节点初始化状态
      * int key_one, key_two;        创建弧的两个节点值所在图中的位置
      */
     vertexType v_one, v_two;
@@ -272,8 +272,8 @@ int createDG(mGraph& G) {
 int createDN(mGraph& G) {
     /**
      * @brief: 变量说明
-     * vertexType v_one, v_two;     创建弧的两个节点值  
-     * int i, status;               i循环变量，status 创建节点初始化状态 
+     * vertexType v_one, v_two;     创建弧的两个节点值
+     * int i, status;               i循环变量，status 创建节点初始化状态
      * int key_one, key_two;        创建弧的两个节点值所在图中的位置
      */
     vertexType v_one, v_two;
@@ -297,15 +297,15 @@ int createDN(mGraph& G) {
 int createUDG(mGraph& G) {
     /**
      * @brief: 变量说明
-     * vertexType v_one, v_two;     创建弧的两个节点值  
-     * int i, status;               i循环变量，status 创建节点初始化状态 
+     * vertexType v_one, v_two;     创建弧的两个节点值
+     * int i, status;               i循环变量，status 创建节点初始化状态
      * int key_one, key_two;        创建弧的两个节点值所在图中的位置
      * char * infoValue;            有向网的弧中包含的信息
      */
     vertexType v_one, v_two;
     int i, status;
     int key_one, key_two;
-    char * infoValue;
+    char* infoValue;
     status = creatCommon(G, DG);
     if (OPERATION_ERROR == status) {
         return OPERATION_ERROR;
@@ -316,7 +316,7 @@ int createUDG(mGraph& G) {
         key_one = locatVexIndex(G, v_one);
         key_two = locatVexIndex(G, v_two);
         G.arcs[key_one][key_two].adj = ONE;
-        infoValue = (infoType *)malloc(VERTEX_SIZE * sizeof(infoType));
+        infoValue = (infoType*)malloc(VERTEX_SIZE * sizeof(infoType));
         std::cout << "input " << i + ONE << " arcn  info value: ";
         std::cin >> infoValue;
         G.arcs[key_one][key_two].info = infoValue;
@@ -327,15 +327,15 @@ int createUDG(mGraph& G) {
 int createUDN(mGraph& G) {
     /**
      * @brief: 变量说明
-     * vertexType v_one, v_two;     创建弧的两个节点值  
-     * int i, status;               i循环变量，status 创建节点初始化状态 
+     * vertexType v_one, v_two;     创建弧的两个节点值
+     * int i, status;               i循环变量，status 创建节点初始化状态
      * int key_one, key_two;        创建弧的两个节点值所在图中的位置
      * char * infoValue;            无向网的弧中包含的信息
      */
     vertexType v_one, v_two;
     int i, status;
     int key_one, key_two;
-    char * infoValue;
+    char* infoValue;
     status = creatCommon(G, DG);
     if (OPERATION_ERROR == status) {
         return OPERATION_ERROR;
@@ -374,12 +374,11 @@ void displayGraph(mGraph G) {
 }
 
 int findFirstAdjVex(mGraph G, int V) {
-	int i;
+    int i;
     for (i = ZERO; i < G.vexnum; i++) {
-        if (ONE == G.vexs[V][i]){
-        	return i;
+        if (ONE == G.vexs[V][i]) {
+            return i;
         }
-            
     }
     return MINUS_ONE;
 }
@@ -393,31 +392,33 @@ int findNextAdjVex(mGraph G, int V, int P) {
     return MINUS_ONE;
 }
 
-int putVex(mGraph &G, vertexType V, vertexType e){
-	if(!G.vexnum){
-		return OPERATION_ERROR;
-	}
-	int key = locatVexIndex(G, V);
-	if(key < ZERO){
-		return OPERATION_ERROR;
-	}
-	strcpy(G.vexs[key],e);
-	return OPERATION_SUCCESS;
+int putVex(mGraph& G, vertexType V, vertexType e) {
+    if (!G.vexnum) {
+        return OPERATION_ERROR;
+    }
+    int key = locatVexIndex(G, V);
+    if (key < ZERO) {
+        return OPERATION_ERROR;
+    }
+    strcpy(G.vexs[key], e);
+    return OPERATION_SUCCESS;
 }
 
-int insertVexNode(mGraph &G, vertexType V){
+int insertVexNode(mGraph& G, vertexType V) {
     /**
      * @brief: 变量说明
      * vRType N    图中弧的权重
      */
-    if(G.vexnum == ZERO){ return OPERATION_ERROR;}
+    if (G.vexnum == ZERO) {
+        return OPERATION_ERROR;
+    }
     vRType N = ZERO;
-    if(G.kind % TWO == ONE){
+    if (G.kind % TWO == ONE) {
         N = INIT_SIZE;
     }
     strcpy(G.vexs[G.vexnum], V);
 
-    for(int i = ZERO; i< G.vexnum; i++){
+    for (int i = ZERO; i < G.vexnum; i++) {
         G.arcs[G.vexnum][i].adj = N;
         G.arcs[G.vexnum][i].info = NULL;
         G.arcs[i][G.vexnum].adj = N;
@@ -427,39 +428,47 @@ int insertVexNode(mGraph &G, vertexType V){
     return OPERATION_SUCCESS;
 }
 
-int insertArc(mGraph &G, vertexType V, vertexType N){
+int insertArc(mGraph& G, vertexType V, vertexType N) {
     /**
      * @brief: 变量说明
      * int vexKey_one, vexKey_two    插入两节点间的弧的位置
      */
-    if(G.vexnum == ZERO){ return OPERATION_ERROR;}
+    if (G.vexnum == ZERO) {
+        return OPERATION_ERROR;
+    }
     int vexKey_one, vexKey_two;
     vexKey_one = locatVexIndex(G, V);
     vexKey_two = locatVexIndex(G, N);
-    if(vexKey_one<ZERO || vexKey_two<ZERO){ return OPERATION_ERROR;}
+    if (vexKey_one < ZERO || vexKey_two < ZERO) {
+        return OPERATION_ERROR;
+    }
     G.arcnum += ONE;
-    if(G.kind % TWO){
-        std::cout<<"input arc weight : ";
-        std::cin>>G.arcs[vexKey_one][vexKey_two].adj;
-    }else{
+    if (G.kind % TWO) {
+        std::cout << "input arc weight : ";
+        std::cin >> G.arcs[vexKey_one][vexKey_two].adj;
+    } else {
         G.arcs[vexKey_one][vexKey_two].adj = ONE;
     }
-    if(G.kind == ONE || G.kind == ONE + TWO){
+    if (G.kind == ONE || G.kind == ONE + TWO) {
         G.arcs[vexKey_two][vexKey_one] = G.arcs[vexKey_one][vexKey_two];
     }
     return OPERATION_SUCCESS;
 }
-int deleteArc(mGraph &G, vertexType V, vertexType N){
+int deleteArc(mGraph& G, vertexType V, vertexType N) {
     /**
      * @brief: 变量说明
      * int vexKey_one, vexKey_two    删除两节点间的弧的位置
      */
-    if(G.vexnum == ZERO){ return OPERATION_ERROR;}
+    if (G.vexnum == ZERO) {
+        return OPERATION_ERROR;
+    }
     int vexKey_one, vexKey_two;
     vexKey_one = locatVexIndex(G, V);
     vexKey_two = locatVexIndex(G, N);
-    if(vexKey_one<ZERO || vexKey_two<ZERO){ return OPERATION_ERROR;}
-    if(G.arcs[vexKey_one][vexKey_two].adj == ONE){
+    if (vexKey_one < ZERO || vexKey_two < ZERO) {
+        return OPERATION_ERROR;
+    }
+    if (G.arcs[vexKey_one][vexKey_two].adj == ONE) {
         G.arcs[vexKey_one][vexKey_two].adj = ZERO;
         G.arcnum -= ONE;
         return OPERATION_SUCCESS;
@@ -473,10 +482,14 @@ int deleteVexNode(mGraph& G, vertexType V) {
      * int i, j     循环变量
      * int vexKey   删除节点的位置
      */
-    if (G.vexnum == ZERO) {  return OPERATION_ERROR;}
+    if (G.vexnum == ZERO) {
+        return OPERATION_ERROR;
+    }
     int i, j;
     int vexKey = locatVexIndex(G, V);
-    if (vexKey < ZERO) { return OPERATION_ERROR; }
+    if (vexKey < ZERO) {
+        return OPERATION_ERROR;
+    }
     for (i = ZERO; i < G.vexnum; i++) {
         deleteArc(G, V, G.vexs[i]);
         deleteArc(G, G.vexs[i], V);
