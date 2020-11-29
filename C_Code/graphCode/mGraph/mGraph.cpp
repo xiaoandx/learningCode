@@ -444,8 +444,8 @@ int insertArc(mGraph &G, vertexType V, vertexType N){
     }else{
         G.arcs[vexKey_one][vexKey_two].adj = ONE;
     }
-    if(G.kind == DN || G.kind == UDN){
-        G.arcs[vexKey_two][vexKey_one] = G.arcs[vexKey_one][vexKey_two]
+    if(G.kind == ONE || G.kind == ONE + TWO){
+        G.arcs[vexKey_two][vexKey_one] = G.arcs[vexKey_one][vexKey_two];
     }
     return OPERATION_SUCCESS;
 }
@@ -459,8 +459,8 @@ int deleteArc(mGraph &G, vertexType V, vertexType N){
     vexKey_one = locatVexIndex(G, V);
     vexKey_two = locatVexIndex(G, N);
     if(vexKey_one<ZERO || vexKey_two<ZERO){ return OPERATION_ERROR;}
-    if(G.arcs[vexKey_one][vexKey_two] == ONE){
-        G.arcs[vexKey_one][vexKey_two] = ZERO;
+    if(G.arcs[vexKey_one][vexKey_two].adj == ONE){
+        G.arcs[vexKey_one][vexKey_two].adj = ZERO;
         G.arcnum -= ONE;
         return OPERATION_SUCCESS;
     }
