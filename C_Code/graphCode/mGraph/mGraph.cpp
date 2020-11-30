@@ -186,9 +186,33 @@ int deleteVexNode(mGraph& G, vertexType V);
  */
 int deleteArc(mGraph& G, vertexType V, vertexType N);
 
+/**
+ * @brief   清空图
+ * @Date    2020-11-30 14:33:32
+ * @param   mGraph &G 需要操作的图
+ * @return  {int} 1->SUCCESSFUL; 0->ERROR
+ */
+int clearGraph(mGraph& G);
+
+/**
+ * @brief   判断图是否为空
+ * @Date    2020-11-30 14:37:05
+ * @param   mGraph G 需要操作的图
+ * @return  {int} 1->NULL; 0->not NULL
+ */
+int isEmpty(mGraph G);
+
 int main() {
     mGraph g;
+    char *a = "2";
+    char *b = "3";
     createGraph(g);
+    displayGraph(g);
+    //insertVexNode(g, a);
+    insertArc(g,a,b);
+    displayGraph(g);
+    //deleteVexNode(g, a);
+    deleteArc(g,a,b);
     displayGraph(g);
     return OPERATION_SUCCESS;
 }
@@ -409,12 +433,12 @@ int insertVexNode(mGraph& G, vertexType V) {
      * @brief: 变量说明
      * vRType N    图中弧的权重
      */
-    if (G.vexnum == ZERO) {
+    if ( isEmpty(G) ) {
         return OPERATION_ERROR;
     }
     vRType N = ZERO;
     if (G.kind % TWO == ONE) {
-        N = INIT_SIZE;
+         N = ZERO;
     }
     strcpy(G.vexs[G.vexnum], V);
 
@@ -424,7 +448,10 @@ int insertVexNode(mGraph& G, vertexType V) {
         G.arcs[i][G.vexnum].adj = N;
         G.arcs[i][G.vexnum].info = NULL;
     }
+    G.arcs[G.vexnum][G.vexnum].adj = N;
+    G.arcs[G.vexnum][G.vexnum].info = NULL;
     G.vexnum += ONE;
+    
     return OPERATION_SUCCESS;
 }
 
@@ -433,7 +460,7 @@ int insertArc(mGraph& G, vertexType V, vertexType N) {
      * @brief: 变量说明
      * int vexKey_one, vexKey_two    插入两节点间的弧的位置
      */
-    if (G.vexnum == ZERO) {
+    if ( isEmpty(G) ) {
         return OPERATION_ERROR;
     }
     int vexKey_one, vexKey_two;
@@ -459,7 +486,7 @@ int deleteArc(mGraph& G, vertexType V, vertexType N) {
      * @brief: 变量说明
      * int vexKey_one, vexKey_two    删除两节点间的弧的位置
      */
-    if (G.vexnum == ZERO) {
+    if ( isEmpty(G) ) {
         return OPERATION_ERROR;
     }
     int vexKey_one, vexKey_two;
@@ -482,7 +509,7 @@ int deleteVexNode(mGraph& G, vertexType V) {
      * int i, j     循环变量
      * int vexKey   删除节点的位置
      */
-    if (G.vexnum == ZERO) {
+    if ( isEmpty(G) ) {
         return OPERATION_ERROR;
     }
     int i, j;
@@ -509,4 +536,20 @@ int deleteVexNode(mGraph& G, vertexType V) {
     }
     G.vexnum -= ONE;
     return OPERATION_SUCCESS;
+}
+
+int clearGraph(mGraph& G){
+    if ( isEmpty(G) ) {
+        return OPERATION_ERROR;
+    }
+    G.arcnum = ZERO;
+    G.vexnum = ZERO;
+    return OPERATION_SUCCESS;
+}
+
+int isEmpty(mGraph G){
+    if(ZERO == G.arcnum){
+        return ONE;
+    }
+    return ZERO;
 }
