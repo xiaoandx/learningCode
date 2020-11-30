@@ -10,8 +10,13 @@
  * @Description: 图的定义与操作
  * @Author: WEI.ZHOU
  * @Date: 2020-11-27 16:55:52
- * @Version: V1.0
+ * @Version: V1.5
  * @Others: Running test instructions
+ *          1. 实现图的初始化，创建(DN、DG、UDN、UDG)，插入(insertVex、insertArc),
+ *             删除(deleteVex、deleteArc),查找节点，查询下一个邻接点，修改顶点值，判断是否为空，清空图；
+ *          2. 需要注意创建网的弧边时，需要输入info信息；
+ *          3. 测试创建图需要 (1)输入图的类型 (2)图包含的顶点个数，弧的数量，空格分开 (3)在依次创建图的节点 
+ *              (4)输入创建两节点间的弧PS: 2 -> 3  需要输入：2 3  (中间空格分隔)
  * 			
  */
 #include <stdlib.h>
@@ -40,7 +45,7 @@ typedef char vertexType[VERTEX_SIZE];
 typedef char infoType;
 
 /**
- * DG:有向图，DN:有向网，UDG:无向网，UDN:无向网
+ * DG:有向图，DN:有向网，UDG:有向网，UDN:无向网
  */
 enum graphKind { DG, DN, UDG, UDN };
 typedef struct {
@@ -209,18 +214,18 @@ int main() {
     createGraph(g);
     displayGraph(g);
     //insertVexNode(g, a);
-    insertArc(g,a,b);
-    displayGraph(g);
+    //insertArc(g,a,b);
+    //displayGraph(g);
     //deleteVexNode(g, a);
-    deleteArc(g,a,b);
-    displayGraph(g);
+    //deleteArc(g,a,b);
+    //displayGraph(g);
     return OPERATION_SUCCESS;
 }
 
 int createGraph(mGraph& G) {
     /**
      * @brief: 变量说明
-     * int kind 创建图的类型(0:有向图，1:有向网，2:无向网，3:无向网，)
+     * int kind 创建图的类型(0:有向图，1:有向网，2:有向网，3:无向网，)
      */
     int kind;
     std::cout << "input graph kind (0:DG,1:DN,2:DN,3:DN) : ";
@@ -303,7 +308,7 @@ int createDN(mGraph& G) {
     vertexType v_one, v_two;
     int i, status;
     int key_one, key_two;
-    status = creatCommon(G, DG);
+    status = creatCommon(G, DN);
     if (OPERATION_ERROR == status) {
         return OPERATION_ERROR;
     }
@@ -330,7 +335,7 @@ int createUDG(mGraph& G) {
     int i, status;
     int key_one, key_two;
     char* infoValue;
-    status = creatCommon(G, DG);
+    status = creatCommon(G, UDG);
     if (OPERATION_ERROR == status) {
         return OPERATION_ERROR;
     }
@@ -360,7 +365,7 @@ int createUDN(mGraph& G) {
     int i, status;
     int key_one, key_two;
     char* infoValue;
-    status = creatCommon(G, DG);
+    status = creatCommon(G, UDN);
     if (OPERATION_ERROR == status) {
         return OPERATION_ERROR;
     }
@@ -376,6 +381,7 @@ int createUDN(mGraph& G) {
         std::cin >> infoValue;
         G.arcs[key_one][key_two].info = infoValue;
         G.arcs[key_two][key_one].info = infoValue;
+        std::cout<<G.arcs[key_one][key_two].info<<LF;
     }
     return OPERATION_SUCCESS;
 }
@@ -390,7 +396,8 @@ void displayGraph(mGraph G) {
         for (int j = ZERO; j < G.vexnum; j++) {
             std::cout << G.arcs[i][j].adj << " - ";
             if (G.kind == UDG || UDN == G.kind) {
-                std::cout << &G.arcs[i][j].info << " \t ";
+                // std::cout << G.arcs[i][j].info << " \t ";
+                printf(" %s \t", G.arcs[i][j].info);
             }
         }
         std::cout << LF;
