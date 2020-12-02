@@ -22,6 +22,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <iostream>
+#include "queue.h"
 
 #define OPERATION_SUCCESS 1
 #define OPERATION_ERROR 0
@@ -43,6 +44,7 @@
 typedef int vRType;
 typedef char vertexType[VERTEX_SIZE];
 typedef char infoType;
+int nodeVisitList[MAX_VERTEX_NUM];
 
 /**
  * DG:有向图，DN:有向网，UDG:有向网，UDN:无向网
@@ -207,18 +209,53 @@ int clearGraph(mGraph& G);
  */
 int isEmpty(mGraph G);
 
+/**
+ * @brief   深度优先遍历核心算法
+ * @Date    2020-12-02 20:47:44
+ * @param   mGraph G 需要操作的图
+ * @param   vRType V 遍历起点
+ * @return  {int} 1->success; 0->error
+ */
+int DFSGraph(mGraph G, int V);
+
+/**
+ * @brief   深度优先遍历
+ * @Date    2020-12-02 21:03:25
+ * @param   mGraph G 需要操作的图
+ * @return  {int} 1->success; 0->error
+ */
+int DFSTraverse(mGraph G);
+
+/**
+ * @brief   广度优先遍历
+ * @Date    2020-12-02 21:40:11
+ * @param   mGraph G 需要操作的图
+ * @return  {int} 1->success; 0->error
+ */
+int BFSTraverse(mGraph G);
+
 int main() {
     mGraph g;
     char *a = "2";
     char *b = "3";
+    std::cout<<"-------------- new mGraph -------------"<<LF;
     createGraph(g);
     displayGraph(g);
-    //insertVexNode(g, a);
-    //insertArc(g,a,b);
-    //displayGraph(g);
-    //deleteVexNode(g, a);
-    //deleteArc(g,a,b);
-    //displayGraph(g);
+    std::cout<<"-------------- add new node 3 -------------"<<LF;
+    insertVexNode(g, b);
+    std::cout<<"-------------- add new Arc 2->3 -------------"<<LF;
+    insertArc(g,a,b);
+    displayGraph(g);
+    std::cout<<"-------------- delete  node 3 -------------"<<LF;
+    deleteVexNode(g, b);
+    std::cout<<"-------------- delete  Arc  2->3 -------------"<<LF;
+    deleteArc(g,a,b);
+    std::cout<<"-------------- print Graph: -------------"<<LF;
+    displayGraph(g);
+    std::cout<<"-------------- DFS Graph: -------------"<<LF;
+    DFSTraverse(g);
+    std::cout<<"-------------- BFS Graph: -------------"<<LF;
+    BFSTraverse(g);
     return OPERATION_SUCCESS;
 }
 
@@ -407,7 +444,7 @@ void displayGraph(mGraph G) {
 int findFirstAdjVex(mGraph G, int V) {
     int i;
     for (i = ZERO; i < G.vexnum; i++) {
-        if (ONE == G.vexs[V][i]) {
+        if (ONE == G.arcs[V][i].adj) {
             return i;
         }
     }
@@ -416,7 +453,7 @@ int findFirstAdjVex(mGraph G, int V) {
 
 int findNextAdjVex(mGraph G, int V, int P) {
     for (int i = P + ONE; i < G.vexnum; i++) {
-        if (ONE == G.vexs[V][i]) {
+        if (ONE == G.arcs[V][i].adj) {
             return i;
         }
     }
@@ -488,6 +525,7 @@ int insertArc(mGraph& G, vertexType V, vertexType N) {
     }
     return OPERATION_SUCCESS;
 }
+
 int deleteArc(mGraph& G, vertexType V, vertexType N) {
     /**
      * @brief: 变量说明
@@ -555,8 +593,67 @@ int clearGraph(mGraph& G){
 }
 
 int isEmpty(mGraph G){
-    if(ZERO == G.arcnum){
+    if(ZERO == G.vexnum){
         return ONE;
     }
     return ZERO;
+}
+
+int DFSTraverse(mGraph G) {
+    int V;
+    for (V = ZERO; V < G.vexnum; V++) {
+        nodeVisitList[V] = ONE;
+    }
+    for (V = ZERO; V < G.vexnum; V++) {
+        if (nodeVisitList[V]) {
+            DFSGraph(G, V);
+        }
+    }
+    return OPERATION_SUCCESS;
+}
+
+int DFSGraph(mGraph G, int V) {
+    int pos;
+    nodeVisitList[V] = ZERO;
+    std::cout << G.vexs[V] << "  ";
+    for (pos = findFirstAdjVex(G, V); pos != MINUS_ONE;
+         pos = findNextAdjVex(G, V, pos)) {
+        if (nodeVisitList[V]) {
+            DFSGraph(G, pos);
+        }
+    }
+    std::cout<<LF;
+    return OPERATION_SUCCESS;
+}
+
+int BFSTraverse(mGraph G) {
+    QueueLike q;
+    int i, pos;
+    DataType pullValue;
+    for (i = ZERO; i < G.vexnum; i++) {
+        nodeVisitList[i] = ONE;
+    }
+    initQueue(q);
+    for (i = ZERO; i < G.vexnum; i++) {
+        if (nodeVisitList[i]) {
+            nodeVisitList[i] = ZERO;
+            std::cout << G.vexs[i] << "  ";
+            appendQueue(q, i);
+            while (!emptyQueue(q)) {
+                deleteQueue(q, pullValue);
+                for (pos = findFirstAdjVex(G, pullValue);
+                     pos != MINUS_ONE;
+                     pos = findNextAdjVex(G, pullValue, pos)) {
+                    if (nodeVisitList[pos]) {
+                                                nodeVisitList[pos] = ZERO;
+                                                std::cout << G.vexs[pos]
+                                                          << "  ";
+                                                appendQueue(q, pos);
+                    }
+                }
+            }
+        }
+    }
+    std::cout<<LF;
+    return OPERATION_SUCCESS;
 }
