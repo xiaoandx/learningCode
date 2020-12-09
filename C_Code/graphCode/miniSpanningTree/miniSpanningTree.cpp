@@ -58,6 +58,9 @@ typedef struct {
     graphKind kind;
 } mGraph;
 
+/**
+ * 保存最短弧边的两个顶点信息与弧边的权重值
+*/
 typedef struct {
     vertexType start;
     vertexType end;
@@ -129,11 +132,31 @@ int getEnd(int vends[], int i);
  */
 int kruskal(mGraph G);
 
+/**
+ * @brief   普里姆算法 最小花费生成树
+ * @Date    2020-12-08 12:51:16
+ * @param   mGraph G 需要操作的图
+ * @param   int pos 生成树的起点
+ * @return  {int} 1->SUCCESSFUL; 0->ERROR
+ */
+int prim(mGraph G, int pos);
+
+/**
+ * @brief   求使用(普里姆算法)最小生成树中边的权重和
+ * @Date    2020-12-08 13:01:10
+ * @param   mGraph G 需要操作的图
+ * @param   vertexType prims[] 最小生成树的所有节点
+ * @param   int index   prims数组的索引
+ * @return  {int}  权重最小值
+ */
+int getWeightSum(mGraph G, vertexType prims[], int index);
+
 int main() {
     mGraph g;
     createExampleGraph(g);
     displayGraph(g);
     std::cout<<LF;
+    prim(g,ZERO);
     kruskal(g);
     return OPERATION_SUCCESS;
 }
@@ -281,5 +304,78 @@ int kruskal(mGraph G) {
     for (i = ZERO; i < index; i++){
         std::cout<<"<"<<rets[i].start<<"-"<<rets[i].end<<">";
     }
+    return OPERATION_SUCCESS;
+}
+
+int getWeightSum(mGraph G,  vertexType prims[], int index){
+    int sum = ZERO, m, n;
+    int min;
+    int i,j;
+    for (i = ONE; i < index; i++) {
+        min = INIT_SIZE;
+        n = locatVexIndex(G, prims[i]);
+        for (j = ZERO; j < i; j++) {
+            m = locatVexIndex(G, prims[j]);
+            if (G.arcs[m][n].adj < min) {
+                min = G.arcs[m][n].adj;
+            }
+        }
+        sum += min;
+    }
+    return sum;
+}
+
+int prim(mGraph G, int pos) {
+    /**
+     * @brief: 变量说明
+     * int min          权重大小初始比较
+     * int i,j,k        循环
+     * int sum          最小生成树的权重总和
+     * int index        prim最小树的索引，即prims数组的索引
+     * vertexType prims prim最小树的结果数组
+     * int weights      顶点间边的权重值
+     */
+    int min;
+    int i, j, k;
+    int m, n;
+    int sum;
+    int index = ZERO;
+    vertexType prims[MAX_VERTEX_NUM];
+    int weights[MAX_VERTEX_NUM];
+    strcpy(prims[index++], G.vexs[pos]);
+    for (i = ZERO; i < G.vexnum; i++) {
+        weights[i] = G.arcs[pos][i].adj;
+    }
+    weights[pos] = ZERO;
+    for (i = ZERO; i < G.vexnum; i++) {
+        if (pos == i) { continue; }
+        j = ZERO; k = ZERO; min = INIT_SIZE;
+        while (j < G.vexnum) {
+            if (weights[j] != ZERO && weights[j] < min) {
+                min = weights[j];
+                k = j;
+            }
+            j++;
+        }
+        strcpy(prims[index++], G.vexs[k]);
+
+        weights[k] = ZERO;
+        for (j = ZERO; j < G.vexnum; j++) {
+            if (weights[j] != ZERO && G.arcs[k][j].adj < weights[j])
+                weights[j] = G.arcs[k][j].adj;
+        }
+    }
+    sum = getWeightSum(G, prims,index);
+
+    std::cout << "point:" << G.vexs[pos]
+              << " miniSpanningTreeNodeNumber = " << sum << LF;
+    std::cout << "miniSpanningTreeArc:";
+    for (i = ZERO; i < index - ONE; i++) {
+        std::cout << prims[i];
+        if (i != index - TWO) {
+            std::cout << "->";
+        }
+    }
+    std::cout << LF;
     return OPERATION_SUCCESS;
 }
