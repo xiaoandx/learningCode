@@ -1,0 +1,22 @@
+{
+    "resultinfo":[
+        {
+            "imgUrl":"paper.png",
+			"url":"paper/"
+        },
+        {
+            "imgUrl":"queryImage.png",
+            "url":"queryImage/"
+        },
+        {
+  
+            "imgUrl":"findHeadPortrait.png",
+            "url":"findHeadPortrait/"
+        },
+		{
+		  
+		    "imgUrl":"exapp.png",
+		    "url":"exapp/"
+		}
+    ]
+}
