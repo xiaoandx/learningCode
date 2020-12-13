@@ -46,7 +46,8 @@ public class ExamV1WebApp extends SpringBootServletInitializer  {
 	 * <p>Description: </p>   
 	 * @param builder
 	 * @return   
-	 * @see org.springframework.boot.web.servlet.support.SpringBootServletInitializer#configure(org.springframework.boot.builder.SpringApplicationBuilder)   
+	 * @see org.springframework.boot.web.servlet.support.SpringBootServletInitializer
+	 * 		#configure(org.springframework.boot.builder.SpringApplicationBuilder)   
 	 */
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {

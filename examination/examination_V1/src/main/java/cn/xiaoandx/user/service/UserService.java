@@ -126,7 +126,7 @@ public class UserService implements DaoCode,Parameter{
 	public void addToken(OneValueVO oneValueVO) {
 		if(oneValueVO.getUserId() != ENTER_NUMBER) {
 			int numbers = ADD_ERROR;
-			if(totalCollcetDao.findByUserId(oneValueVO.getUserId()).size() == 0) {
+			if(totalCollcetDao.findByUserId(oneValueVO.getUserId()).size() == ADD_ERROR) {
 				// 初始化答题汇总表
 				numbers = totalCollcetDao.addDefulent(oneValueVO);
 			}else {

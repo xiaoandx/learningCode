@@ -1,2 +1,3 @@
-*/application-line.yml
+*.yml
+*.gitignore
 target/

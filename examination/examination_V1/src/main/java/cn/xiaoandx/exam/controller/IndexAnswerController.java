@@ -99,7 +99,7 @@ public class IndexAnswerController {
 	 * @return:List<AnswerRankingVo.java>	排名集合
 	 */
 	@GetMapping(value = "/findRankingList",produces = MediaType.APPLICATION_JSON_VALUE)
-	@ApiOperation(httpMethod = "GET",value = "查询排名",notes = "<br><br><b>@author xiaox.周巍</b>")
+	@ApiOperation(httpMethod = "GET",value = "查询排名V1.5",notes = "<br><br><b>@author xiaox.周巍</b>")
 	@ApiResponses({
 		@ApiResponse(code = 400,message = "未传入指定参数"),
 		@ApiResponse(code = 404,message = "未找到指定页面")

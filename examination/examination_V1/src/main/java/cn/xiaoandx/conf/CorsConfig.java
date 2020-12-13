@@ -40,7 +40,7 @@ public class CorsConfig {
         /**
          *	如果不使用”*”（即允许全部访问源），则可以配置多条访问源来做控制。
          * corsConfiguration.addAllowedOrigin("http://localhost:8082/")
-         * corsConfiguration.addAllowedOrigin("http://test.aimaonline.cn/")
+         * corsConfiguration.addAllowedOrigin("http://api.xiaoandx.club/")
          **/
         corsConfiguration.addAllowedOrigin("*");
         // 2 设置访问源请求头
