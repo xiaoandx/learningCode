@@ -40,7 +40,7 @@ typedef char vertexType[VERTEX_SIZE];
 typedef char infoType;
 
 /**
- * DG:有向图，DN:无向网，UDG:有向网，UDN:无向网
+ * DG:有向图，DN:有向网，UDG:无向图，UDN:无向网
  */
 enum graphKind { DG, DN, UDG, UDN };
 typedef struct {
@@ -116,16 +116,17 @@ int createExampleGraph(mGraph &G){
 }
 
 void displayGraph(mGraph G) {
-    std::cout << "graph node :";
+    std::cout << "graph node :\t";
     for (int i = ZERO; i < G.vexnum; i++) {
-        std::cout << G.vexs[i] << " ";
+        std::cout << G.vexs[i] << " \t";
     }
     std::cout << LF << "graph arcs:" << LF;
     for (int i = ZERO; i < G.vexnum; i++) {
         for (int j = ZERO; j < G.vexnum; j++) {
-            std::cout << G.arcs[i][j].adj << "\t-\t";
+        	vRType gert = (G.arcs[i][j].adj == INIT_SIZE) ? ZERO : G.arcs[i][j].adj;
+            std::cout << gert << "\t-\t";
         }
-        std::cout << LF;
+        std::cout << LF << LF;
     }
 }
 
@@ -181,7 +182,7 @@ int shartesPathDij(mGraph G, int pos) {
             k = path[k];
         } while (k != pos);
         routeLenght = (dist[i] == INIT_SIZE) ? ZERO : dist[i];
-        std::cout << pos << " 路径为：" << routeLenght << LF;
+        std::cout << pos << " path lenght ：" << routeLenght << LF;
     }
     return OPERATION_SUCCESS;
 }
