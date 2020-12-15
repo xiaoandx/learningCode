@@ -7,7 +7,7 @@
  * In case of code problems, feedback can be made through the following email address.
  * 						<xiaoandx@gmail.com>
  * 
- * @Description: 最短路径
+ * @Description: 迪杰斯特拉算法-最短路径
  * @Author: WEI.ZHOU
  * @Date: 2020-12-09 20:00:11
  * @Version: V1.0
@@ -87,6 +87,17 @@ int createExampleGraph(mGraph &G);
  */
 int shartesPathDij(mGraph G, int pos);
 
+/**
+ * @brief   输出查找当前pst点最短路径
+ * @Date    2020-12-14 15:10:51
+ * @param   int pos     当前点
+ * @param   int* dist   起点到其它点的权重值集合
+ * @param   int* mack   个点的查询结果集合(1代表查询结束，并查找出最短路径)
+ * @param   int* path   起点到当前点的中转点
+ * @param   mGraph G    需要操作的网
+ */
+void printProcess(int pos, int* dist, int* mack, int* path, mGraph G);
+
 int main() {
     mGraph g;
     createExampleGraph(g);
@@ -97,21 +108,21 @@ int main() {
 
 int createExampleGraph(mGraph &G){
     G.kind = DN;
-    strcpy(G.vexs[0],"v0");strcpy(G.vexs[1],"v1");
-    strcpy(G.vexs[2],"v2");strcpy(G.vexs[3],"v3");
-    strcpy(G.vexs[4],"v4");strcpy(G.vexs[5],"v5");
-    G.vexnum = 6;
+    strcpy(G.vexs[0],"A");strcpy(G.vexs[1],"B");
+    strcpy(G.vexs[2],"C");strcpy(G.vexs[3],"D");
+    strcpy(G.vexs[4],"E");
+    G.vexnum = 5;
     for(int i = ZERO; i<G.vexnum; i++){
         for(int j = ZERO; j<G.vexnum; j++){
             G.arcs[i][j].adj = INIT_SIZE;
             G.arcs[i][j].info = NULL;
         }
     }
-    G.arcs[0][2].adj = 10; G.arcs[0][4].adj = 30;
-    G.arcs[0][5].adj = 100;G.arcs[1][2].adj = 5;
-    G.arcs[2][3].adj = 50;G.arcs[3][5].adj = 10;
-    G.arcs[4][3].adj = 20; G.arcs[4][5].adj = 60; 
-    G.arcnum = 8;
+    G.arcs[0][1].adj = 10; G.arcs[0][3].adj = 30;
+    G.arcs[0][4].adj = 100;G.arcs[1][2].adj = 50;
+    G.arcs[2][4].adj = 10;G.arcs[3][4].adj = 60;
+    G.arcs[3][2].adj = 20;  
+    G.arcnum = 7;
     return OPERATION_SUCCESS;
 }
 
@@ -123,7 +134,8 @@ void displayGraph(mGraph G) {
     std::cout << LF << "graph arcs:" << LF;
     for (int i = ZERO; i < G.vexnum; i++) {
         for (int j = ZERO; j < G.vexnum; j++) {
-        	vRType gert = (G.arcs[i][j].adj == INIT_SIZE) ? ZERO : G.arcs[i][j].adj;
+            vRType gert =
+                (G.arcs[i][j].adj == INIT_SIZE) ? ZERO : G.arcs[i][j].adj;
             std::cout << gert << "\t-\t";
         }
         std::cout << LF << LF;
@@ -154,6 +166,7 @@ int shartesPathDij(mGraph G, int pos) {
     mack[pos] = ONE;
 
     for (int i = ZERO; i < G.vexnum; i++) {
+        printProcess(i, dist, mack, path, G);
         vRType min = INIT_SIZE;
         int minIndex = MINUS_ONE;
         for (int j = ZERO; j < G.vexnum; j++) {
@@ -182,7 +195,36 @@ int shartesPathDij(mGraph G, int pos) {
             k = path[k];
         } while (k != pos);
         routeLenght = (dist[i] == INIT_SIZE) ? ZERO : dist[i];
-        std::cout << pos << " path lenght ：" << routeLenght << LF;
+        std::cout << pos << "： path lenght ：" << routeLenght << LF;
     }
     return OPERATION_SUCCESS;
+}
+/**
+ * @brief   输出查找当前pst点最短路径
+ * @Date    2020-12-14 15:10:51
+ * @param   int pos     当前点
+ * @param   int* dist   起点到其它点的权重值集合
+ * @param   int* mack   个点的查询结果集合(1代表查询结束，并查找出最短路径)
+ * @param   int* path   起点到当前点的中转点
+ * @param   mGraph G    需要操作的网
+ */
+void printProcess(int pos, int* dist, int* mack, int* path, mGraph G);
+void printProcess(int pos, int* dist, int* mack, int* path, mGraph G) {
+    int j;
+    std::cout << "第 " << pos << "\t";
+    std::cout << LF << "path:\t";
+    for ( j= ZERO; j < G.vexnum; j++) {
+        std::cout << path[j] << "\t";
+    }
+    std::cout << LF << "dist:\t";
+    for (j = ZERO; j < G.vexnum; j++) {
+        vRType gert =
+                (dist[j] == INIT_SIZE) ? ZERO : dist[j];
+        std::cout << gert << "\t";
+    }
+    std::cout << LF << "mack:\t";
+    for (j = ZERO; j < G.vexnum; j++) {
+        std::cout << mack[j] << "\t";
+    }
+    std::cout << LF;
 }
