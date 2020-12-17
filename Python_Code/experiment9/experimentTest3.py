@@ -37,15 +37,14 @@ def printResult(strArray=[]):
 def printDefTxt(file):
     """
     输出docx原文
-    :param file:
+    :param file: docx文件
     :return:
     """
-    print("字符原文：")
     print("=" * 40)
+    print("字符原文：")
     # 输出原文
     for para in file.paragraphs:
         print(para.text)
-    print("=" * 40)
 
 
 def matching(file, pattern):
@@ -64,7 +63,8 @@ def matching(file, pattern):
                 for j in i:
                     strArray.append(j)
 
-    print("匹配字符：", end=" ")
+    print("\n"+"=" * 40)
+    print("匹配字符：")
     printResult(strArray)
 
 
