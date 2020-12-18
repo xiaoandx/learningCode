@@ -61,7 +61,9 @@ def showImg(imgURL):
     :param imgURL:图片地址
     :return:NULL
     """
-    getImgObject(imgURL).show()
+    img = getImgObject(imgURL)
+    img.show()
+    img.close()
 
 
 def getImgMassage(imgURL):
@@ -74,6 +76,7 @@ def getImgMassage(imgURL):
     print("图片格式为：", img.format)  # 显示图像格式
     print("图像大小:", img.size)  # 显示图像大小
     print("图片的高度：", img.height, "图片的宽度：", img.width)
+    img.close()
     pass
 
 
@@ -85,24 +88,25 @@ def showHistogram(imgURL):
     """
     font = FontProperties(fname=r"c:\windows\fonts\SimSun.ttc", size=14)
     imgObject = getImgObject(imgURL)
-    im = array(imgObject.convert('L'))  # 打开图像，并转成灰度图像
+    img = array(imgObject.convert('L'))  # 打开图像，并转成灰度图像
 
     figure()
     subplot(121)
     gray()
-    contour(im, origin="image")
+    contour(img, origin="image")
     axis("equal")
     axis("off")
     title(u"图像轮廓", fontproperties=font)
 
     subplot(122)
-    hist(im.flatten(), 128)
+    hist(img.flatten(), 128)
     title(u"图像直方图", fontproperties=font)
     plt.xlim([0, imgObject.width])
     plt.ylim([0, imgObject.height])
 
     show()
 
+    img.close()
 
 def saveNewImg(imgURL):
     """
@@ -132,6 +136,7 @@ def zoomImg(imgURL):
     img = img.resize((width, height), Image.ANTIALIAS)
     img.save(imgFolderPath + fileName + '.png')
     img.show()
+    img.close()
     pass
 
 
@@ -148,6 +153,7 @@ def rotateImg(imgURL, degrees=180):
     img2 = img2.resize((200, 200))  # 改变图片尺寸
     img2.save(imgFolderPath + fileName + '.png')
     img2.show()
+    img.close()
     pass
 
 
@@ -164,6 +170,7 @@ def shearImg(imgURL, width=100, height=100):
     img = img.resize((width, height), Image.ANTIALIAS)
     img.save(imgFolderPath + fileName + '.png')
     img.show()
+    img.close()
     pass
 
 
@@ -179,6 +186,7 @@ def stImg(imgURL):
     img.thumbnail(size, Image.ANTIALIAS)  # 等比例缩放
     img.save(imgFolderPath + fileName + '.png')
     img.show()
+    img.close()
     pass
 
 
@@ -191,6 +199,7 @@ def screenshot():
     im = ImageGrab.grab()
     im.save(imgFolderPath + fileName, "PNG")
     im.show()
+    img.close()
     pass
 
 
@@ -206,6 +215,7 @@ def gaussianBlur(imgURL, degree=10):
     img = img.filter(MyGaussianBlur(radius=degree))
     img.save(imgFolderPath + fileName + '.png')
     img.show()
+    img.close()
     pass
 
 
@@ -225,6 +235,7 @@ def adjustImgColor(imgURL, color=[1, 1, 0]):
     img = Image.merge("RGB", (r, g, b))
     img.save(imgFolderPath + fileName + '.png')
     img.show()
+    img.close()
     pass
 
 
@@ -241,6 +252,7 @@ def contrastImg(imgURL, degree=2):
     img = img.enhance(degree)
     img.save(imgFolderPath + fileName + '.png')
     img.show()
+    img.close()
     pass
 
 
@@ -251,18 +263,18 @@ def main():
     """
     imgURL = r'.\\temp\\result.png'
 
-    showImg(imgURL)
-    getImgMassage(imgURL)
-    showHistogram(imgURL)
-    saveNewImg(imgURL)
-    zoomImg(imgURL)
-    rotateImg(imgURL, 180)
-    shearImg(imgURL, 100, 30)
-    stImg(imgURL)
-    screenshot()
-    gaussianBlur(imgURL, 10)
-    adjustImgColor(imgURL, [1.3, 0.5, 0])
-    contrastImg(imgURL, 3)
+    # showImg(imgURL)
+    # getImgMassage(imgURL)
+    # showHistogram(imgURL)
+    # saveNewImg(imgURL)
+    # zoomImg(imgURL)
+    # rotateImg(imgURL, 180)
+    # shearImg(imgURL, 100, 30)
+    # stImg(imgURL)
+    # screenshot()
+    # gaussianBlur(imgURL, 10)
+    # adjustImgColor(imgURL, [1.3, 0.5, 0])
+    # contrastImg(imgURL, 3)
 
 
 if __name__ == '__main__':
