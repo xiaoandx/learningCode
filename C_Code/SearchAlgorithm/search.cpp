@@ -146,16 +146,49 @@ int searchNodeByKey(chainTreeNode T,
                     chainTreeNode fatherNode,
                     chainTreeNode& inserNode);
 
+/**
+ * @brief   删除二叉排序树中指定节点
+ * @Date    2020-12-19 09:36:10
+ * @param   chainTreeNode &T    需要操作的二叉排序树
+ * @return  {int} 1->success; 0->error
+ */
+int deleteBST(chainTreeNode& T, ArrayType key);
+
+/**
+ * @brief   删除二叉排序树的节点
+ * @Date    2020-12-19 09:43:33
+ * @param   chainTreeNode &T    需要删除的二叉排序树节点地址
+ * @return  {int} 1->success; 0->error
+ */
+int deleteByKey(chainTreeNode& T);
+
+/**
+ * @brief   二叉排序树中查找是否有对应Key
+ * @Date    2020-12-21 13:07:34
+ * @param   chainTreeNode T    需要操作的二叉排序树
+ * @param   ArrayType key    需要查找的Key
+ * @return  {chainTreeNode}  查找对象
+ */
+chainTreeNode search(chainTreeNode T, ArrayType key);
+
 int main() {
     chainTreeNode T;
-    ArrayType arrayTest[N] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    ArrayType arrayTest[N] = {1, 4, 5, 6, 7, 8, 3, 2, 10, 9};
     int index;
-    // index = sequenceSearch(arrayTest, 6, N);
-    // index = binarySearchOne(arrayTest, 6, N);
-    index = insertionSearch(arrayTest, 6, 0, 9);
-    std::cout << "在arrayTest查找6所在的位置为：" << index << LF;
     createBST(T, arrayTest);
     printTreeInOrder(T);
+    chainTreeNode isExistence = search(T,90);
+    std::cout<<"\nsearch 90 By BST"<<LF;
+    if(treeEmpty(isExistence)){
+        std::cout<<"\nisExistence NULL"<<LF;
+    }else{
+        std::cout<<"\nisExistence Yes"<<LF;
+        deleteBST(T,5);
+        std::cout<<"delete 5 printTree:";
+        printTreeInOrder(T);
+    }
+    
+    
     return OPERATION_SUCCESS;
 }
 
@@ -281,4 +314,58 @@ int searchNodeByKey(chainTreeNode T,
         searchNodeByKey(T->rightChild, data, T, inserNode);
     }
     return OPERATION_ERROR;
+}
+
+int deleteBST(chainTreeNode& T, ArrayType key){
+    if(treeEmpty(T)){
+        return OPERATION_ERROR;
+    }else{
+        if(key == T->data){
+            return deleteByKey(T);
+        }else if(key < T->data){
+            return deleteBST(T->leftChild, key);
+        }else{
+            return deleteBST(T->rightChild, key);
+        }
+    }
+}
+
+int deleteByKey(chainTreeNode& T) {
+    chainTreeNode temp, s;
+    if (!T->rightChild) {
+        temp = T;
+        T = T->leftChild;
+        free(temp);
+    } else if (!T->leftChild) {
+        temp = T;
+        T = T->rightChild;
+        free(temp);
+    } else {
+        temp = T;
+        s = T->leftChild;
+        //  寻找p的直接前驱
+        while (s->rightChild) {
+            temp = s;
+            s = s->rightChild;
+        }
+        //  用p的直接前驱取代p
+        T->data = s->data;
+        if (temp != T) {
+            temp->rightChild = s->leftChild;
+        } else {
+            temp->leftChild = s->leftChild;
+        }
+        free(s);
+    }
+
+    return OPERATION_SUCCESS;
+}
+
+chainTreeNode search(chainTreeNode T, ArrayType key){
+    if(treeEmpty(T) || key == T->data)
+		return T;
+	else if(key < T->data)
+		return search(T->leftChild, key);
+	else
+		return search(T->rightChild, key);
 }
