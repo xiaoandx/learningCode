@@ -26,3 +26,15 @@
 ##### 7. 免费绿色免安装绘图工具(流程图等工具)
 
 [draw.io：https://wwa.lanzous.com/iSuwMj53kqd](https://wwa.lanzous.com/iSuwMj53kqd)
+
+##### 8.完全卸载软件工具
+
+[geek：https://wwa.lanzous.com/iKqSGk063cb](https://wwa.lanzous.com/iKqSGk063cb)
+
+##### 9.检测电脑被占用的文件或文件夹，解除占用
+
+[JetBrainsMono：https://wwa.lanzous.com/iznblk0695a](https://wwa.lanzous.com/iznblk0695a)
+
+##### 10.免费高效OCR识别软件
+
+[PandaOCR：https://wwa.lanzous.com/iqo1Wk06edi](https://wwa.lanzous.com/iqo1Wk06edi)
