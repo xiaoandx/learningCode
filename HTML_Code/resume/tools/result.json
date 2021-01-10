@@ -17,6 +17,11 @@
 		  
 		    "imgUrl":"exapp.png",
 		    "url":"exapp/"
+		},
+		{
+		  
+		    "imgUrl":"reptile.png",
+		    "url":"reptile/"
 		}
     ]
 }
