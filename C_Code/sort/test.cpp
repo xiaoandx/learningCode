@@ -60,6 +60,14 @@ void shellSort(int T[], int n);
 void bubbleSort2(int T[], int n);
 
 /**
+ * @brief:  冒泡排序
+ * @Date: 2020-12-24 21:16:39
+ * @param {int} T[] 需要进行排序的数据集合
+ * @param {int} n 数据集合的长度
+ */
+void bubbleSort(int T[], int n);
+
+/**
  * @brief:  选择排序
  * @param {int} *T  需要排序的集合地址
  * @param {int} n   数据集合的长度
@@ -177,6 +185,19 @@ void bubbleSort2(int T[], int n) {
                 T[j] = T[j - 1];
                 T[j - 1] = temp;
                 flag = 1;
+            }
+        }
+    }
+}
+
+void bubbleSort(int T[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n - 1; i++) {
+        for (j = n - 1; j > i; j--) {
+            if (T[j - 1] > T[j]) {
+                temp = T[j];
+                T[j] = T[j - 1];
+                T[j - 1] = temp;
             }
         }
     }
