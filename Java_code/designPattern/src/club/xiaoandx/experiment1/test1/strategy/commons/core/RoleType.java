@@ -31,20 +31,20 @@ public interface RoleType {
 	/**
 	 * 游戏人物类型-国王
 	 */
-	public static final String USER_TYPE_KIND = "国王";
+	public static final String GAME_USER_TYPE_KIND = "国王";
 	
 	/**
 	 * 游戏人物类型-皇后
 	 */
-	public static final String USER_TYPE_QUEEN = "皇后";
+	public static final String GAME_USER_TYPE_QUEEN = "皇后";
 	
 	/**
 	 * 游戏人物类型-骑士
 	 */
-	public static final String USER_TYPE_KNIGHT = "骑士";
+	public static final String GAME_USER_TYPE_KNIGHT = "骑士";
 	
 	/**
 	 * 游戏人物类型-士兵
 	 */
-	public static final String USER_TYPE_PAWN = "士兵";
+	public static final String GAME_USER_TYPE_PAWN = "士兵";
 }

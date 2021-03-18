@@ -34,7 +34,7 @@ class King extends Role{
 	 * @throws   
 	 */
 	public King(MagicBehavior magicBehavior, WeaponBehavior weaponBehavio) {
-		super(RoleType.USER_TYPE_KIND, magicBehavior, weaponBehavio);
+		super(RoleType.GAME_USER_TYPE_KIND, magicBehavior, weaponBehavio);
 	}
 	
 }
