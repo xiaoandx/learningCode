@@ -15,13 +15,12 @@
  */
 package club.xiaoandx.experiment1.test1.strategy.role;
 
+import club.xiaoandx.experiment1.test1.strategy.commons.utils.ObjectUtil;
 import club.xiaoandx.experiment1.test1.strategy.magic.MagicBehavior;
 import club.xiaoandx.experiment1.test1.strategy.weapon.WeaponBehavior;
 
 /**  
- * <p> 
- *
- * </p> 
+ * <p> 英雄人物抽象类，可以使用魔法或者物理技能进行攻击</p> 
  * @ClassName:Role   
  * @author: WEI.ZHOU
  * @date: 2021-03-18 17:23
@@ -30,19 +29,30 @@ import club.xiaoandx.experiment1.test1.strategy.weapon.WeaponBehavior;
  * @Copyright: Note: This prohibition leaks and for other commercial projects
  */
 public class Role {
+	/**
+	 * 英雄类型 完整英雄角色参考.commons.core.RoleType.java
+	 */
 	private String userType;
+	
+	/**
+	 * 魔法技能接口
+	 */
 	private MagicBehavior magicBehavior = null;
-	private WeaponBehavior weaponBehavio = null;
+	
+	/**
+	 * 物理技能接口
+	 */
+	private WeaponBehavior weaponBehavior = null;
 
 	/**
 	 * @Title: Role
 	 * @Description: TODO(同时拥有两种攻击技能)
 	 */
-	public Role(String userType, MagicBehavior magicBehavior, WeaponBehavior weaponBehavio) {
-		// TODO 自动生成的构造函数存根
+	public Role(String userType, MagicBehavior magicBehavior, WeaponBehavior weaponBehavior) {
+		// TODO 英雄同时拥有魔法技能与物理技能
 		this.userType = userType;
 		this.magicBehavior = magicBehavior;
-		this.weaponBehavio = weaponBehavio;
+		this.weaponBehavior = weaponBehavior;
 	}
 
 	/**
@@ -50,7 +60,7 @@ public class Role {
 	 * @Description: TODO(只拥有魔法攻击)
 	 */
 	public Role(String userType, MagicBehavior magicBehavior) {
-		// TODO 自动生成的构造函数存根
+		// TODO 英雄同时只拥有魔法技能
 		this.userType = userType;
 		this.magicBehavior = magicBehavior;
 	}
@@ -59,10 +69,10 @@ public class Role {
 	 * @Title: Role
 	 * @Description: TODO(只拥有物理攻击)
 	 */
-	public Role(String userType, WeaponBehavior weaponBehavio) {
-		// TODO 自动生成的构造函数存根
+	public Role(String userType, WeaponBehavior weaponBehavior) {
+		// TODO 英雄同时只拥有物理技能
 		this.userType = userType;
-		this.weaponBehavio = weaponBehavio;
+		this.weaponBehavior = weaponBehavior;
 	}
 	
 	/**
@@ -70,19 +80,34 @@ public class Role {
 	 * @Description: TODO(只拥有物理攻击)
 	 */
 	public Role(String userType) {
-		// TODO 自动生成的构造函数存根
+		// TODO 英雄人物无技能
 		this.userType = userType;
 	}
-
+	
+	/**
+	 * 
+	 * <p> 角色使用技能 </p></br>
+	 * 
+	 * <pre> 
+	 * 	1.角色可以使用物理 + 魔法技能进行攻击
+	 * 	2.角色只使用魔法技能
+	 * 	3.角色只使用物理技能
+	 * 	4.角色没有技能
+	 * </pre></br>
+	 * @Title: attack       
+	 * @return: void 
+	 * @since: 1.0      
+	 */
 	public void attack() {
-		if (magicBehavior != null && weaponBehavio != null) {
-			System.out.println(userType + "使用" + magicBehavior.play() + "与" + weaponBehavio.play() + "进行攻击");
-		}else if (weaponBehavio != null){
-			System.out.println(userType + "使用" + weaponBehavio.play() + "进行攻击");
-		}else if (magicBehavior != null){
+		if(ObjectUtil.isNotNull(magicBehavior) && ObjectUtil.isNotNull(weaponBehavior)) {
+			System.out.println(userType + "使用" + magicBehavior.play() + "与" 
+								+ weaponBehavior.play() + "进行攻击");
+		}else if (ObjectUtil.isNotNull(weaponBehavior)){
+			System.out.println(userType + "使用" + weaponBehavior.play() + "进行攻击");
+		}else if (ObjectUtil.isNotNull(magicBehavior)){
 			System.out.println(userType + "使用" + magicBehavior.play() + "进行攻击");
 		}else {
-			System.out.println(userType + "没有攻击技能");
+			System.out.println(userType + "没有任何攻击技能");
 		}
 	}
 

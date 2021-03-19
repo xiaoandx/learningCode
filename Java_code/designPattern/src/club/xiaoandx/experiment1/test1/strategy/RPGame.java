@@ -22,27 +22,24 @@ import club.xiaoandx.experiment1.test1.strategy.role.Role;
 import club.xiaoandx.experiment1.test1.strategy.weapon.WeaponBehavior;
 import club.xiaoandx.experiment1.test1.strategy.weapon.imp.Axe;
 
+class King extends Role {
 
-class King extends Role{
-
-	/**   
-	 * @Title:  King   
-	 * @Description:    TODO(这里用一句话描述这个方法的作用)   
-	 * @param:  @param userType
-	 * @param:  @param magicBehavior
-	 * @param:  @param weaponBehavio  
-	 * @throws   
+	/**
+	 * @Title: King RPG 游戏人物 国王 @Description:
+	 * TODO(这里用一句话描述这个方法的作用) @param: @param userType @param: @param
+	 * magicBehavior @param: @param weaponBehavio @throws
 	 */
 	public King(MagicBehavior magicBehavior, WeaponBehavior weaponBehavio) {
 		super(RoleType.GAME_USER_TYPE_KIND, magicBehavior, weaponBehavio);
 	}
-	
+
 }
 
 /**
  * <p>
  * 角色发生攻击技能测试方法
  * </p>
+ * 
  * @ClassName:RPGame
  * @author: WEI.ZHOU
  * @date: 2021-03-18 16:32
