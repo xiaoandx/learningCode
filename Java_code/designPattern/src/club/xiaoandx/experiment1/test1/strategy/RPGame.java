@@ -25,9 +25,11 @@ import club.xiaoandx.experiment1.test1.strategy.weapon.imp.Axe;
 class King extends Role {
 
 	/**
-	 * @Title: King RPG 游戏人物 国王 @Description:
-	 * TODO(这里用一句话描述这个方法的作用) @param: @param userType @param: @param
-	 * magicBehavior @param: @param weaponBehavio @throws
+	 * @Title: King RPG 游戏人物 国王 
+	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @param: userType 
+	 * @param: magicBehavior 
+	 * @param: weaponBehavio
 	 */
 	public King(MagicBehavior magicBehavior, WeaponBehavior weaponBehavio) {
 		super(RoleType.GAME_USER_TYPE_KIND, magicBehavior, weaponBehavio);

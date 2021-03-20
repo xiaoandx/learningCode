@@ -58,7 +58,7 @@ public class ObjectUtil {
 	 * 判断指定对象是否为空，支持：
 	 *
 	 * <pre>
-	 * 1. CharSequence
+	 * 1. CharSequence (String, StringBuffer, StringBuilder)
 	 * 2. Map
 	 * 3. Iterable
 	 * 4. Iterator
@@ -76,18 +76,22 @@ public class ObjectUtil {
 			return true;
 		}
 		if (obj instanceof CharSequence) {
+			// 判断对象是否属于CharSequence对象 常见的对象(String, StringBuffer, StringBuilder)
 			CharSequence str = (CharSequence) obj;
 			return str == null || str.length() == 0;
 		} else if (obj instanceof Map) {
+			// 判断 obj 对象是否属于 Map
 			Map map = (Map)obj;
 			return null == map || map.isEmpty();
-		} else if (obj instanceof Iterable) {
+		} else if (obj instanceof Iterable) { 
+			// 判断 obj 是否属于 Iterable集合接口
 			Iterable<?> iterable = (Iterable) obj;
 			return null == iterable || isEmpty(iterable.iterator());
 		} else if (obj instanceof Iterator) {
 			Iterator<?> iterator = (Iterator) obj;
 			return null == iterator || false == iterator.hasNext();
 		} else if (null != obj && obj.getClass().isArray()) {
+			// 判断 obj 是否属于数组类型
 			T[] array = (T[]) obj;
 			return array == null || array.length == 0;
 		}
