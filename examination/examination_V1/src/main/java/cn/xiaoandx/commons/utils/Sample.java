@@ -38,14 +38,14 @@ public class Sample {
 
     //client  AipFace对象
     private static AipFace client = null;
-    
-    public static final String APP_ID = "******************";
+    //APPID
+    public static final String APP_ID = "16217652";
     //API_KEY
-    public static final String API_KEY = "*****************************;
+    public static final String API_KEY = "MPN1dX5pOdxby9Gfaq5z7Ofb";
     //SECRET_KEY
-    public static final String SECRET_KEY = "****************************";
-    //GROUP_ID
-    public static final String GROUP_ID = "******************";
+    public static final String SECRET_KEY = "jCF9pHZLnhPRNPnwwDxGR32mEBbrxZh3";
+	//GROUP_ID
+    public static final String GROUP_ID = "xiaox_exam";
 
     
     static {
