@@ -8,7 +8,7 @@
  * 
  *                        <xiaoandx@gmail.com>
  */
-package club.xiaoandx.experiment3.test2;
+package club.xiaoandx.experiment3.test1;
 
 /**  
  * <p> 任务一 </p> 
@@ -19,7 +19,7 @@ package club.xiaoandx.experiment3.test2;
  * @since: JDK1.8
  * @version V1.0.0
  */
-public class Questions1 {
+public class Questions2 {
 	public static void main(String[] args) {
 		/*
 		 * Test:
@@ -65,7 +65,7 @@ class Man extends Person{
 	 * <p> 实现具体自我介绍方法 </p></br>
 	 * <p>Title: speak</p> 
 	 * @date: 2021-03-25 16:44       
-	 * @see club.xiaoandx.experiment3.test2.Person#speak()   
+	 * @see club.xiaoandx.experiment3.test1.Person#speak()   
 	 */
 	@Override
 	public void speak() {
@@ -87,7 +87,7 @@ class Woman extends Person{
 	 * <p> 实现具体自我介绍方法 </p></br>
 	 * <p>Title: speak</p> 
 	 * @date: 2021-03-25 16:46       
-	 * @see club.xiaoandx.experiment3.test2.Person#speak()   
+	 * @see club.xiaoandx.experiment3.test1.Person#speak()   
 	 */
 	@Override
 	public void speak() {
@@ -108,7 +108,7 @@ class Robot extends Person{
 	 * <p> 实现具体自我介绍方法 </p></br>
 	 * <p>Title: speak</p> 
 	 * @date: 2021-03-25 16:47       
-	 * @see club.xiaoandx.experiment3.test2.Person#speak()   
+	 * @see club.xiaoandx.experiment3.test1.Person#speak()   
 	 */
 	@Override
 	public void speak() {

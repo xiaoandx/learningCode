@@ -8,7 +8,7 @@
  * 
  *                        <xiaoandx@gmail.com>
  */
-package club.xiaoandx.experiment3.test3;
+package club.xiaoandx.experiment3.test1;
 
 /**  
  * <p> 任务1 </p> 
@@ -19,14 +19,9 @@ package club.xiaoandx.experiment3.test3;
  * @since: JDK1.8
  * @version V1.0.0
  */
-public class Questions1 {
+public class Questions3 {
 	public static void main(String[] args) {
-		Shape shap = null;
-		try {
-			shap = SimpleShapFactory.getShap("Circle");
-		} catch (UnsupportedShapeException e) {
-			System.out.println(e.getMessage());
-		}
+		Shape shap= SimpleShapFactory.getShap("Circle");
 		shap.draw();
 	}
 }
@@ -64,7 +59,7 @@ class Circle extends Shape{
 	 * <p> 实现画图的具体操作方法 </p></br>
 	 * <p>Title: draw</p> 
 	 * @date: 2021-03-25 17:16       
-	 * @see club.xiaoandx.experiment3.test3.Shape#draw()   
+	 * @see club.xiaoandx.experiment3.test1.Shape#draw()   
 	 */
 	@Override
 	public void draw() {
@@ -75,7 +70,7 @@ class Circle extends Shape{
 	 * <p> 实现擦图的具体方法 </p></br>
 	 * <p>Title: erase</p> 
 	 * @date: 2021-03-25 17:16       
-	 * @see club.xiaoandx.experiment3.test3.Shape#erase()   
+	 * @see club.xiaoandx.experiment3.test1.Shape#erase()   
 	 */
 	@Override
 	public void erase() {
@@ -89,7 +84,7 @@ class Rectangle extends Shape{
 	 * <p> 实现画图的具体操作方法 </p></br>
 	 * <p>Title: draw</p> 
 	 * @date: 2021-03-25 17:18      
-	 * @see club.xiaoandx.experiment3.test3.Shape#draw()   
+	 * @see club.xiaoandx.experiment3.test1.Shape#draw()   
 	 */
 	@Override
 	public void draw() {
@@ -100,7 +95,7 @@ class Rectangle extends Shape{
 	 * <p> 实现擦图的具体方法 </p></br>
 	 * <p>Title: erase</p> 
 	 * @date: 2021-03-25 17:18       
-	 * @see club.xiaoandx.experiment3.test3.Shape#erase()   
+	 * @see club.xiaoandx.experiment3.test1.Shape#erase()   
 	 */
 	@Override
 	public void erase() {
@@ -114,7 +109,7 @@ class Triangle extends Shape{
 	 * <p> 实现画图的具体操作方法 </p></br>
 	 * <p>Title: draw</p> 
 	 * @date: 2021-03-25 17:18      
-	 * @see club.xiaoandx.experiment3.test3.Shape#draw()   
+	 * @see club.xiaoandx.experiment3.test1.Shape#draw()   
 	 */
 	@Override
 	public void draw() {
@@ -125,7 +120,7 @@ class Triangle extends Shape{
 	 * <p> 实现擦图的具体方法 </p></br>
 	 * <p>Title: erase</p> 
 	 * @date: 2021-03-25 17:18       
-	 * @see club.xiaoandx.experiment3.test3.Shape#erase()   
+	 * @see club.xiaoandx.experiment3.test1.Shape#erase()   
 	 */
 	@Override
 	public void erase() {
@@ -144,16 +139,20 @@ class Triangle extends Shape{
  * @version V1.0.0
  */
 class SimpleShapFactory{
-	public static Shape getShap(String drawType) throws UnsupportedShapeException {
+	public static Shape getShap(String drawType) {
 		Shape shap = null;
-		if (drawType.equalsIgnoreCase("Circle")) {
-			shap = new Circle();
-		} else if (drawType.equalsIgnoreCase("Rectangle")) {
-			shap = new Rectangle();
-		} else if (drawType.equalsIgnoreCase("Triangle")) {
-			shap = new Triangle();
-		} else {
-			throw new UnsupportedShapeException("不支持绘制" + drawType + "图形");
+		try {
+			if (drawType.equalsIgnoreCase("Circle")) {
+				shap = new Circle();
+			} else if (drawType.equalsIgnoreCase("Rectangle")) {
+				shap = new Rectangle();
+			} else if (drawType.equalsIgnoreCase("Triangle")) {
+				shap = new Triangle();
+			} else {
+				throw new UnsupportedShapeException("不支持绘制" + drawType + "图形");
+			}
+		} catch (UnsupportedShapeException e) {
+			System.out.println(e.getMessage());
 		}
 		return shap;
 	}
