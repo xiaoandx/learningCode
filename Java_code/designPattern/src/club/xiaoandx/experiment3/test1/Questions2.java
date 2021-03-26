@@ -26,8 +26,12 @@ public class Questions2 {
 		 * 	1. 通过女娲创建工厂创建自定义的人类类型
 		 * 	2. 创建成功后就进行自我介绍
 		 */
-		Person person = SimpleNvwaFactory.getPerson("w");
-		person.speak();
+		Person manPerson = SimpleNvwaFactory.getPerson("m");
+		Person womanPerson = SimpleNvwaFactory.getPerson("w");
+		Person robotPerson = SimpleNvwaFactory.getPerson("r");
+		manPerson.speak();
+		womanPerson.speak();
+		robotPerson.speak();
 	}
 }
 

@@ -23,6 +23,9 @@ public class Questions3 {
 	public static void main(String[] args) {
 		Shape shap= SimpleShapFactory.getShap("Circle");
 		shap.draw();
+		System.out.println("错误演示：绘制半圆---------------------");
+		Shape shapError= SimpleShapFactory.getShap("半圆");
+		shapError.draw();
 	}
 }
 
