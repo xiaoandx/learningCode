@@ -4,6 +4,7 @@ db.json
 *.log
 *.exe
 *.cfg
+*.class
 .gitignore
 /examination/examination_V1/src/main/java/cn/xiaoandx/commons/utils/Sample.java
 Python_Code/reptile/*
