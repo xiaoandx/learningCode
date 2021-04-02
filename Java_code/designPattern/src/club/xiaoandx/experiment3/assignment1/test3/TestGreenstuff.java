@@ -14,8 +14,6 @@ import club.xiaoandx.experiment3.assignment1.test3.factory.GreenstuffFactory;
 import club.xiaoandx.experiment3.assignment1.test3.factory.impl.NotTransgenosisFactory;
 import club.xiaoandx.experiment3.assignment1.test3.factory.impl.TransgenosisFactory;
 import club.xiaoandx.experiment3.assignment1.test3.greenstuff.Greenstuff;
-import club.xiaoandx.experiment3.assignment1.test3.greenstuff.impl.TransgenosisRootGreenstuff;
-import club.xiaoandx.experiment3.assignment1.test3.greenstuff.impl.TransgenosisStemGreenstuff;
 
 /**  
  * <p> 抽象工厂模式种植蔬菜测试类 </p> 
