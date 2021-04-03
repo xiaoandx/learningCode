@@ -25,7 +25,8 @@ import java.util.Scanner;
  * @since: JDK1.8
  */
 public class Example1 {
-    public static void main(String[] args) {
+    @SuppressWarnings("resource")
+	public static void main(String[] args) {
         //华为手机
         String huaweiBrand = "华为";
         double huaweiSize = 5.5;
