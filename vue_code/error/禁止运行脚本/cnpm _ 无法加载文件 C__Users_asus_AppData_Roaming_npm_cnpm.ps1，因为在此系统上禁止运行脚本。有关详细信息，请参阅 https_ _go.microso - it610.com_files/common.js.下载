@@ -1,0 +1,82 @@
+$(function() {
+    $("#keyword").on("focus", function (t) { t.preventDefault(), $(".search").addClass("search-active") });
+    $("#keyword").on("blur", function (t) { t.preventDefault(), $(".search").removeClass("search-active") }); 
+
+
+    //当窗口变化时，触发图片大小自适应
+    var time;
+    $(window).resize(function(){
+      clearTimeout(time)
+      time = setTimeout(function() {
+        autoImg();
+      }, 200)
+    });
+  
+    //图片大小自适应
+    function autoImg() {
+      var present = $(window).width();
+      $('#article_content img').each(function(i, n) {
+        var dom = $(n)
+        // 图片width属性  大于 窗口宽度-20  添加class使图片自适应
+        if(dom.attr('width') > (present - 20)) {
+          dom.addClass('auto')
+        } else {
+          // 否则查看有无class 有就删除
+          if(dom.hasClass('auto')) {
+            dom.removeClass('auto')
+          }
+        }
+      })
+    }
+    autoImg();
+
+    //处理微信公众号文章被隐藏问题
+    $("#js_content:visible").css({"visibility": "visible"})
+
+})
+
+//百度统计
+var _hmt = _hmt || [];
+(function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?76dc2742a7643645817a94d6dcd5c472";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
+
+//百度自动推送
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+
+//360自动推送
+(function(){
+    var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2db83acfaaf6e696dba";
+    document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+
+
+//查询之前进行URL编码
+function query2(url,keyword,pageNo) {
+    if (keyword.length > 0) {
+        window.location.href = url + encodeURIComponent(keyword) + "/" +pageNo;
+    }else{
+        window.location.href = url +pageNo;
+    }
+}
+
+//查询之前进行URL编码
+function query3(keyword) {
+    if (keyword.length > 0) {
+        window.location.href = "/search/" + encodeURIComponent(keyword) + "/1.htm";
+    }
+}

@@ -1,0 +1,92 @@
+//自主开发的SyntaxHighlighter3.0的扩展功能
+//背景：项目有大量历史富文本，使用的高亮标记是低版本(2.0)支持的<pre class="java" name="code"></pre>格式，用dp.SyntaxHighlighter.HighlightAll('code', true, true)方法起动高亮，但无法自动加载brush。
+//目标：要支持低版本支持的<pre class="java" name="code"></pre>格式，还要实现自动加载brush。
+//功能：扫描一遍文档，把低版本支持的<pre class="java" name="code"></pre>格式，转换为高版本(3.0)支持<pre class="brush: js;"></pre>,并调用自动加载brush。
+//my1.js适用于来源1
+    $(function () {
+		function findTagsByName(list, name, tagName)
+		{
+			var tags = document.getElementsByTagName(tagName);
+			for (var i = 0; i < tags.length; i++) 
+				if (tags[i].getAttribute('name') == name) 
+					list.push(tags[i]);
+		}
+	    function path() {
+	        var args = arguments,
+	        result = [];
+	        for (var i = 0; i < args.length; i++)
+	            result.push(args[i].replace('$', '/thirdparty/syntaxhighlighter/scripts/'));
+	        return result;
+	    }
+		
+		var elements = [];
+		var name = "code";
+		var brushArr=path(
+	            'applescript            $shBrushAppleScript.js',
+	            'actionscript3 as3      $shBrushAS3.js',
+	            'bash shell             $shBrushBash.js',
+	            'coldfusion cf          $shBrushColdFusion.js',
+	            'cpp c                  $shBrushCpp.js',
+	            'c# c-sharp csharp      $shBrushCSharp.js',
+	            'css                    $shBrushCss.js',
+	            'delphi pascal          $shBrushDelphi.js',
+	            'diff patch pas         $shBrushDiff.js',
+	            'erl erlang             $shBrushErlang.js',
+	            'groovy                 $shBrushGroovy.js',
+	            'java                   $shBrushJava.js',
+	            'jfx javafx             $shBrushJavaFX.js',
+	            'js jscript javascript  $shBrushJScript.js',
+	            'perl pl                $shBrushPerl.js',
+	            'php                    $shBrushPhp.js',
+	            'text plain             $shBrushPlain.js',
+	            'py python              $shBrushPython.js',
+	            'ruby rails ror rb      $shBrushRuby.js',
+	            'sass scss              $shBrushSass.js',
+	            'scala                  $shBrushScala.js',
+	            'sql                    $shBrushSql.js',
+	            'vb vbnet               $shBrushVb.js',
+	            'xml xhtml xslt html    $shBrushXml.js'
+	        );
+		
+		// for some reason IE doesn't find <pre/> by name, however it does see them just fine by tag name... 
+		findTagsByName(elements, name, 'pre');
+		findTagsByName(elements, name, 'textarea');
+
+		if (elements.length === 0){
+			return;
+		}
+		
+		var brushNameArr=[];
+		for (var i = 0; i < brushArr.length; i++)
+		{
+			var t_arr=brushArr[i].split(" ");
+			if(t_arr.length>1){
+				t_arr.pop(); //删除并返回数组的最后一个元素
+			}
+			for (var j = 0; j < t_arr.length; j++){
+				var n=t_arr[j];
+				if(n!=''){
+					brushNameArr.push(n.trim().toLowerCase());
+				}
+			}
+		}
+		
+		for (var i = 0; i < elements.length; i++)
+		{
+			var e=elements[i];
+			var brush=e.getAttribute("class");
+			if(e==null || e==''){
+				continue;
+			}
+			
+			var h=brushNameArr.indexOf(brush.trim().toLowerCase());//是否包含
+			if(h == -1){
+				brush='text';//brush不在合法范围内，使用默认值text
+			}
+			e.setAttribute("class","brush:"+brush+";toolbar:false;");//转换，加入高版本需要的属性值
+			//alert(e.getAttribute("class"));
+		}
+    	
+        SyntaxHighlighter.autoloader.apply(null,brushArr);
+        SyntaxHighlighter.all();//在页面加载完成后，启动代码高亮
+    });
