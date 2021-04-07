@@ -23,8 +23,8 @@
     <router-link to="/about">关于</router-link>
     <router-link :to="'/user/'+userId">用户</router-link>
     <router-link :to="{ path: '/profile', query: { name: 'zty', age: 24, height: 177 } }">个人信息</router-link>
-    <keep-alive>
-      <router-view />
+    <keep-alive exclude="Profile,User">
+      <router-view/>
     </keep-alive>
   </div>
 </template>
