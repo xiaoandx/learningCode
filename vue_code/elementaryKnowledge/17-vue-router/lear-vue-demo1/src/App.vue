@@ -1,3 +1,19 @@
+<!--
+ * @explain: Copyright (c) 2020 WEI.ZHOU. All rights reserved.
+ * The following code is only used for learning and communication, not for illegal and commercial use.
+ * If the code is used, no consent is required, but the author has nothing to do with any problems 
+ * and consequences.
+ * 
+ * In case of code problems, feedback can be made through the following email address.
+ * 						<xiaoandx@gmail.com>
+ * 
+ * @Description: 
+ * @Author: WEI.ZHOU
+ * @Date: 2021-04-06 10:19:49
+ * @Version: V1.0
+ * @Others: Running test instructions
+ * 			
+-->
 <template>
   <div id="app">
     <!-- 属性补充  
@@ -7,7 +23,9 @@
     <router-link to="/about">关于</router-link>
     <router-link :to="'/user/'+userId">用户</router-link>
     <router-link :to="{ path: '/profile', query: { name: 'zty', age: 24, height: 177 } }">个人信息</router-link>
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
