@@ -44,7 +44,8 @@ public class HelloServlet extends HttpServlet{
 	 */
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setCharacterEncoding("gbk");
+		resp.setCharacterEncoding("UTF_8");
+		resp.setContentType("text/html;charset=utf-8");
 		resp.getWriter().append("<h1>搭建第一个Servlet</h1>");
 	}
 

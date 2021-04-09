@@ -9,6 +9,36 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <context-param>
+    <param-name>name</param-name>
+    <param-value>zhouwei</param-value>
+  </context-param>
+  <context-param>
+    <param-name>age</param-name>
+    <param-value>20</param-value>
+  </context-param>
+  <context-param>
+    <param-name>sex</param-name>
+    <param-value>1</param-value>
+  </context-param>
+  
+   <servlet>
+    <servlet-name>TestServletContext</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.TestServletContext</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServletContext</servlet-name>
+    <url-pattern>/testServletContext</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>TestServletContext2</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.TestServletContext2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestServletContext2</servlet-name>
+    <url-pattern>/testServletContext2</url-pattern>
+  </servlet-mapping>
   
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
