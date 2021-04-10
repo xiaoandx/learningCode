@@ -10,6 +10,7 @@
  */
 package club.xiaoandx.experiment3.assignment1.test1.factory;
 
+import club.xiaoandx.experiment3.assignment1.common.GrowVegetablesException;
 import club.xiaoandx.experiment3.assignment1.test1.greenstuff.Greenstuff;
 import club.xiaoandx.experiment3.assignment1.test1.greenstuff.impl.CarotaImpl;
 import club.xiaoandx.experiment3.assignment1.test1.greenstuff.impl.PotatoImpl;
@@ -33,9 +34,10 @@ public class CultivateFactory {
 	 * @date: 2021-04-01 16:53
 	 * @param type			蔬菜名称
 	 * @return Greenstuff	种植蔬菜对象
+	 * @throws GrowVegetablesException 种植蔬菜异常
 	 * @since: 1.0.0   
 	 */
-	public Greenstuff getGreestuff(String type) {
+	public Greenstuff getGreestuff(String type) throws GrowVegetablesException {
 		if(type.equalsIgnoreCase("turnip")) {
 			return new TurnipImpl();
 		}
@@ -48,6 +50,6 @@ public class CultivateFactory {
 		if(type.equalsIgnoreCase("carota")) {
 			return new CarotaImpl();
 		}
-		return null;
+		throw new GrowVegetablesException("error : 没有该类蔬菜可以用于种植!");
 	}
 }

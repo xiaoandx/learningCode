@@ -10,6 +10,7 @@
  */
 package club.xiaoandx.experiment3.assignment1.test1;
 
+import club.xiaoandx.experiment3.assignment1.common.GrowVegetablesException;
 import club.xiaoandx.experiment3.assignment1.test1.factory.CultivateFactory;
 import club.xiaoandx.experiment3.assignment1.test1.greenstuff.Greenstuff;
 
@@ -29,28 +30,48 @@ public class TestGreenstuff {
 		// 声明创建工厂模式对象，用于获取需要种植的蔬菜对象
 		CultivateFactory cultivateFactory = new CultivateFactory();
 		// 通过简单工厂模式获取大头菜种植对象
-		Greenstuff turnipGreenstuff = cultivateFactory.getGreestuff("turnip");
+		Greenstuff turnipGreenstuff = null;
+		try {
+			turnipGreenstuff = cultivateFactory.getGreestuff("turnip");
+		} catch (GrowVegetablesException e) {
+			System.err.println(e.getMessage());
+		}
 		turnipGreenstuff.sowing();
 		turnipGreenstuff.growUp();
 		turnipGreenstuff.fruit();
 		System.out.println("==========================================");
 		
 		// 通过简单工厂模式获取萝卜种植对象
-		Greenstuff radishGreenstuff = cultivateFactory.getGreestuff("radish");
+		Greenstuff radishGreenstuff = null;
+		try {
+			radishGreenstuff = cultivateFactory.getGreestuff("radish");
+		} catch (GrowVegetablesException e) {
+			System.err.println(e.getMessage());
+		}
 		radishGreenstuff.sowing();
 		radishGreenstuff.growUp();
 		radishGreenstuff.fruit();
 		System.out.println("==========================================");
 		
 		// 通过简单工厂模式获取土豆种植对象
-		Greenstuff potatoGreenstuff = cultivateFactory.getGreestuff("potato");
+		Greenstuff potatoGreenstuff = null;
+		try {
+			potatoGreenstuff = cultivateFactory.getGreestuff("potato");
+		} catch (GrowVegetablesException e) {
+			System.err.println(e.getMessage());
+		}
 		potatoGreenstuff.sowing();
 		potatoGreenstuff.growUp();
 		potatoGreenstuff.fruit();
 		System.out.println("==========================================");
 		
 		// 通过简单工厂模式获取胡萝卜种植对象
-		Greenstuff carotaGreenstuff = cultivateFactory.getGreestuff("carota");
+		Greenstuff carotaGreenstuff = null;
+		try {
+			carotaGreenstuff = cultivateFactory.getGreestuff("carota");
+		} catch (GrowVegetablesException e) {
+			System.err.println(e.getMessage());
+		}
 		carotaGreenstuff.sowing();
 		carotaGreenstuff.growUp();
 		carotaGreenstuff.fruit();
