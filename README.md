@@ -19,7 +19,7 @@ In case of code problems, feedback can be made through the following email addre
 1. [C语言学习代码](/C_Code/basics)
 2. [数据结构学习代码](/C_Code)
 3. [python学习代码](/Python_Code)
-4. [Java基础学习代码与知识点总结](/Java_code/javaBasicsCode)
+4. [Java基础学习代码与知识点总结](/Java_code/javaBasicsCode/doc)
 5. [软件设计模式](/Java_code/designPattern)
 6. [Vue学习与知识点](/vue_code/elementaryKnowledge)
 7. [Java Web学习代码](/Java_code/JavaWeb)
