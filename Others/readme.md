@@ -1,4 +1,4 @@
-## 小软件分享地址合集 (FREE) windows
+## Windows小软件分享地址合集 (TLE) 
 
 ##### 1. 360无线wifi驱动下载(自己常用)
 
@@ -38,3 +38,16 @@
 ##### 10.免费高效OCR识别软件
 
 [PandaOCR：https://wwa.lanzous.com/iqo1Wk06edi](https://wwa.lanzous.com/iqo1Wk06edi)
+
+##### 11.免费办公软件合集软件OfficeBox
+
+[OfficeBox：https://xiaoandx.lanzous.com/iDxeRnzxeqb](https://xiaoandx.lanzous.com/iDxeRnzxeqb)
+
+##### 12.小巧无广告视频播放器PotPlayer
+
+[PotPlayer：https://xiaoandx.lanzous.com/ij4ajnzxiyd](https://xiaoandx.lanzous.com/ij4ajnzxiyd)
+
+##### 13.winodws全局文件搜索神器Everything
+
+[Everything：https://xiaoandx.lanzous.com/i4s1onzxmyh](https://xiaoandx.lanzous.com/i4s1onzxmyh)
+
