@@ -286,7 +286,10 @@ class Director {
    * @param mapData 数据的内容
    * @param efm 文件尾的内容
    */
-  public void construct(ExportHeaderModel ehm,Map<String,Collection<ExportDataModel>> mapData,ExportFooterModel efm) {
+  public void construct(
+		  ExportHeaderModel ehm,
+		  Map<String,Collection<ExportDataModel>> mapData,
+		  ExportFooterModel efm) {
      //1：先构建Header
      builder.buildHeader(ehm);
      //2：然后构建Body
