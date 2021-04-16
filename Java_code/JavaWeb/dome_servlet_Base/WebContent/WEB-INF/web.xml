@@ -21,6 +21,53 @@
     <param-name>sex</param-name>
     <param-value>1</param-value>
   </context-param>
+  <!-- request -->
+  <servlet>
+    <servlet-name>RequestLineServlet</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.request.RequestLineServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestLineServlet</servlet-name>
+    <url-pattern>/requestLineServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>RequestHeadersServlet</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.request.RequestHeadersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestHeadersServlet</servlet-name>
+    <url-pattern>/requestHeadersServlet</url-pattern>
+  </servlet-mapping>
+  
+  <!-- referer -->
+  <servlet>
+    <servlet-name>DownServlet</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.request.DownServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DownServlet</servlet-name>
+    <url-pattern>/downServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>RequestForwardServlet</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.request.RequestForwardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RequestForwardServlet</servlet-name>
+    <url-pattern>/requestForwardServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ResultServlet</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.request.ResultServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResultServlet</servlet-name>
+    <url-pattern>/resultServlet</url-pattern>
+  </servlet-mapping>
+  
   
    <servlet>
     <servlet-name>TestServletContext</servlet-name>
