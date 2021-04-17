@@ -9,6 +9,7 @@
 <body>
     
    <h2 style="color: red;">${cookie.name.value }</h2>
+   <%-- ${name2} --%>
    <h2>  输入信息错误</h2></br>
 </body>
 </html>

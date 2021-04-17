@@ -33,6 +33,8 @@ public class RequestForwardServlet extends HttpServlet {
 		}else {
 			Cookie cookie = new Cookie("name",username);
 			response.addCookie(cookie);
+			//	设置web全局的数据共享
+			// this.getServletContext().setAttribute("name2", "xiaoandx科技集团");
 			response.sendRedirect("/dome_servlet_Base/error.jsp");
 		}
 	}
