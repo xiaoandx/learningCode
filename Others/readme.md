@@ -51,3 +51,7 @@
 
 [Everything：https://xiaoandx.lanzous.com/i4s1onzxmyh](https://xiaoandx.lanzous.com/i4s1onzxmyh)
 
+##### 14.winodws免安装清理软件
+
+[Dism：https://xiaoandx.lanzous.com/iB2TCoafppe](https://xiaoandx.lanzous.com/iB2TCoafppe)
+
