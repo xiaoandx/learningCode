@@ -55,3 +55,7 @@
 
 [Dism：https://xiaoandx.lanzous.com/iB2TCoafppe](https://xiaoandx.lanzous.com/iB2TCoafppe)
 
+##### 15.winodws重复文件查找工具
+
+[Duplicate File Finder Plus：https://xiaoandx.lanzous.com/i5Ranobe9ud](https://xiaoandx.lanzous.com/i5Ranobe9ud)
+
