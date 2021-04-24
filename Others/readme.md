@@ -66,3 +66,7 @@
 ##### 17.百度文档免费下载器
 
 [文档免费下载器：https://xiaoandx.lanzous.com/iAkdnoftz0d](https://xiaoandx.lanzous.com/iAkdnoftz0d)
+
+##### 18.超级好用截图小工具
+
+[Snipaste-1.16.2-x64：https://xiaoandx.lanzous.com/iuRtkogg0kb](https://xiaoandx.lanzous.com/iuRtkogg0kb)
