@@ -63,3 +63,6 @@
 
 [无损音乐下载器：https://xiaoandx.lanzous.com/iFLnmoei68f](https://xiaoandx.lanzous.com/iFLnmoei68f)
 
+##### 17.百度文档免费下载器
+
+[文档免费下载器：https://xiaoandx.lanzous.com/iAkdnoftz0d](https://xiaoandx.lanzous.com/iAkdnoftz0d)
