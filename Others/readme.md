@@ -70,3 +70,7 @@
 ##### 18.超级好用截图小工具
 
 [Snipaste-1.16.2-x64：https://xiaoandx.lanzous.com/iuRtkogg0kb](https://xiaoandx.lanzous.com/iuRtkogg0kb)
+
+##### 19.破解小巧电脑免费录屏软件
+
+[录屏王：https://xiaoandx.lanzous.com/imOtjoh8m6h](https://xiaoandx.lanzous.com/imOtjoh8m6h)
