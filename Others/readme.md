@@ -74,3 +74,7 @@
 ##### 19.破解小巧电脑免费录屏软件
 
 [录屏王：https://xiaoandx.lanzous.com/imOtjoh8m6h](https://xiaoandx.lanzous.com/imOtjoh8m6h)
+
+##### 20.windows透明工具栏
+
+[TranslucentTB.2017.3：https://xiaoandx.lanzous.com/i9j4aoi9t3i](https://xiaoandx.lanzous.com/i9j4aoi9t3i)
