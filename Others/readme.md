@@ -78,3 +78,7 @@
 ##### 20.windows透明工具栏
 
 [TranslucentTB.2017.3：https://xiaoandx.lanzous.com/i9j4aoi9t3i](https://xiaoandx.lanzous.com/i9j4aoi9t3i)
+
+##### 21.QSV视频转mp4视频格式
+
+[QSV ：https://xiaoandx.lanzous.com/iYzd2okefve](https://xiaoandx.lanzous.com/iYzd2okefve)
