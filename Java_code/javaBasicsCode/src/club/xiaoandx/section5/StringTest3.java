@@ -8,7 +8,7 @@
  * 
  *                        <xiaoandx@gmail.com>
  */
-package section5;
+package club.xiaoandx.section5;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,7 +8,7 @@
  * 
  *                        <xiaoandx@gmail.com>
  */
-package section5;
+package club.xiaoandx.section5;
 
 /**  
  * <p> String 练习，设计一个方法，可以获取任意范围内的随机数 </p> 
