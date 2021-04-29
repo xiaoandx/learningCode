@@ -43,10 +43,54 @@ public class GraduateProceduresFacade {
 	 * @since: 1.0.0   
 	 */
 	public Graduates transaction(Graduates graduates) {
-		EducationalAdministration.checkingStudentID(graduates);
-		PublicSecurity.checkingStudent(graduates);
-		Library.checkingLibraryCardDeposit(graduates);
-		Logistics.checkingFoodCardID(graduates);
+		transactionEducational(graduates);
+		transactionPublicSecurity(graduates);
+		transactionLibrary(graduates);
+		transactionLogistics(graduates);
 		return graduates;
+	}
+	
+	/**
+	 * <p> 教务处代办 </p></br>
+	 * @Title: transactionEducational  
+	 * @date: 2021-04-29 17:15
+	 * @param graduates void    
+	 * @since: 1.0.0   
+	 */
+	private void  transactionEducational(Graduates graduates) {
+		EducationalAdministration.checkingStudentID(graduates);
+	}
+	
+	/**
+	 * <p> 公安处派遣证代办 </p></br>
+	 * @Title: transactionEducational  
+	 * @date: 2021-04-29 17:15
+	 * @param graduates void    
+	 * @since: 1.0.0   
+	 */
+	private void  transactionPublicSecurity(Graduates graduates) {
+		PublicSecurity.checkingStudent(graduates);
+	}
+	
+	/**
+	 * <p> 借书证押金代办 </p></br>
+	 * @Title: transactionEducational  
+	 * @date: 2021-04-29 17:15
+	 * @param graduates void    
+	 * @since: 1.0.0   
+	 */
+	private void  transactionLibrary(Graduates graduates) {
+		Library.checkingLibraryCardDeposit(graduates);
+	}
+	
+	/**
+	 * <p> 饭卡余额代办 </p></br>
+	 * @Title: transactionEducational  
+	 * @date: 2021-04-29 17:15
+	 * @param graduates void    
+	 * @since: 1.0.0   
+	 */
+	private void  transactionLogistics(Graduates graduates) {
+		Logistics.checkingFoodCardID(graduates);
 	}
 }

@@ -47,7 +47,7 @@ public class Logistics {
 	 * @since: 1.0.0   
 	 */
 	public static Graduates grantFoodCardIDDeposit(Graduates graduates) {
-		graduates.setLibraryCardDeposit(100.00);
+		graduates.setFoodCardSurplus(100.0);
 		return graduates;
 	}
 	
@@ -60,7 +60,7 @@ public class Logistics {
 	 * @since: 1.0.0   
 	 */
 	public static Graduates notGrantFoodCardIDDeposit(Graduates graduates) {
-		graduates.setLibraryCardDeposit(0.00);
+		graduates.setFoodCardSurplus(0.00);
 		return graduates;
 	}
 }

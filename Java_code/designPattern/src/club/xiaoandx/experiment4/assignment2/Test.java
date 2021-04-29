@@ -40,6 +40,7 @@ public class Test {
 		
 		System.out.println(goodStudent);
 		
+		System.out.println("\n======================下面打印为学生信息不全测试=========================\n");
 		/**
 		 * 错误测试
 		 */

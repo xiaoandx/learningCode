@@ -255,7 +255,7 @@ public class Graduates {
 	public String toString() {
 		return "Graduates [学生证=" + studentID + ", 毕业证=" + diploma
 				+ ", 学位证=" + certificateOfDegree + ", 身份证="
-				+ identityCard + ", 派遣证=" + dispatch + ", 饭卡=" + foodCardID
+				+ identityCard + ", 派遣证=" + dispatch + "\n 饭卡=" + foodCardID
 				+ ", 饭卡余额=" + foodCardSurplus + ", 借书证=" + libraryCard
 				+ ", 借书卡押金=" + libraryCardDeposit + "]";
 	}
