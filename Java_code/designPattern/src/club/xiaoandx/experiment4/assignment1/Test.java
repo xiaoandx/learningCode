@@ -33,11 +33,15 @@ public class Test {
 		 */
 		MIPhone miPhone = new MIPhone();
 		miPhone.charge(new PhoneConnectorAdapter(new IOSConnector()));
+		miPhone.charge(new PhoneConnectorAdapter(new AndroidConnector()));
+		
+		System.out.println();
 		
 		/**
 		 * 苹果6手机充电测试
 		 */
 		IponeSixPhone iponeSixPhone = new IponeSixPhone();
 		iponeSixPhone.charge(new PhoneConnectorAdapter(new AndroidConnector()));
+		iponeSixPhone.charge(new PhoneConnectorAdapter(new IOSConnector()));
 	}
 }
