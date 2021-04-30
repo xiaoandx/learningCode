@@ -95,4 +95,42 @@
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
+  
+  <!-- cookie -->
+  <servlet>
+    <servlet-name>TestCookie</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.cookie.TestCookieServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestCookie</servlet-name>
+    <url-pattern>/testCookie</url-pattern>
+  </servlet-mapping>
+  
+  <!-- session -->
+  <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.session.example01.CartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/cartServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ListBookServlet</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.session.example01.ListBookServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListBookServlet</servlet-name>
+    <url-pattern>/listBookServlet</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>PurchaseServlet</servlet-name>
+    <servlet-class>club.xiaoandx.servlet.session.example01.PurchaseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PurchaseServlet</servlet-name>
+    <url-pattern>/purchaseServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
