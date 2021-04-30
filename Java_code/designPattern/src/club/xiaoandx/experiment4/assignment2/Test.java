@@ -11,6 +11,7 @@
 package club.xiaoandx.experiment4.assignment2;
 
 import club.xiaoandx.experiment4.assignment2.facade.GraduateProceduresFacade;
+import club.xiaoandx.experiment4.assignment2.facade.impl.GraduateProceduresFacadeImpl;
 
 /**  
  * <p> 毕业生办理毕业手续，通过代理进行办理测试  </p> 
@@ -35,7 +36,7 @@ public class Test {
 		goodStudent.setLibraryCard("289883921");
 		goodStudent.setIdentityCard("511322190812342345");
 		
-		GraduateProceduresFacade facade = new GraduateProceduresFacade();
+		GraduateProceduresFacade facade = new GraduateProceduresFacadeImpl();
 		facade.transaction(goodStudent);
 		
 		System.out.println(goodStudent);
@@ -50,7 +51,7 @@ public class Test {
 		errorStudent.setLibraryCard("");
 		errorStudent.setIdentityCard("511322190812342345");
 		
-		GraduateProceduresFacade errorFacade = new GraduateProceduresFacade();
+		GraduateProceduresFacade errorFacade = new GraduateProceduresFacadeImpl();
 		errorFacade.transaction(errorStudent);
 		
 		System.out.println(errorStudent);
