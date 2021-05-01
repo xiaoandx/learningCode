@@ -82,3 +82,7 @@
 ##### 21.QSV视频转mp4视频格式
 
 [QSV ：https://xiaoandx.lanzous.com/iYzd2okefve](https://xiaoandx.lanzous.com/iYzd2okefve)
+
+##### 22.电脑协助控制工具(TeamViewer)
+
+[TeamViewer:https://xiaoandx.lanzous.com/iGBXnop58wj](https://xiaoandx.lanzous.com/iGBXnop58wj)
