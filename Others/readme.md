@@ -86,3 +86,12 @@
 ##### 22.电脑协助控制工具(TeamViewer)
 
 [TeamViewer:https://xiaoandx.lanzous.com/iGBXnop58wj](https://xiaoandx.lanzous.com/iGBXnop58wj)
+
+##### 23.禁用Windows检查更新(Windows Update Blocker)
+
+[Update:https://xiaoandx.lanzous.com/iiHp3or07le](https://xiaoandx.lanzous.com/iiHp3or07le)
+
+##### 24.禁用Windows自带安全中心
+
+[DefenderControl(单文件):https://xiaoandx.lanzous.com/iEvXWor085e](https://xiaoandx.lanzous.com/iEvXWor085e)
+[DefenderControl(官方版):https://xiaoandx.lanzous.com/i7I8Oor084d](https://xiaoandx.lanzous.com/i7I8Oor084d)
