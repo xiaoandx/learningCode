@@ -96,3 +96,7 @@
 [DefenderControl(单文件):https://xiaoandx.lanzous.com/iEvXWor085e](https://xiaoandx.lanzous.com/iEvXWor085e)
 
 [DefenderControl(官方版):https://xiaoandx.lanzous.com/i7I8Oor084d](https://xiaoandx.lanzous.com/i7I8Oor084d)
+
+##### 25.国外学习查阅资料加速免费代理服务
+
+[加速代理：https://xiaoandx.lanzous.com/i5Og7os7h0b](https://xiaoandx.lanzous.com/i5Og7os7h0b)
