@@ -65,4 +65,4 @@ In case of code problems, feedback can be made through the following email addre
 10. [项目：四川疫情爬虫可视化统计](https://github.com/xiaoandx/reptile)
 11. [项目：Vue搭建移动端简单商城](/vue_code/project)
 12. [项目：Windows10 免费工具合集（TLS）](/Others)
-13. [Java最新面试内容(TLS) - 持续更新](https://blog.xiaoandx.club/categories/Java%E9%9D%A2%E8%AF%95/)
+13. [Java系列最新面试内容(TLS) - 持续更新](https://blog.xiaoandx.club/categories/Java%E9%9D%A2%E8%AF%95/)
