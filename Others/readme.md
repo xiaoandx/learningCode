@@ -104,3 +104,7 @@
 ##### 26.Markdown 最新编辑工具
 
 [Markdow：https://xiaoandx.lanzous.com/i9oLTovzmgd](https://xiaoandx.lanzous.com/i9oLTovzmgd)
+
+##### 27.免费AI语言合成
+
+[free：https://xiaoandx.lanzous.com/iC4zNoydjwh](https://xiaoandx.lanzous.com/iC4zNoydjwh)
