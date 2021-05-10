@@ -108,3 +108,7 @@
 ##### 27.免费AI语言合成
 
 [free：https://xiaoandx.lanzous.com/iC4zNoydjwh](https://xiaoandx.lanzous.com/iC4zNoydjwh)
+
+##### 28.PDFKeeper是免费的开源软件
+
+[PDFKeeper：https://xiaoandx.lanzous.com/iv8M8p05reb](https://xiaoandx.lanzous.com/iv8M8p05reb)
