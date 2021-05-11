@@ -112,3 +112,7 @@
 ##### 28.PDFKeeper是免费的开源软件
 
 [PDFKeeper：https://xiaoandx.lanzous.com/iv8M8p05reb](https://xiaoandx.lanzous.com/iv8M8p05reb)
+
+##### 29.FreeMove | 把 C 盘已安装的软件转移到其他盘
+
+[FreeMove：https://xiaoandx.lanzous.com/iilzip0p3xg](https://xiaoandx.lanzous.com/iilzip0p3xg)
