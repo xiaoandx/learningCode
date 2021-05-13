@@ -25,7 +25,7 @@ import club.xiaoandx.experiment5.assignment3.product.impl.SimplePhone;
  */
 public class Test {
 	public static void main(String[] args) {
-		/**
+		/*
 		 * 1.获取一部简单手机，来电为铃声提示
 		 * 2.将简单手机进行装饰，来电在原有的基础上增加了震动
 		 * 3.在震动的基础上来电又增加了闪光灯闪烁

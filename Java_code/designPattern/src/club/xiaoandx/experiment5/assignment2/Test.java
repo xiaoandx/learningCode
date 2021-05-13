@@ -11,9 +11,12 @@
 package club.xiaoandx.experiment5.assignment2;
 
 import club.xiaoandx.experiment5.assignment2.decorator.impl.Acid;
+import club.xiaoandx.experiment5.assignment2.decorator.impl.Brown;
 import club.xiaoandx.experiment5.assignment2.decorator.impl.Pretzel;
+import club.xiaoandx.experiment5.assignment2.decorator.impl.Salt;
 import club.xiaoandx.experiment5.assignment2.product.Bread;
 import club.xiaoandx.experiment5.assignment2.product.impl.French;
+import club.xiaoandx.experiment5.assignment2.product.impl.Japanese;
 
 /**  
  * <p> 面包测试 </p> 
@@ -33,6 +36,13 @@ public class Test {
 		Bread frenchBread = new French();
 		Pretzel pretzel = new Pretzel(frenchBread);
 		Acid acid = new Acid(pretzel);
-		System.out.println(acid.getDescription() + "的价格：" + acid.cost());
+		// 法式面包+椒盐+酸	的价格：13.5
+		System.out.println(acid.getDescription() + " 的价格：" + acid.cost());
+		
+		Bread jpaBread = new Japanese();
+		Brown brown = new Brown(jpaBread);
+		Salt salt = new Salt(brown);
+		// 日式面包+褐色+盐	的价格：16.0
+		System.out.println(salt.getDescription() + " 的价格：" + salt.cost());
 	}
 }
