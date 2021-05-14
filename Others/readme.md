@@ -116,3 +116,8 @@
 ##### 29.FreeMove | 把 C 盘已安装的软件转移到其他盘
 
 [FreeMove：https://xiaoandx.lanzoui.com/iilzip0p3xg](https://xiaoandx.lanzoui.com/iilzip0p3xg)
+
+##### 30.把你的常用软件装进U盘随身携带 
+
+[PortableApps：https://xiaoandx.lanzoui.com/ih1j4p459xg](https://xiaoandx.lanzoui.com/ih1j4p459xg)
+
