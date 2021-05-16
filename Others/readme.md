@@ -124,3 +124,7 @@
 ##### 31.度盘下载加速TuTDown
 
 [TuTDown：https://xiaoandx.lanzoui.com/iS8Oxp5c2ba](https://xiaoandx.lanzoui.com/iS8Oxp5c2ba)
+
+##### 32.QuickLook通过空格键快速查看文件内容 
+
+[QuickLook：https://xiaoandx.lanzoui.com/ismnvp66pzc](https://xiaoandx.lanzoui.com/ismnvp66pzc)
