@@ -128,3 +128,7 @@
 ##### 32.QuickLook通过空格键快速查看文件内容 
 
 [QuickLook：https://xiaoandx.lanzoui.com/ismnvp66pzc](https://xiaoandx.lanzoui.com/ismnvp66pzc)
+
+##### 33.百度云盘之雷鸟下载器
+
+[下载器：https://xiaoandx.lanzoui.com/i246Vp66s1g](https://xiaoandx.lanzoui.com/i246Vp66s1g)
