@@ -23,10 +23,12 @@ import org.junit.Test;
  * @version V1.0.0
  */
 public class CollegeEntranceUtilTest {
-
+	
 	@Test
-	public void test() {
-		fail("尚未实现");
+	public void coverTest1() {
+		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("2005-07");
+		boolean rust = false;
+		assertEquals(registrationResults, rust);
 	}
 
 }
