@@ -185,7 +185,8 @@ public class CollegeEntranceUtil {
 				++number;
 			}
 		}
-		if (number != 6 && (birthTimeString.indexOf("-")) != 4) {
+		System.out.println(birthTimeString.indexOf("-"));
+		if (number != 6 || (birthTimeString.indexOf("-")) != 4) {
 			return false;
 		}
 		return true;
