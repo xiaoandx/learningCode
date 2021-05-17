@@ -25,8 +25,43 @@ import org.junit.Test;
 public class CollegeEntranceUtilTest {
 	
 	@Test
-	public void coverTest1() {
-		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("-200106");
+	public void equivalenceTest01() {
+		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("2000-01");
+		boolean rust = true;
+		assertEquals(registrationResults, rust);
+	}
+	
+	@Test
+	public void equivalenceTest02() {
+		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("1996-12");
+		boolean rust = true;
+		assertEquals(registrationResults, rust);
+	}
+	
+	@Test
+	public void notEquivalenceTest01() {
+		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("1995-12");
+		boolean rust = false;
+		assertEquals(registrationResults, rust);
+	}
+	
+	@Test
+	public void notEquivalenceTest02() {
+		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("2006-01");
+		boolean rust = false;
+		assertEquals(registrationResults, rust);
+	}
+	
+	@Test
+	public void notEquivalenceTest03() {
+		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("2000-00");
+		boolean rust = false;
+		assertEquals(registrationResults, rust);
+	}
+	
+	@Test
+	public void notEquivalenceTest04() {
+		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("2000-13");
 		boolean rust = false;
 		assertEquals(registrationResults, rust);
 	}

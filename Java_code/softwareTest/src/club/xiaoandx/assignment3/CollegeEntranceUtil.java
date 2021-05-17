@@ -103,13 +103,16 @@ public class CollegeEntranceUtil {
 		int selectYear = yearMonth[0];
 		int selectMonth = yearMonth[1];
 		if (selectYear > REQUIRED_MAX_YEAR && selectYear < REQUIRED_MIX_YEAR) {
-			return true;
+			if (selectMonth >= 1 && selectMonth <= 12) {
+				return true;
+			}
+			return false;
 		} else if (selectYear == REQUIRED_MAX_YEAR) {
-			if (selectMonth >= REQUIRED_MIX_MONTH) {
+			if (selectMonth >= REQUIRED_MIX_MONTH && selectMonth <= 12) {
 				return true;
 			}
 		} else if (selectYear == REQUIRED_MIX_YEAR) {
-			if (selectMonth <= REQUIRED_MAX_MONTH) {
+			if (selectMonth <= REQUIRED_MAX_MONTH && selectMonth >=1) {
 				return true;
 			}
 		}
