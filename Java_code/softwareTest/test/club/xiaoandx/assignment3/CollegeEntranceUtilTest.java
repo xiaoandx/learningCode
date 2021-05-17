@@ -26,7 +26,7 @@ public class CollegeEntranceUtilTest {
 	
 	@Test
 	public void coverTest1() {
-		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("2005-07");
+		boolean registrationResults = CollegeEntranceUtil.registrationJudgment("2004-06");
 		boolean rust = false;
 		assertEquals(registrationResults, rust);
 	}

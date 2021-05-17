@@ -62,7 +62,7 @@ public class CollegeEntranceUtil {
 	 * @since: 1.0.2   
 	 */
 	public static boolean registrationJudgment(String birthTimeString) {
-		if (judgeOrigin(birthTimeString)) {
+		if (judgeInputAge(birthTimeString) && judgeOrigin(birthTimeString)) {
 			int age = getAgeFromBirthTime(birthTimeString);
 			if (age >= REQUIRED_MIX_AGE && age <= REQUIRED_MAX_AGE) {
 				return true;
@@ -161,5 +161,33 @@ public class CollegeEntranceUtil {
 			}
 		}
 		return age;
+	}
+	
+	/**
+	 * <p> 判断输入年龄是否满足格式 </p></br>
+	 * <pre> 判断将从 长度==7、是否为空、是否包含‘-’、数字是否为6位、‘-’是否在第4位置索引 </pre></br>
+	 * @Title: judgeInputAge  
+	 * @date: 2021-05-17 13:23
+	 * @param birthTimeString	输入年龄字符
+	 * @return boolean    		格式判断状态；true 满足   ，  false 不满足
+	 * @since: 1.0.0   
+	 */
+	private static boolean judgeInputAge(String birthTimeString) {
+		int strLength = birthTimeString.length();
+		if (birthTimeString.isEmpty() && strLength != 7
+				&& !birthTimeString.contains("-")) {
+			return false;
+		}
+
+		int number = 0;
+		for (int i = 0; i < strLength; i++) {
+			if (birthTimeString.charAt(i) >= 48 && birthTimeString.charAt(i) <= 57) {
+				++number;
+			}
+		}
+		if (number != 6 && (birthTimeString.indexOf("-")) != 4) {
+			return false;
+		}
+		return true;
 	}
 }
