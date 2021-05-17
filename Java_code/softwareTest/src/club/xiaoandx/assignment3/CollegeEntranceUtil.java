@@ -62,7 +62,7 @@ public class CollegeEntranceUtil {
 	 * @since: 1.0.2   
 	 */
 	public static boolean registrationJudgment(String birthTimeString) {
-		if (determinationByAge(birthTimeString)) {
+		if (judgeOrigin(birthTimeString)) {
 			int age = getAgeFromBirthTime(birthTimeString);
 			if (age >= REQUIRED_MIX_AGE && age <= REQUIRED_MAX_AGE) {
 				return true;
@@ -75,9 +75,9 @@ public class CollegeEntranceUtil {
 	 * <p> 根据年月计算年龄   </p></br>
 	 * @Title: getAgeFromBirthTime  
 	 * @date: 2021-05-17 11:00
-	 * @param birthTimeString	判断的日期，格式为：2020-05
+	 * @param birthTimeString	出身的的日期，格式为：2020-05
 	 * @return int		年龄
-	 * @since: 1.0.0   
+	 * @since: 1.0.2
 	 */
 	private static int getAgeFromBirthTime(String birthTimeString) {
 		int[] yearMonth = getYearMonth(birthTimeString);
@@ -86,38 +86,19 @@ public class CollegeEntranceUtil {
 		int monthNow = cal.get(Calendar.MONTH) + 1;
 		int yearMinus = yearNow - yearMonth[0];
 		int monthMinus = monthNow - yearMonth[1];
-		int age = yearMinus;
-		if (yearMinus < 0) {
-			age = 0;
-		} else if (yearMinus == 0) {
-			if (monthMinus < 0) {
-				age = 0;
-			} else if (monthMinus == 0) {
-				age = 1;
-			} else if (monthMinus > 0) {
-				age = 1;
-			}
-		} else if (yearMinus > 0) {
-			if (monthMinus < 0) {
-			} else if (monthMinus == 0) {
-				age = age + 1;
-			} else if (monthMinus > 0) {
-				age = age + 1;
-			}
-		}
-		return age;
+		return calculateAge(yearMinus, monthMinus);
 	}
-
+	
 	/**
 	 * <p> 判断高考报名的日期符合要求范围 </p></br>
 	 * <pre> 出身年月 要求：1996年7月至2005年6月  </pre></br>
-	 * @Title: ageDetermination  
+	 * @Title: judgeOrigin  
 	 * @date: 2021-05-17 12:51
-	 * @param birthTimeString
-	 * @return boolean   出身年月是否满足要求；true 满足。false 不满足     
+	 * @param birthTimeString	出身的的日期
+	 * @return boolean   		出身年月是否满足要求；true 满足。false 不满足     
 	 * @since: 1.0.2
 	 */
-	private static boolean determinationByAge(String birthTimeString) {
+	private static boolean judgeOrigin(String birthTimeString) {
 		int[] yearMonth = getYearMonth(birthTimeString);
 		int selectYear = yearMonth[0];
 		int selectMonth = yearMonth[1];
@@ -147,5 +128,38 @@ public class CollegeEntranceUtil {
 		String strs[] = birthTimeString.trim().split("-");
 		int selectRust[] = {Integer.parseInt(strs[0]), Integer.parseInt(strs[1])};
 		return selectRust;
+	}
+	
+
+	/**
+	 * <p> 获取报名学生的当前年龄 </p></br>
+	 * @Title: calculateAge  
+	 * @date: 2021-05-17 13:03
+	 * @param yearMinus		出身年份与当前年份的差值
+	 * @param monthMinus	出身月份与当前月份的差值
+	 * @return int   		年龄 
+	 * @since: 1.0.0   
+	 */
+	private static int calculateAge(int yearMinus, int monthMinus) {
+		int age = yearMinus;
+		if (yearMinus < 0) {
+			age = 0;
+		} else if (yearMinus == 0) {
+			if (monthMinus < 0) {
+				age = 0;
+			} else if (monthMinus == 0) {
+				age = 1;
+			} else if (monthMinus > 0) {
+				age = 1;
+			}
+		} else if (yearMinus > 0) {
+			if (monthMinus < 0) {
+			} else if (monthMinus == 0) {
+				age = age + 1;
+			} else if (monthMinus > 0) {
+				age = age + 1;
+			}
+		}
+		return age;
 	}
 }
