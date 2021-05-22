@@ -109,9 +109,9 @@
 
 [free：https://xiaoandx.lanzoui.com/iC4zNoydjwh](https://xiaoandx.lanzoui.com/iC4zNoydjwh)
 
-##### ~~28.PDFKeeper是免费的开源软件~~
+##### ~~28.PDFKeeper是免费的开源软件（不推荐）~~
 
-~~[PDFKeeper：https://xiaoandx.lanzoui.com/iv8M8p05reb~~](https://xiaoandx.lanzoui.com/iv8M8p05reb)
+[PDFKeeper：https://xiaoandx.lanzoui.com/iv8M8p05reb~~](https://xiaoandx.lanzoui.com/iv8M8p05reb)
 
 ##### 29.FreeMove | 把 C 盘已安装的软件转移到其他盘
 
@@ -132,3 +132,7 @@
 ##### 33.百度云盘之雷鸟下载器
 
 [下载器：https://xiaoandx.lanzoui.com/i246Vp66s1g](https://xiaoandx.lanzoui.com/i246Vp66s1g)
+
+##### 34.国产shell工具
+
+[FinallShell：https://xiaoandx.lanzoui.com/icyT0pck3rc](https://xiaoandx.lanzoui.com/icyT0pck3rc)
