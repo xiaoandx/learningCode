@@ -136,3 +136,7 @@
 ##### 34.国产shell工具
 
 [FinallShell：https://xiaoandx.lanzoui.com/icyT0pck3rc](https://xiaoandx.lanzoui.com/icyT0pck3rc)
+
+##### 35.PDF编辑查看绿色软件 
+
+[PDF Editor：https://xiaoandx.lanzoui.com/i3N5Updtsmh](https://xiaoandx.lanzoui.com/i3N5Updtsmh)
