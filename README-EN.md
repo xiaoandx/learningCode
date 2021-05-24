@@ -32,14 +32,14 @@
 
 
 
- [简体中文](/) |  [English ](/README-EN.md)
+ [English ](/) | [简体中文](/README.md)
 
 
 
 
-# 仓库储存学习源代码
+# Warehouse storage learning source code
 
-### 其中包括VUEJS、C、Python、HTML、Java、数据结构、设计模式等实验源代码🎈
+### These include VUEJS,C,Python,HTML,Java,data structure,Design patterns and other experimental source code🎈
 
 ```
 Copyright (c) 2020 WEI.ZHOU. All rights reserved.                           
@@ -53,17 +53,17 @@ In case of code problems, feedback can be made through the following email addre
 
 
 
-01. [C语言学习代码](/C_Code/basics)
-02. [数据结构学习代码](/C_Code)
-03. [python学习代码](/Python_Code)
-04. [Java基础学习代码与知识点总结](/Java_code/javaBasicsCode/doc)
-05. [软件设计模式](/Java_code/designPattern)
-06. [Vue学习与知识点](/vue_code/elementaryKnowledge)
-07. [Java Web学习代码](/Java_code/JavaWeb)
-08. [项目：HTML学习代码-个人简历](/HTML_Code)
-09. [项目：微信人脸识别答题系统-后端API接口](/examination)
-10. [项目：四川疫情爬虫可视化统计](https://github.com/xiaoandx/reptile)
-11. [项目：Vue搭建移动端简单商城](/vue_code/project)
-12. [项目：Windows10 免费工具合集（TLS）](/Others)
-13. [Java系列最新面试内容(TLS) - 持续更新](https://blog.xiaoandx.club/categories/Java%E9%9D%A2%E8%AF%95/)
-14. [宜宾学院2021届人工智能与大数据学院毕业答辩经验总结](/Others/graduationReply/README.md)
+01. [C language learning code](/C_Code/basics)
+02. [Data structure learning code](/C_Code)
+03. [Python learning code](/Python_Code)
+04. [Java basic learning code and knowledge summary](/Java_code/javaBasicsCode/doc)
+05. [Software design pattern](/Java_code/designPattern)
+06. [Vue learning and knowledge points](/vue_code/elementaryKnowledge)
+07. [Java web learning code](/Java_code/JavaWeb)
+08. [Project: HTML learning code - resume](/HTML_Code)
+09. [Project: wechat face recognition answering system - back end API interface](/examination)
+10. [Project: visualization statistics of epidemic reptiles in Sichuan](https://github.com/xiaoandx/reptile)
+11. [Project: Vue builds a simple mobile mall](/vue_code/project)
+12. [Project: Windows 10 free Toolkit (TLS)](/Others)
+13. [Java series latest interview content (TLS) - continuous update](https://blog.xiaoandx.club/categories/Java%E9%9D%A2%E8%AF%95/)
+14. [Summary of graduation defense experience of 2021 artificial intelligence and big data College of Yibin University](/Others/graduationReply/README.md)
