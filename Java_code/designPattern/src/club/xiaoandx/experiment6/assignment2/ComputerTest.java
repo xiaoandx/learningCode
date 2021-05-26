@@ -8,7 +8,7 @@
  * 
  *                        <xiaoandx@gmail.com>
  */
-package club.xiaoandx.experiment6.assignment2.computer;
+package club.xiaoandx.experiment6.assignment2;
 
 import club.xiaoandx.experiment6.assignment2.computer.composite.Composite;
 import club.xiaoandx.experiment6.assignment2.computer.leaf.Leaf;
