@@ -24,24 +24,24 @@ import club.xiaoandx.experiment6.assignment2.computer.leaf.Leaf;
 public class ComputerTest {
 	
 	public static void main(String[] args) {
-		Composite root = new Composite("xiaoandx电脑");
-		Leaf keyboard = new Leaf("键盘");
-		Leaf monitor = new Leaf("显示器");
-		Leaf mouse = new Leaf("鼠标");
-		Composite chassis = new Composite("机箱");
+		Composite root = new Composite("玩“绝地求生”游戏电脑的配置：");
+		Leaf keyboard = new Leaf("\t键盘：阿米洛VA87M");
+		Leaf monitor = new Leaf("\t显示器：明基PD3220U");
+		Leaf mouse = new Leaf("\t鼠标：罗技G903无线鼠标");
+		Composite chassis = new Composite("\t机箱：Tt Level 20");
 		root.add(keyboard);
 		root.add(monitor);
 		root.add(mouse);
 		root.add(chassis);
-		Leaf disk = new Leaf("硬盘");
-		Leaf powerSupply = new Leaf("电源");
-		Composite mainBoard = new Composite("主板");
+		Leaf disk = new Leaf("\t\t硬盘：东芝RC500 100T");
+		Leaf powerSupply = new Leaf("\t\t电源：1200W");
+		Composite mainBoard = new Composite("\t\t主板：B450M");
 		chassis.add(disk);
 		chassis.add(powerSupply);
 		chassis.add(mainBoard);
-		Leaf cpu = new Leaf("CPU");
-		Leaf graphicsCard = new Leaf("显卡");
-		Leaf networkCard = new Leaf("网卡");
+		Leaf cpu = new Leaf("\t\t\tcpu：AMD Ryzen ThreadRipper 3990X");
+		Leaf graphicsCard = new Leaf("\t\t\t显卡：NVIDIA GeForce RTX 3090");
+		Leaf networkCard = new Leaf("\t\t\t网卡：Intel X710-T4");
 		mainBoard.add(cpu);
 		mainBoard.add(graphicsCard);
 		mainBoard.add(networkCard);
