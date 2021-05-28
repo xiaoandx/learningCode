@@ -140,3 +140,7 @@
 ##### 35.PDF编辑查看绿色软件 
 
 [PDF Editor：https://xiaoandx.lanzoui.com/i3N5Updtsmh](https://xiaoandx.lanzoui.com/i3N5Updtsmh)
+
+##### 36.提供简单易用的自定义按键和快捷方式
+
+[AutoHotkey：https://xiaoandx.lanzoui.com/iWDs8pk1e2h](https://xiaoandx.lanzoui.com/iWDs8pk1e2h)
