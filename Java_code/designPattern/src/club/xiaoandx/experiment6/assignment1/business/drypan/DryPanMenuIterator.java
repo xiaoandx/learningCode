@@ -11,7 +11,6 @@
 package club.xiaoandx.experiment6.assignment1.business.drypan;
 
 import java.util.Map;
-import java.util.Map.Entry;
 
 import club.xiaoandx.experiment6.assignment1.business.MenuItem;
 import club.xiaoandx.experiment6.assignment1.iterator.Iterator;
@@ -28,42 +27,41 @@ public class DryPanMenuIterator implements Iterator {
 	
 	Map<String, MenuItem> dryPanMenus;
 	
-	java.util.Iterator<Map.Entry<String, MenuItem>> it ;
-	
-	@SuppressWarnings("rawtypes")
-	Map.Entry entry;
-	
-	/**   
-	 * @Title:  DryPanMenuIterator   
-	 * @date: 2021-05-26 18:01 
+	int pointer;
+
+	/**
+	 * @Title: DryPanMenuIterator
+	 * @date: 2021-05-26 18:01
 	 * @since: 1.0.0
 	 */
 	public DryPanMenuIterator(Map<String, MenuItem> dryPanMenus) {
 		this.dryPanMenus = dryPanMenus;
-		it = (java.util.Iterator<Entry<String, MenuItem>>) dryPanMenus.entrySet().iterator();
+		pointer = 0;
 	}
-	
+
 	/**   
 	 * <p>Title: hasNext</p> 
 	 * @date: 2021-05-26 18:01    
-	 * @return   
+	 * @return   	当前是否有菜品，没有返回false，有菜品返回true
 	 * @see club.xiaoandx.experiment6.assignment1.iterator.Iterator#hasNext()   
 	 */
 	@Override
 	public boolean hasNext() {
-		return it.hasNext();
+		if (pointer < dryPanMenus.size() && pointer >= 0
+				&&  null != dryPanMenus.get(String.valueOf(pointer))) {
+			return true;
+		}
+		return false;
 	}
 
 	/**   
 	 * <p>Title: next</p> 
 	 * @date: 2021-05-26 18:01    
-	 * @return   
+	 * @return		具体菜单对象
 	 * @see club.xiaoandx.experiment6.assignment1.iterator.Iterator#next()   
 	 */
 	@Override
 	public Object next() {
-		Map.Entry<String, MenuItem> entry = it.next();
-		return entry.getValue();
+		return dryPanMenus.get(String.valueOf(pointer++));
 	}
-
 }

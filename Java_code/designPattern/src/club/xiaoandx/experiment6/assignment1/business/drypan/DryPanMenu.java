@@ -12,7 +12,6 @@ package club.xiaoandx.experiment6.assignment1.business.drypan;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 import club.xiaoandx.experiment6.assignment1.business.MenuItem;
 import club.xiaoandx.experiment6.assignment1.iterator.Iterator;
@@ -32,6 +31,17 @@ public class DryPanMenu {
 	 */
 	Map<String, MenuItem> dryPanMenus = new HashMap<String, MenuItem>();
 	
+	int pointer;
+	
+	/**   
+	 * <p> </p></br>
+	 * @Title:  MapTest   
+	 * @date: 2021-05-29 17:02 
+	 * @since: 1.0.0
+	 */
+	public DryPanMenu() {
+		pointer = 0;
+	}
 	/**
 	 * <p> 向菜单添加菜品 </p></br>
 	 * @Title: addDryPanMenuItem  
@@ -43,7 +53,7 @@ public class DryPanMenu {
 	 * @since: 1.0.0   
 	 */
 	public void addDryPanMenuItem(String name, String des, double price) {
-		dryPanMenus.put(UUID.randomUUID().toString(), new MenuItem(name, des, price));
+		dryPanMenus.put(String.valueOf(pointer++), new MenuItem(name, des, price));
 	}
 	
 	/**
