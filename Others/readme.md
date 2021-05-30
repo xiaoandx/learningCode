@@ -144,3 +144,7 @@
 ##### 36.提供简单易用的自定义按键和快捷方式
 
 [AutoHotkey：https://xiaoandx.lanzoui.com/iWDs8pk1e2h](https://xiaoandx.lanzoui.com/iWDs8pk1e2h)
+
+##### 37.好看的写代码字体
+
+[https://xiaoandx.lanzoui.com/ik7Qcplwyhe](https://xiaoandx.lanzoui.com/ik7Qcplwyhe)
