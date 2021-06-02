@@ -156,3 +156,7 @@
 ##### 39.输入文字即可自动生成 PPT 的在线工具
 
 [https://aippt.wps.cn/welcome](https://aippt.wps.cn/welcome)
+
+##### 40.化的团队协作工具
+
+[https://www.huiyizhuo.com/](https://www.huiyizhuo.com/)
