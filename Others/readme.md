@@ -1,6 +1,6 @@
 ## Windows小软件分享地址合集 (TLS) 
 
-##### 1. 360无线wifi驱动下载(自己常用)
+##### ~~1. 360无线wifi驱动下载(不推荐)~~
 
 [WIFI驱动：https://wwa.lanzoui.com/imQqNinjt4d](https://wwa.lanzoui.com/imQqNinjt4d)
 
@@ -160,3 +160,7 @@
 ##### 40.化的团队协作工具
 
 [https://www.huiyizhuo.com/](https://www.huiyizhuo.com/)
+
+##### 41.快速扫描磁盘，找出占用空
+
+[TreeSize：https://xiaoandx.lanzoui.com/igM5rpqalda](https://xiaoandx.lanzoui.com/igM5rpqalda)
