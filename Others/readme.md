@@ -152,3 +152,7 @@
 ##### 38.免费录屏软件Action
 
 [Action：https://xiaoandx.lanzoui.com/iPPhIpo4g3c](https://xiaoandx.lanzoui.com/iPPhIpo4g3c)
+
+##### 39.输入文字即可自动生成 PPT 的在线工具
+
+[https://aippt.wps.cn/welcome](https://aippt.wps.cn/welcome)
