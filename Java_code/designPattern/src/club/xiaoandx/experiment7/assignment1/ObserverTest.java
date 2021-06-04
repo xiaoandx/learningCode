@@ -10,32 +10,21 @@
  */
 package club.xiaoandx.experiment7.assignment1;
 
-import club.xiaoandx.experiment7.assignment1.observer.impl.JobSeeker;
-import club.xiaoandx.experiment7.assignment1.subject.impl.HeadHunter;
+import club.xiaoandx.experiment7.assignment1.observer.impl.ConcreteObserver;
+import club.xiaoandx.experiment7.assignment1.subject.impl.ConcreteSubject;
 
 /**  
- * <p> 求职学生去中介公司进行求职质询-测试类 </p> 
+ * <p> 观察者模式测试 </p> 
  * @ClassName:ObserverTest   
  * @author: WEI.ZHOU
- * @date: 2021-06-03 11:08
+ * @date: 2021-06-03 12:56
  * @since: JDK1.8
  * @version V1.0.0
  */
 public class ObserverTest {
 	public static void main(String[] args) {
-		/*
-		 * 测试说明：
-		 * 1.先实例化一家中介公司
-		 * 2.学生进行求职，实例化几个学生，并到中介公司进行注册
-		 * 3.中介公司新增了求职岗位信息，就会通知所有再公司注册地学生
-		 */
-		HeadHunter headHunter = new HeadHunter();
-		headHunter.registerObserver(new JobSeeker("张三"));
-		headHunter.registerObserver(new JobSeeker("李四"));
-		headHunter.registerObserver(new JobSeeker("周巍"));
-		
-		headHunter.addJob("Java开发工程师");
-		headHunter.addJob("Web前端开发工程师");
-		headHunter.addJob("Java架构师");
+		ConcreteSubject concreteSubject = new ConcreteSubject();
+		concreteSubject.registerObserver(new ConcreteObserver("周巍"));
+		concreteSubject.updateMessage("上课了");
 	}
 }

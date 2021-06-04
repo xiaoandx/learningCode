@@ -10,16 +10,22 @@
  */
 package club.xiaoandx.experiment7.assignment1.observer;
 
-import club.xiaoandx.experiment7.assignment1.subject.Subject;
-
 /**  
- * <p> 找工作的学生 </p> 
+ * <p> Observer 注册者接口 </p> 
  * @ClassName:Observer   
  * @author: WEI.ZHOU
- * @date: 2021-06-03 10:44
+ * @date: 2021-06-03 12:32
  * @since: JDK1.8
  * @version V1.0.0
  */
 public interface Observer {
-	public void update(Subject s);
+	
+	/**
+	 * <p> 更新来自Subject最新地通知 </p></br>
+	 * @Title: update  
+	 * @date: 2021-06-03 12:35
+	 * @param ArrayList<Observer> 		Subject对象 集合
+	 * @since: 1.0.0   
+	 */
+	void update(String message);
 }
