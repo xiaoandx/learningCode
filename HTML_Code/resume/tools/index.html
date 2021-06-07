@@ -78,9 +78,10 @@
 		 */
 
 		$(document).ready(function() {
+			var date = new Date();
 			//使用getJSON方法读取json数据,
 			//注意：info.json可以是不同类型文件，只要其中的数据为json类型即可
-			$.getJSON('./result.json', function(result) {
+			$.getJSON('./result.json?t='+ date.getTime(), function(result) {
 				var html_resultinfo = '';
 				$.each(result["resultinfo"], function(i, item) {
 					html_resultinfo1 = '<div class="col-md-4"><div class="list-group"> <a href="'+item['url']+'" class="list-group-item"> '+
