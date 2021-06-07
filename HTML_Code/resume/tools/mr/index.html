@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" href="https://image.xiaoandx.club/favicon.ico"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<script src="https://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<title>人工交互论文选题</title>
+	<style type="text/css">
+			.mains{
+				margin: 0 auto;
+				padding: 30px;
+			}
+			.submitStyle{
+				margin-top: 30px;
+			}
+			.mainTitle{
+				text-align: center;
+				color: #17a2b8;
+				font-weight: 900;
+				margin-bottom: 30px;
+			}
+			.present{
+				color: #ff2020;
+				margin-bottom: 30px;
+			}
+			.present h4{
+				font-weight: 700;
+				line-height:22px
+			}
+			.slays{
+				margin-top: 50px;;
+			}
+
+		</style>
+	</head>
+	<body style="width: 92.75rem;">
+		<div class="mains">
+			<div class="heads">
+				<div class="titleStyle">
+					<h2 class="mainTitle">软件设计模式 期末试题 在线选题</h2>
+					<div class="present">
+						<h4>推荐使用电脑进行查看，所有题目只有4人可选；<br>
+						选择规则：
+						<br>①先选先得
+						<br>②当出现题目人数为0时，该类题目不能再选了
+						<br>③选择好后，学习委员公布试题选择情况
+						</h4>
+					</div>
+				</div>
+				<div class="seach">
+					  <table class="table table-striped">
+						 <thead>
+							 <tr>
+							   <td class="active"><b>序号</b></td>
+							   <td class="success"><b>论文名称</b></td>
+							   <td class="warning"><b>可选人数</b></td>
+							   <td class="danger"><b>是否可选</b></td>
+							 </tr>
+						 </thead>
+						 <tbody id="tb">
+						 </tbody>
+					    
+					  </table>
+				</div>
+			</div>
+		</div>
+	</body>
+		<script type="text/javascript">
+		  
+			/**
+			 * 
+			 *    _    _      _ _         _______ _                 _         __      ___               
+			 * 	 | |  | |    | | |       |__   __| |               | |        \ \    / (_)              
+			 *	 | |__| | ___| | | ___      | |  | |__   __ _ _ __ | | _____   \ \  / / _  _____      __
+			 *	 |  __  |/ _ \ | |/ _ \     | |  | '_ \ / _` | '_ \| |/ / __|   \ \/ / | |/ _ \ \ /\ / /
+			 *	 | |  | |  __/ | | (_) |    | |  | | | | (_| | | | |   <\__ \    \  /  | |  __/\ V  V / 
+			 *	 |_|  |_|\___|_|_|\___/     |_|  |_| |_|\__,_|_| |_|_|\_\___/     \/   |_|\___| \_/\_/  
+			 * 
+             *	Copyright (c) 2021 WEI.ZHOU. All rights reserved.                           
+             *	The following code snippets are only used for circulation and cannot be used for business.      
+             *	If the code is used, no consent is required, but the author has nothing to do with any problems and consequences.                                                                                   
+             *	In case of code problems, feedback can be made through the following email address.         
+             *	                            <xiaoandx@gmail.com> and <https://blog.xiaoandx.club>  
+			 * @author xiaoandx
+			 * @time 2020-11-28 12:21:56
+			 */
+			
+			$(document).ready(function(){
+			var date = new Date();
+			//使用getJSON方法读取json数据,
+			//注意：info.json可以是不同类型文件，只要其中的数据为json类型即可
+			 $.getJSON('./result.json?t=' + date.getTime(),function(result){
+			    var html_resultinfo='';
+				$.each(result["resultinfo"],function(i,item){
+						var status = item['number'] == 0 ? "不可选" : "可选";
+			        html_resultinfo = '<tr><td class="active">' + item['no'] + '</td>' +
+			                ' <td class="success">' + item['name'] + '</td>' +
+			                '<td class="warning">' + item["number"] +'</td>' +
+			                '<td class="danger"> <input type="text" class="form-control" id="NemeId" placeholder=' + status + '> </td><tr>';
+					$('#tb').append(html_resultinfo);
+			    });
+			});
+		});
+		</script>
+</html>
