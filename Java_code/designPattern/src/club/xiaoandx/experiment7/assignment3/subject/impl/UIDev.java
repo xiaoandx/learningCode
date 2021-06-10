@@ -16,14 +16,14 @@ import club.xiaoandx.experiment7.assignment3.observer.Observer;
 import club.xiaoandx.experiment7.assignment3.subject.Subject;
 
 /**  
- * <p> 求职中介公司具体实现 </p> 
- * @ClassName:HeadHunter   
+ * <p> UI设计开发</p> 
+ * @ClassName:UIDev  
  * @author: WEI.ZHOU
  * @date: 2021-06-03 10:45
  * @since: JDK1.8
  * @version V1.0.0
  */
-public class HeadHunter implements Subject{
+public class UIDev implements Subject{
 	
 	/**
 	 * 中介保存注册学生集合
@@ -31,7 +31,7 @@ public class HeadHunter implements Subject{
 	private ArrayList<Observer> userList;
 	
 	/**
-	 * 中介公司所有的招聘岗位集合
+	 * 中介公司所有的UI设计招聘岗位集合
 	 */
 	private ArrayList<String> jobs;
  
@@ -41,7 +41,7 @@ public class HeadHunter implements Subject{
 	 * @date: 2021-06-03 10:51 
 	 * @since: 1.0.0
 	 */
-	public HeadHunter(){
+	public UIDev(){
 		userList = new ArrayList<Observer>();
 		jobs = new ArrayList<String>();
 	}
@@ -106,7 +106,7 @@ public class HeadHunter implements Subject{
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString(){
-		StringBuffer jobsString = new StringBuffer(" ");
+		StringBuffer jobsString = new StringBuffer("UI开发岗位：");
 		for(String j: jobs){
 			jobsString.append(j + ", ");
 		}

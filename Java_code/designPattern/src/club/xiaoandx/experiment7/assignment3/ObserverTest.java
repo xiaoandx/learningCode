@@ -11,7 +11,9 @@
 package club.xiaoandx.experiment7.assignment3;
 
 import club.xiaoandx.experiment7.assignment3.observer.impl.JobSeeker;
-import club.xiaoandx.experiment7.assignment3.subject.impl.HeadHunter;
+import club.xiaoandx.experiment7.assignment3.subject.impl.HardwareDev;
+import club.xiaoandx.experiment7.assignment3.subject.impl.SoftwareDev;
+import club.xiaoandx.experiment7.assignment3.subject.impl.UIDev;
 
 /**  
  * <p> 求职学生去中介公司进行求职质询-测试类 </p> 
@@ -22,20 +24,24 @@ import club.xiaoandx.experiment7.assignment3.subject.impl.HeadHunter;
  * @version V1.0.0
  */
 public class ObserverTest {
+	
 	public static void main(String[] args) {
 		/*
 		 * 测试说明：
-		 * 1.先实例化一家中介公司
-		 * 2.学生进行求职，实例化几个学生，并到中介公司进行注册
-		 * 3.中介公司新增了求职岗位信息，就会通知所有再公司注册地学生
+		 * 1.先实例化一家中介不同类别的岗位主题
+		 * 2.学生进行求职，实例化几个学生，并到对应主题进行注册
+		 * 3.中介公司新增了不同类别的求职岗位信息，就会通知所有在公司注册地学生
 		 */
-		HeadHunter headHunter = new HeadHunter();
+		UIDev headHunter = new UIDev();
+		SoftwareDev softwareDev = new SoftwareDev();
+		HardwareDev hardwareDev = new HardwareDev();
+		
 		headHunter.registerObserver(new JobSeeker("张三"));
-		headHunter.registerObserver(new JobSeeker("李四"));
-		headHunter.registerObserver(new JobSeeker("周巍"));
+		softwareDev.registerObserver(new JobSeeker("李四"));
+		hardwareDev.registerObserver(new JobSeeker("周巍"));
 		
 		headHunter.addJob("软件开发人员");
-		headHunter.addJob("硬件开发人员");
-		headHunter.addJob("UI设计人员");
+		softwareDev.addJob("硬件开发人员");
+		hardwareDev.addJob("UI设计人员");
 	}
 }
