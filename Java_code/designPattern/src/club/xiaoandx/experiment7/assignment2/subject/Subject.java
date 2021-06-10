@@ -10,7 +10,7 @@
  */
 package club.xiaoandx.experiment7.assignment2.subject;
 
-import club.xiaoandx.experiment7.assignment2.observer.Observer;
+import club.xiaoandx.experiment7.assignment2.observer.PanelObserver;
 
 /**  
  * <p> 中介公司  </p> 
@@ -21,7 +21,7 @@ import club.xiaoandx.experiment7.assignment2.observer.Observer;
  * @version V1.0.0
  */
 public interface Subject {
-	public void registerObserver(Observer o);
-	public void removeObserver(Observer o);
+	public void registerObserver(PanelObserver o);
+	public void removeObserver(PanelObserver o);
 	public void notifyAllObservers();
 }

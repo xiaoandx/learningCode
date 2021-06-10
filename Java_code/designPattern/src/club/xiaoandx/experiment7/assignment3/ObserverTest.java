@@ -8,10 +8,10 @@
  * 
  *                        <xiaoandx@gmail.com>
  */
-package club.xiaoandx.experiment7.assignment2;
+package club.xiaoandx.experiment7.assignment3;
 
-import club.xiaoandx.experiment7.assignment2.observer.impl.JobSeeker;
-import club.xiaoandx.experiment7.assignment2.subject.impl.HeadHunter;
+import club.xiaoandx.experiment7.assignment3.observer.impl.JobSeeker;
+import club.xiaoandx.experiment7.assignment3.subject.impl.HeadHunter;
 
 /**  
  * <p> 求职学生去中介公司进行求职质询-测试类 </p> 
@@ -34,8 +34,8 @@ public class ObserverTest {
 		headHunter.registerObserver(new JobSeeker("李四"));
 		headHunter.registerObserver(new JobSeeker("周巍"));
 		
-		headHunter.addJob("Java开发工程师");
-		headHunter.addJob("Web前端开发工程师");
-		headHunter.addJob("Java架构师");
+		headHunter.addJob("软件开发人员");
+		headHunter.addJob("硬件开发人员");
+		headHunter.addJob("UI设计人员");
 	}
 }

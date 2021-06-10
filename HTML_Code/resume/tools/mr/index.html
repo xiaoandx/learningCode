@@ -97,10 +97,15 @@
 			    var html_resultinfo='';
 				$.each(result["resultinfo"],function(i,item){
 						var status = item['number'] == 0 ? "不可选" : "可选";
+						var user = "";
+						$.each(item['userList'],function(i,item){
+							user = user +"-"+item ;
+						});
+						console.log(user)
 			        html_resultinfo = '<tr><td class="active">' + item['no'] + '</td>' +
 			                ' <td class="success">' + item['name'] + '</td>' +
 			                '<td class="warning">' + item["number"] +'</td>' +
-			                '<td class="danger"> <input type="text" class="form-control" id="NemeId" placeholder=' + status + '> </td><tr>';
+			                '<td class="danger"> <input type="text" class="form-control" id="NemeId" placeholder=' + user+'> </td><tr>';
 					$('#tb').append(html_resultinfo);
 			    });
 			});
