@@ -26,5 +26,6 @@ public class ObserverTest {
 		ConcreteSubject concreteSubject = new ConcreteSubject();
 		concreteSubject.registerObserver(new ConcreteObserver("周巍"));
 		concreteSubject.updateMessage("上课了");
+		concreteSubject.updateMessage("下课了");
 	}
 }
