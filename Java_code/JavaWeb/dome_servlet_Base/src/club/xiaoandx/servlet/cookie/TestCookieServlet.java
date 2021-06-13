@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TestCookieServlet extends HttpServlet{
 	
 	/**   
-	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)   
+	 * @Fields serialVersionUID :    
 	 */ 
 	private static final long serialVersionUID = 421430760246901526L;
 

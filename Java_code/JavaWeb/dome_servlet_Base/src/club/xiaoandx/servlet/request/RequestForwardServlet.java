@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 
 public class RequestForwardServlet extends HttpServlet {
 	/**
-	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)
+	 * @Fields serialVersionUID : 
 	 */
 	private static final long serialVersionUID = 2417921871857988120L;
 	

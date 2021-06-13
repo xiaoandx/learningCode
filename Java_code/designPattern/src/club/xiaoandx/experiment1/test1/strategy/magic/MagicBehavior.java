@@ -28,8 +28,8 @@ package club.xiaoandx.experiment1.test1.strategy.magic;
  */
 public interface MagicBehavior {
 	/**
-	 * @Title: play   
-	 * @Description: TODO(发出技能)   
+	 * @Title: play  
+	 * @Description: 发出技能
 	 * @param: @return      
 	 * @return: String      
 	 * @throws

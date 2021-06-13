@@ -8,7 +8,7 @@
  public class CheckServlet extends HttpServlet
  {
  	/**   
-	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)   
+	 * @Fields serialVersionUID    
 	 */ 
 	private static final long serialVersionUID = 3394546399103856764L;
 	private static int WIDTH = 60; //验证码图片宽度

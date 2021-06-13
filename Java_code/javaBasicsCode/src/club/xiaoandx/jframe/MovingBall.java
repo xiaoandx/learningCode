@@ -54,7 +54,7 @@ public class MovingBall extends JFrame implements ActionListener {
 	private int ballMoveY = 3;	
 
 	/**   
-	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)   
+	 * @Fields serialVersionUID :    
 	 */ 
 	private static final long serialVersionUID = 6471761600317841489L;
 	

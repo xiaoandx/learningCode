@@ -8,7 +8,7 @@ import javax.swing.event.*;
 
 public class JFontChooserS extends JDialog {
 	/**   
-	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)   
+	 * @Fields serialVersionUID :    
 	 */ 
 	private static final long serialVersionUID = 1524035130774314896L;
 	String[] styleList = new String[] { "Plain", "Bold", "Italic" };
@@ -116,7 +116,7 @@ public class JFontChooserS extends JDialog {
 //////////////////////////////////////////////////////////////////////
 	public class NwList extends JPanel {
 		/**   
-		 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)   
+		 * @Fields serialVersionUID :    
 		 */ 
 		private static final long serialVersionUID = 5118818863530679097L;
 		JList<Object> jl;

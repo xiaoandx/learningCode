@@ -20,7 +20,7 @@ package club.xiaoandx.experiment3.assignment1.common;
  */
 public class GrowVegetablesException extends Exception {
 	/**   
-	 * @Fields serialVersionUID : TODO(Exception 版本标识号)   
+	 * @Fields serialVersionUID   
 	 */ 
 	private static final long serialVersionUID = 7258712006837145035L;
 	

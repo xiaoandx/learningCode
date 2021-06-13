@@ -46,10 +46,9 @@ public class Role {
 
 	/**
 	 * @Title: Role
-	 * @Description: TODO(同时拥有两种攻击技能)
+	 * @Description: 同时拥有两种攻击技能
 	 */
 	public Role(String userType, MagicBehavior magicBehavior, WeaponBehavior weaponBehavior) {
-		// TODO 英雄同时拥有魔法技能与物理技能
 		this.userType = userType;
 		this.magicBehavior = magicBehavior;
 		this.weaponBehavior = weaponBehavior;
@@ -57,30 +56,27 @@ public class Role {
 
 	/**
 	 * @Title: Role
-	 * @Description: TODO(只拥有魔法攻击)
+	 * @Description: 只拥有魔法攻击
 	 */
 	public Role(String userType, MagicBehavior magicBehavior) {
-		// TODO 英雄同时只拥有魔法技能
 		this.userType = userType;
 		this.magicBehavior = magicBehavior;
 	}
 
 	/**
 	 * @Title: Role
-	 * @Description: TODO(只拥有物理攻击)
+	 * @Description: 只拥有物理攻击
 	 */
 	public Role(String userType, WeaponBehavior weaponBehavior) {
-		// TODO 英雄同时只拥有物理技能
 		this.userType = userType;
 		this.weaponBehavior = weaponBehavior;
 	}
 	
 	/**
 	 * @Title: Role
-	 * @Description: TODO(只拥有物理攻击)
+	 * @Description: 
 	 */
 	public Role(String userType) {
-		// TODO 英雄人物无技能
 		this.userType = userType;
 	}
 	

@@ -21,7 +21,7 @@ package club.xiaoandx.experiment6.assignment2.abnormal;
 public class UNrealizationException extends RuntimeException{
 	
 	/**   
-	 * @Fields serialVersionUID : TODO(RuntimeException serialVersionUID)   
+	 * @Fields serialVersionUID :    
 	 */ 
 	private static final long serialVersionUID = -7747427081570808812L;
 

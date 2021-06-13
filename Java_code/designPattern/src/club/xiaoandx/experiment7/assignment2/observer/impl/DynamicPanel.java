@@ -34,7 +34,7 @@ import javax.swing.JTextField;
 public class DynamicPanel extends JFrame implements PanelObserver{
 
 	/**   
-	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)   
+	 * @Fields serialVersionUID :    
 	 */ 
 	private static final long serialVersionUID = 8906225104449345718L;
 	private JPanel contentPane;

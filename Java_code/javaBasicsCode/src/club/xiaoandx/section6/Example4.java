@@ -48,7 +48,7 @@ public class Example4 {
 	/**
 	 * <p> ? 类型通配符  无限制 </p></br>
 	 * @Title: forPri   
-	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @Description:    
 	 * @date: 2021-03-24 20:42
 	 * @param list void    
 	 * @since: 1.0.0   
@@ -64,7 +64,7 @@ public class Example4 {
 	 * 
 	 * <p> <? extends Prosen> 向下匹配  Prosen为天花板</p></br>
 	 * @Title: forPriEx   
-	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @Description:    
 	 * @date: 2021-03-24 20:43
 	 * @param list void    
 	 * @since: 1.0.0   
@@ -80,7 +80,7 @@ public class Example4 {
 	 * 
 	 * <p> <? super Prosen> 向上匹配   Prosen为地板 </p></br>
 	 * @Title: forPriSuper   
-	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @Description:    
 	 * @date: 2021-03-24 20:45
 	 * @param list void    
 	 * @since: 1.0.0   

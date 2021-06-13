@@ -14,7 +14,7 @@ import javax.servlet.http.*;
  */
 public class ResultServlet extends HttpServlet {
 	/**
-	 * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)
+	 * @Fields serialVersionUID : 
 	 */
 	private static final long serialVersionUID = -1076254419512761898L;
 

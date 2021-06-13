@@ -29,7 +29,7 @@ package club.xiaoandx.experiment1.test1.strategy.weapon;
 public interface WeaponBehavior {
 	/**
 	 * @Title: play   
-	 * @Description: TODO(使用物理技能)   
+	 * @Description:使用物理技能
 	 * @param: @return      
 	 * @return: String      
 	 * @throws

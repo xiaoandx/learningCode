@@ -36,7 +36,7 @@ public class Example3 {
 	 * <pre> 泛型方法定义格式：在方法返回值前面 定义泛型与个数，然后再方法形参中进行使用 </pre></br>
 
 	 * @Title: add   
-	 * @Description: TODO(这里用一句话描述这个方法的作用)   
+	 * @Description:    
 	 * @date: 2021-03-24 20:34
 	 * @param t
 	 * @param e void    

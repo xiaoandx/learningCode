@@ -26,7 +26,7 @@ class King extends Role {
 
 	/**
 	 * @Title: King RPG 游戏人物 国王 
-	 * @Description: TODO(这里用一句话描述这个方法的作用) 
+	 * @Description:  
 	 * @param: userType 
 	 * @param: magicBehavior 
 	 * @param: weaponBehavio
