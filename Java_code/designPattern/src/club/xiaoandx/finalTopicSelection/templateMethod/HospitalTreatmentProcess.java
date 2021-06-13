@@ -10,6 +10,8 @@
  */
 package club.xiaoandx.finalTopicSelection.templateMethod;
 
+import club.xiaoandx.finalTopicSelection.organizationStructure.computer.component.HospitalComponent;
+
 /**  
  * <p>医院看病流程 抽象 </p> 
  * @ClassName:PatientVisits   
@@ -18,7 +20,7 @@ package club.xiaoandx.finalTopicSelection.templateMethod;
  * @since: JDK1.8
  * @version V1.0.0
  */
-public abstract class HospitalTreatmentProcess {
+public abstract class HospitalTreatmentProcess{
 	
 	/**
 	 * <p> 患者就诊 </p></br>
@@ -27,8 +29,8 @@ public abstract class HospitalTreatmentProcess {
 	 * @date: 2021-06-13 15:45 void    
 	 * @since: 1.0.0   
 	 */
-	public final void patientVisits() {
-		register();
+	public final void patientVisits(HospitalComponent hospitalComponent) {
+		register(hospitalComponent);
 		doctorVisits();
 		pay();
 		doctorTreatment();
@@ -42,7 +44,7 @@ public abstract class HospitalTreatmentProcess {
 	 * @date: 2021-06-13 15:39 void    
 	 * @since: 1.0.0   
 	 */
-	public abstract void register();
+	public abstract void register(HospitalComponent hospitalComponent);
 	
 	/**
 	 * <p> 医生就诊 </p></br>
