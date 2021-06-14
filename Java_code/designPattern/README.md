@@ -15,5 +15,5 @@
 | 5    | [实验5](src/club/xiaoandx/experiment5) | 实验5 |
 | 6    | [实验6](src/club/xiaoandx/experiment6) | 实验6 |
 | 7    | [实验7](src/club/xiaoandx/experiment7) | 实验7 |
-| 期末    | [期末](src/club/xiaoandx/e/finalTopicSelection) | 期末 |
+| 期末    | [期末](src/club/xiaoandx/finalTopicSelection) | 期末 |
 
