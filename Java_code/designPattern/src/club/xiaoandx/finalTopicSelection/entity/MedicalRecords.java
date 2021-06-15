@@ -18,7 +18,7 @@ import club.xiaoandx.finalTopicSelection.caseList.product.Case;
  * @author: WEI.ZHOU
  * @date: 2021-06-13 16:17
  * @since: JDK1.8
- * @version V1.0.0
+ * @version V1.2.0
  */
 public class MedicalRecords {
 	
@@ -41,6 +41,11 @@ public class MedicalRecords {
 	 * 病例内容
 	 */
 	private Case coseContext;
+	
+	/**
+	 * 是否需要检查
+	 */
+	private boolean isInspect = false;
 
 	/**
 	 * @Title:  getDepartment 挂号科室</br>  
@@ -122,43 +127,60 @@ public class MedicalRecords {
 		this.patientName = patientName;
 	}
 
+	
+	/**
+	 * @Title:  isInspect </br>  
+	 * @Description: GET方法 </br>
+	 * @return: boolean </br>  
+	 * @return: isInspect
+	 */
+	public boolean isInspect() {
+		return isInspect;
+	}
+
+	/**
+	 * @Title:  setInspect </br>  
+	 * @Description: 属性的SET方法 </br>  
+	 * @return: boolean </br> 
+	 * @param: isInspect 要设置的 isInspect
+	 */
+	public void setInspect(boolean isInspect) {
+		this.isInspect = isInspect;
+	}
+
 	/**   
 	 * <p> </p></br>
-	 *
-	 * <pre> </pre></br>
-	 *
-	 * <ul>
-	 * 	<li> </li>
-	 * </ul>
-	 *
+	 * @Title:  MedicalRecords   
+	 * @date: 2021-06-15 16:11
+	 * @param patientName
+	 * @param department
+	 * @param doctorName
+	 * @param coseContext
+	 * @param isInspect 
+	 * @since: 1.0.0
+	 */
+	public MedicalRecords(String patientName, String department, String doctorName,
+			Case coseContext, boolean isInspect) {
+		super();
+		this.patientName = patientName;
+		this.department = department;
+		this.doctorName = doctorName;
+		this.coseContext = coseContext;
+		this.isInspect = isInspect;
+	}
+
+	
+	/**   
 	 * <p>Title: toString</p> 
-	 * @date: 2021-06-13 16:45    
+	 * @date: 2021-06-15 16:12    
 	 * @return   
 	 * @see java.lang.Object#toString()   
 	 */
 	@Override
 	public String toString() {
 		return "MedicalRecords [patientName=" + patientName + ", department=" + department
-				+ ", doctorName=" + doctorName + ", coseContext=" + coseContext + "]";
-	}
-
-	/**   
-	 * <p> </p></br>
-	 * @Title:  MedicalRecords   
-	 * @date: 2021-06-13 16:46
-	 * @param patientName
-	 * @param department
-	 * @param doctorName
-	 * @param coseContext 
-	 * @since: 1.0.0
-	 */
-	public MedicalRecords(String patientName, String department, String doctorName,
-			Case coseContext) {
-		super();
-		this.patientName = patientName;
-		this.department = department;
-		this.doctorName = doctorName;
-		this.coseContext = coseContext;
+				+ ", doctorName=" + doctorName + ", coseContext=" + coseContext
+				+ ", isInspect=" + isInspect + "]";
 	}
 
 	/**   

@@ -32,7 +32,7 @@ public class BasicsCase extends Case{
 	 */
 	@Override
 	public double cost() {
-		return 5.0;
+		return 0;
 	}
 
 	/**   
@@ -44,7 +44,7 @@ public class BasicsCase extends Case{
 	 */
 	@Override
 	public String getDescription() {
-		return "病例基础内容  ";
+		return "病例内容: ";
 	}
 
 }

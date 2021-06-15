@@ -14,22 +14,22 @@ import club.xiaoandx.finalTopicSelection.caseList.decorator.CaseDecorator;
 import club.xiaoandx.finalTopicSelection.caseList.product.Case;
 
 /**  
- * <p> 息斯敏 </p> 
- * @ClassName:Sismin   
+ * <p> 检查项目 - 抽血</p> 
+ * @ClassName:Amoxicillin   
  * @author: WEI.ZHOU
- * @date: 2021-06-13 18:01
+ * @date: 2021-06-13 14:42
  * @since: JDK1.8
  * @version V1.0.0
  */
-public class Sismin extends CaseDecorator{
-
+public class DrawBlood extends CaseDecorator{
+	
 	/**   
 	 * <p> </p></br>
 	 * @Title:  Amoxicillin   
 	 * @date: 2021-06-13 14:43 
 	 * @since: 1.0.0
 	 */
-	public Sismin(Case caseContext) {
+	public DrawBlood(Case caseContext) {
 		super.caseContext = caseContext;
 	}
 	
@@ -42,7 +42,7 @@ public class Sismin extends CaseDecorator{
 	 */
 	@Override
 	public double cost() {
-		return caseContext.cost() + 12.67;
+		return caseContext.cost() + 20;
 	}
 
 	/**   
@@ -54,7 +54,7 @@ public class Sismin extends CaseDecorator{
 	 */
 	@Override
 	public String getDescription() {
-		return caseContext.getDescription() + " 息斯敏  ";
+		return caseContext.getDescription() + " 抽血";
 	}
+	
 }
-

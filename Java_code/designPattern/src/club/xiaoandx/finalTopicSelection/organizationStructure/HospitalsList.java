@@ -30,8 +30,36 @@ public class HospitalsList {
 	 * @return HospitalDepartment    
 	 * @since: 1.0.0   
 	 */
-	public HospitalDepartment getYibinHospita() {
-		HospitalDepartment rootHospitaName = new HospitalDepartment("宜宾第一人民医院");
+	public HospitalDepartment getYibinHospitaOne() {
+		HospitalDepartment rootHospitaName = new HospitalDepartment("宜宾第一人民医院为你服务（看病拿药测试）");
+		HospitalDepartment internalMedicine = new HospitalDepartment("\t内科");
+		HospitalDepartment surgery = new HospitalDepartment("\t外科");
+		HospitalDepartment departmentGastroenterology = new HospitalDepartment("\t\t消化内科");
+		HospitalDepartment cardiovascularDepartment = new HospitalDepartment("\t\t心血管内科");
+		HospitalDepartment orthopaedics = new HospitalDepartment("\t\t骨科");
+		HospitalDepartment neurosurgery = new HospitalDepartment("\t\t神经外科");
+		Physician huang = new Physician("\t\t\tNO.1 黄医生");
+		Physician li = new Physician("\t\t\tNO.2 李医生");
+		Physician zhang = new Physician("\t\t\tNO.3 张医生");
+		Physician liu = new Physician("\t\t\tNO.4 刘医生");
+		Physician zhou = new Physician("\t\t\tNO.5 周医生");
+		
+		rootHospitaName.add(internalMedicine);
+		internalMedicine.add(departmentGastroenterology);
+		departmentGastroenterology.add(huang);
+		departmentGastroenterology.add(li);
+		internalMedicine.add(cardiovascularDepartment);
+		cardiovascularDepartment.add(zhang);
+		rootHospitaName.add(surgery);
+		surgery.add(orthopaedics);
+		orthopaedics.add(liu);
+		surgery.add(neurosurgery);
+		neurosurgery.add(zhou);
+		return rootHospitaName;
+	}
+	
+	public HospitalDepartment getYibinHospitaTwo() {
+		HospitalDepartment rootHospitaName = new HospitalDepartment("宜宾第二人民医院为你服务（看病检查拿药测试）");
 		HospitalDepartment internalMedicine = new HospitalDepartment("\t内科");
 		HospitalDepartment surgery = new HospitalDepartment("\t外科");
 		HospitalDepartment departmentGastroenterology = new HospitalDepartment("\t\t消化内科");
