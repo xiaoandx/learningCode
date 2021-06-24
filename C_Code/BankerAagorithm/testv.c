@@ -63,12 +63,26 @@ int result[PROCESSES_NUMBER];
 /**
  * 工作向量
  */
-int work[RESOURCES_NUMBER];
+int Work[RESOURCES_NUMBER];
 
 /**
  * 是否满足资源分配
  */
-int finish[PROCESSES_NUMBER];
+int Finish[PROCESSES_NUMBER];
+
+/**
+ * 工作向量work初始化，和状态向量Finish初始化为0 
+ * @Date: 2021-06-17 20:00:39
+ */
+void workAndFinishInit(){
+    int i;
+    for (i = 0; i < RESOURCES_NUMBER; i++) {
+        Work[i] = Available[i];
+    }
+    for (i = 0; i < PROCESSES_NUMBER; i++) {
+        Finish[i] = 0;
+    }
+}
 
 /**
  * 初始化所有进程的T0时刻的资源分配表
@@ -86,9 +100,9 @@ void resourcesInit() {
     for (i = 0; i < RESOURCES_NUMBER; i++) {
         int sum = 0;
         for (j = 0; j < PROCESSES_NUMBER; j++) {
-            sum += Allocation[j][i];
+            sum = sum + Allocation[j][i];
         }
-        Available[i] -= sum;
+        Available[i] =  Available[i] - sum;
     }
 }
 
@@ -97,7 +111,7 @@ void resourcesInit() {
  * @Date: 2021-06-16 19:09:40
  */
 void menuContext() {
-    printf("\t\t\t\t当前OS资源分配情况\n");
+    printf("\n\t\t\t\t当前OS资源分配情况\n");
     printf("PID       Max      Allocation     Need        Available        Work        Finish\n");
     int i,j;
     for (i = 0; i < PROCESSES_NUMBER; i++) {
@@ -124,28 +138,14 @@ void menuContext() {
         if (i == 0) {
             printf("   ");
             for (j = 0; j < RESOURCES_NUMBER; j++) {
-                printf("%5d", work[j]);
+                printf("%5d", Work[j]);
             }
         } else {
             printf("\t\t\t\t");
         }
         printf("   ");
-        printf("%5d", finish[i]);
+        printf("%5d", Finish[i]);
         printf("\n");
-    }
-}
-
-/**
- * 工作向量work初始化，和状态向量Finish初始化为0 
- * @Date: 2021-06-17 20:00:39
- */
-void workAndFinishInit(){
-    int i;
-    for (i = 0; i < RESOURCES_NUMBER; i++) {
-        work[i] = Available[i];
-    }
-    for (i = 0; i < PROCESSES_NUMBER; i++) {
-        finish[i] = 0;
     }
 }
 
@@ -165,20 +165,20 @@ int checkSecure() {
         int status = 0;
         for (i = 0; i < PROCESSES_NUMBER; i++) {
             // 判断循环进程是否满足了资源要求分配，如果这个进程没有完成，则判断其是否可以完成
-            if (!finish[i]) {
+            if (!Finish[i]) {
                 // isSatisfy=0 表示该线程满足安全
                 int isSatisfy = 0;
                 for ( j= 0; j < RESOURCES_NUMBER; j++) {
-                    if (Need[i][j] > work[j]) {
+                    if (Need[i][j] > Work[j]) {
                         isSatisfy = 1;
                         break;
                     }
                 }
                 if (!isSatisfy) {
                     for (j = 0; j < RESOURCES_NUMBER; j++) {
-                        work[j] += Allocation[i][j];
+                        Work[j] = Work[j] + Allocation[i][j];
                     }
-                    finish[i] = 1;
+                    Finish[i] = 1;
                     status += 1;
                     printf("%d ", i);
                 }
@@ -191,11 +191,10 @@ int checkSecure() {
     printf("\n");
     // 判断所有进程的finish是否为1(满足)，如果有一个线程为0那说明不存在安全序列
     for (i = 0; i < PROCESSES_NUMBER; i++) {
-        if (!finish[i]) {
+        if (!Finish[i]) {
             return 0;
         }
     }
-    menuContext();
     // 所有的线程都能安全，存在安全序列
     return 1;
 }
@@ -226,17 +225,17 @@ void resourceRequest(int current, int request[]) {
 
     // 剩余资源数量 满足请求数量，进行假分配
     for (i = 0; i < RESOURCES_NUMBER; i++) {
-        Available[i] -= request[i];
-        Allocation[current][i] += request[i];
-        Need[current][i] -= request[i];
+        Available[i] = Available[i] - request[i];
+        Allocation[current][i] = Allocation[current][i] + request[i];
+        Need[current][i] = Need[current][i] - request[i];
     }
 
     // 假分配后进行安全序列检查，不存在安全序列，回退刚刚假分配的资源数
     if (!checkSecure()) {
         for (i = 0; i < RESOURCES_NUMBER; i++) {
-            Available[i] += request[i];
-            Allocation[current][i] -= request[i];
-            Need[current][i] += request[i];
+            Available[i] = Available[i] + request[i];
+            Allocation[current][i] = Allocation[current][i] - request[i];
+            Need[current][i] =  Need[current][i] +request[i];
         }
         printf("资源分配安全检查失败，不存在安全序列\n");
         return;
@@ -252,21 +251,14 @@ void resourceRequest(int current, int request[]) {
     // 如果新申请进程need都为0表示进程已经完成，回收已经分配的资源
     if (finish) {
         for (i = 0; i < RESOURCES_NUMBER; i++) {
-            Available[i] += Allocation[current][i];
+            Available[i] = Available[i] + Allocation[current][i];
         }
         result[current] = 1;
     }
-}
-
-/**
- * 控制台暂停
- * @Date: 2021-06-16 19:14:35
- */
-void consolePause() {
-    getchar();
-    printf("\n资源分配判断完成，按任意键继续操作!");
-    getchar();
-
+    for (i = 0; i < RESOURCES_NUMBER; i++) {
+       Work[i] = Available[i];
+    }
+    menuContext();
 }
 
 /**
@@ -276,14 +268,14 @@ void consolePause() {
 int main(){
     printf("===================================银行家算法测试代码=============================\n");
     resourcesInit();
+    workAndFinishInit();
+    menuContext();
     while (1) {
         // 新进程请求资源数组
         int request[RESOURCES_NUMBER];
         // 新请求的进程编号
         int current;
         //menuContext();
-        // 检查T0时刻是否存在安全序列
-        checkSecure();
         printf("\n输入需要再次分配的进程编号P:");
         scanf("%d", &current);
                 int i;
@@ -293,7 +285,9 @@ int main(){
         }
         // 进程资源分配
         resourceRequest(current, request);
-        consolePause();
+        getchar();
+        printf("\n资源分配判断完成，按任意键继续操作!");
+        getchar();
     }
     return 0;
 }
